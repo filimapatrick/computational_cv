@@ -38,7 +38,7 @@ const experience = [
     description: 'Led development of multiple high-impact web and mobile applications, focusing on user experience and scalable solutions.',
     projects: [
       {
-        name: 'Award Showcase Platform',
+        name: 'Awardwining App',
         description: 'Web application for showcasing awards by category with advanced filtering and management.',
         technologies: ['Next.js', 'Ant Design', 'Strapi'],
         achievements: [

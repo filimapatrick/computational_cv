@@ -165,7 +165,7 @@ export default function Home() {
               </p>
             </div>
             <div className="group hover:bg-blue-50 p-4 rounded-xl transition-colors">
-              <h3 className="text-lg font-semibold text-gray-800 group-hover:text-blue-600 transition-colors">Award Showcase Platform</h3>
+              <h3 className="text-lg font-semibold text-gray-800 group-hover:text-blue-600 transition-colors">Awardwining App</h3>
               <p className="text-gray-600 mt-2">
                 Designed and implemented an award-winning web application using Next.js and Strapi
               </p>
