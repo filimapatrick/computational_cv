@@ -6,15 +6,7 @@ export default function Home() {
   return (
     <div className=" mx-auto">
       <div className="flex flex-col md:flex-row items-center gap-8 mb-12">
-        <div className="w-48 h-48 relative rounded-full overflow-hidden">
-          <Image
-            src="/patrick.jpeg"
-            alt="Filima Patrick"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
+      
         <div>
           <h1 className="text-4xl font-bold mb-4">FILIMA PATRICK</h1>
           <div className="flex flex-wrap gap-4 text-gray-600 mb-6">
