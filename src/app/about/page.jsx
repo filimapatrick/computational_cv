@@ -29,9 +29,9 @@ export default function About() {
               <h2 className="text-2xl font-bold text-gray-800">Technical Expertise</h2>
             </div>
             <p className="text-xl text-gray-600">
-              With over 3 years of experience in software development, I specialize in building web and mobile applications 
+              With over 3 years of experience in software development and neuroimaging research, I specialize in building web and mobile applications 
               using modern technologies. My focus areas include React.js, Next.js, and React Native, complemented by 
-              expertise in backend technologies and cloud services. I have a particular interest in developing scientific 
+             . I have a particular interest in developing scientific 
               applications and research tools.
             </p>
           </div>

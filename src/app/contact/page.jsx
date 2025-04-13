@@ -1,132 +1,214 @@
 'use client';
 
-import { useState } from 'react';
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import { useState, useRef } from 'react';
+import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaPaperPlane } from 'react-icons/fa';
+
+// Initialize EmailJS
+emailjs.init("YJYpPXcCBll2FaIBW");
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 }
+};
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
+  const formRef = useRef();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-  };
+    setIsSubmitting(true);
+    setSubmitStatus({ type: '', message: '' });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
+    try {
+      const result = await emailjs.sendForm(
+        'service_t2mukln',
+        'template_a4sxp4o',
+        formRef.current,
+        'YJYpPXcCBll2FaIBW'
+      );
 
-  const contactInfo = [
-    {
-      icon: FaEnvelope,
-      title: 'Email',
-      value: 'filimapatrick@gmail.com',
-      link: 'mailto:filimapatrick@gmail.com'
-    },
-    {
-      icon: FaPhone,
-      title: 'Phone',
-      value: '+234 810 412 5890',
-      link: 'tel:+2348104125890'
-    },
-    {
-      icon: FaMapMarkerAlt,
-      title: 'Location',
-      value: 'Port Harcourt, Nigeria',
-      link: '#'
+      if (result.text === 'OK') {
+        setSubmitStatus({
+          type: 'success',
+          message: 'Message sent successfully! I will get back to you soon.'
+        });
+        formRef.current.reset();
+      }
+    } catch (error) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Failed to send message. Please try again later.'
+      });
+    } finally {
+      setIsSubmitting(false);
     }
-  ];
+  };
 
   return (
-    <div className="mx-auto">
-      <h1 className="text-4xl font-bold mb-8">Contact Me</h1>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-        {contactInfo.map((info, index) => (
-          <a
-            key={index}
-            href={info.link}
-            className="bg-white p-6 rounded-lg shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow"
-          >
-            <info.icon className="text-3xl text-blue-600" />
-            <div>
-              <h2 className="text-lg font-semibold text-gray-800">{info.title}</h2>
-              <p className="text-gray-600">{info.value}</p>
-            </div>
-          </a>
-        ))}
+    <motion.div 
+      initial="initial"
+      animate="animate"
+      className="mx-auto space-y-12"
+    >
+      {/* Header */}
+      <div className="flex items-center gap-3 mb-10">
+        <FaEnvelope className="text-3xl text-gray-700" />
+        <h1 className="text-3xl font-bold text-gray-800">Contact Me</h1>
       </div>
 
-      <div className="bg-white rounded-lg shadow-sm p-8">
-        <h2 className="text-2xl font-semibold mb-6">Send Me a Message</h2>
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        {/* Contact Information */}
+        <motion.div 
+          variants={fadeInUp}
+          className="space-y-8"
+        >
+          <div className="bg-white rounded-2xl shadow-sm p-8">
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">Let's Connect</h2>
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <div className="bg-blue-50 p-4 rounded-xl">
+                  <FaEnvelope className="text-2xl text-blue-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800">Email</h3>
+                  <a href="mailto:filimapatrick@gmail.com" className="text-blue-600 hover:text-blue-700">
+                    filimapatrick@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="bg-blue-50 p-4 rounded-xl">
+                  <FaPhone className="text-2xl text-blue-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800">Phone</h3>
+                  <a href="tel:+2348104125890" className="text-blue-600 hover:text-blue-700">
+                    +234 810 412 5890
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="bg-blue-50 p-4 rounded-xl">
+                  <FaMapMarkerAlt className="text-2xl text-blue-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800">Location</h3>
+                  <p className="text-gray-600">Port Harcourt, Nigeria</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="bg-blue-50 p-4 rounded-xl">
+                  <FaLinkedin className="text-2xl text-blue-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800">LinkedIn</h3>
+                  <a 
+                    href="https://linkedin.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-700"
+                  >
+                    Connect on LinkedIn
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Contact Form */}
+        <motion.div variants={fadeInUp}>
+          <form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            className="bg-white rounded-2xl shadow-sm p-8 space-y-6"
+          >
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">Send a Message</h2>
+            
             <div>
-              <label htmlFor="name" className="block text-gray-700 mb-2">Name</label>
+              <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
+                Name
+              </label>
               <input
                 type="text"
                 id="name"
                 name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 required
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-colors"
+                placeholder="Your name"
               />
             </div>
+
             <div>
-              <label htmlFor="email" className="block text-gray-700 mb-2">Email</label>
+              <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+                Email
+              </label>
               <input
                 type="email"
                 id="email"
                 name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 required
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-colors"
+                placeholder="Your email"
               />
             </div>
-          </div>
-          <div>
-            <label htmlFor="subject" className="block text-gray-700 mb-2">Subject</label>
-            <input
-              type="text"
-              id="subject"
-              name="subject"
-              value={formData.subject}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="message" className="block text-gray-700 mb-2">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              rows="6"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              required
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            Send Message
-          </button>
-        </form>
+
+            <div>
+              <label htmlFor="subject" className="block text-gray-700 font-medium mb-2">
+                Subject
+              </label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                required
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-colors"
+                placeholder="Message subject"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                rows="5"
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-colors resize-none"
+                placeholder="Your message"
+              ></textarea>
+            </div>
+
+            {submitStatus.message && (
+              <div className={`p-4 rounded-xl ${
+                submitStatus.type === 'success' ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'
+              }`}>
+                {submitStatus.message}
+              </div>
+            )}
+
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className={`w-full bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-2 
+                ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-blue-700'} transition-colors`}
+            >
+              <FaPaperPlane className={`${isSubmitting ? 'animate-ping' : ''}`} />
+              {isSubmitting ? 'Sending...' : 'Send Message'}
+            </button>
+          </form>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 } 
