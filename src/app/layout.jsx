@@ -6,15 +6,15 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Patrick Filima - Neuroscientist & Developer Portfolio",
-  description: "Personal portfolio of Patrick Filima, showcasing expertise in neuroscience, research, and software development.",
-  keywords: "neuroscience, research, software development, portfolio, Patrick Filima",
+  description: "Personal portfolio of Patrick Filima, showcasing expertise in neuroscience research, brain-computer interfaces, software development, and full-stack web development. Experienced in React, Next.js, and neural data analysis.",
+  keywords: "Patrick Filima, neuroscience, research, software development, portfolio, brain-computer interfaces, BCI, React developer, Next.js, neural data analysis, full-stack development, neuroscientist portfolio, computational neuroscience",
   authors: [{ name: "Patrick Filima" }],
   creator: "Patrick Filima",
   publisher: "Patrick Filima",
   metadataBase: new URL('https://patrickfilima.com'),
   openGraph: {
     title: "Patrick Filima - Neuroscientist & Developer Portfolio",
-    description: "Personal portfolio of Patrick Filima, showcasing expertise in neuroscience, research, and software development.",
+    description: "Personal portfolio of Patrick Filima, showcasing expertise in neuroscience research, brain-computer interfaces, software development, and full-stack web development. Experienced in React, Next.js, and neural data analysis.",
     url: "https://patrickfilima.com",
     siteName: "Patrick Filima Portfolio",
     images: [
@@ -31,7 +31,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Patrick Filima - Neuroscientist & Developer Portfolio",
-    description: "Personal portfolio of Patrick Filima, showcasing expertise in neuroscience, research, and software development.",
+    description: "Personal portfolio of Patrick Filima, showcasing expertise in neuroscience research, brain-computer interfaces, software development, and full-stack web development. Experienced in React, Next.js, and neural data analysis.",
     images: ["/patrick.jpeg"],
     creator: "@patrickfilima",
   },
