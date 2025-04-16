@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { FaLinkedin, FaGithub, FaEnvelope, FaPhone, FaBrain, FaCode, FaMobileAlt, FaDatabase } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaEnvelope, FaPhone, FaBrain, FaCode, FaMobileAlt, FaDatabase, FaDownload } from 'react-icons/fa';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -42,14 +42,16 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
-                href="/contact"
-                className="inline-block bg-blue-500 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-600 transition-colors"
+                href="/patrick_cv.pdf"
+                download
+                className="bg-blue-500 text-white px-6 py-2 rounded-xl text-lg font-semibold hover:bg-blue-600 transition-colors flex items-center gap-2"
               >
-                Get in Touch
+                <FaDownload className="text-base" />
+                Download CV
               </Link>
               <Link
                 href="/research"
-                className="inline-block bg-blue-400/10 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-400/20 transition-colors border border-blue-400/30"
+                className="bg-blue-400/10 text-white px-6 py-2 rounded-xl text-lg font-semibold hover:bg-blue-400/20 transition-colors border border-blue-400/30"
               >
                 View Research
               </Link>
