@@ -9,7 +9,7 @@ export default function ClientLayout({ children }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex h-screen overflow-hidden bg-gray-900">
       {/* Desktop Sidebar */}
       <div className="hidden lg:block w-72 flex-shrink-0">
         <SideNav />
@@ -24,7 +24,7 @@ export default function ClientLayout({ children }) {
       />
 
       {/* Main Content */}
-      <main className="flex-1 overflow-y-auto p-8 bg-gray-50">
+      <main className="flex-1 overflow-y-auto p-8 bg-gray-900">
         {children}
       </main>
     </div>

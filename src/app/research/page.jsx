@@ -70,42 +70,47 @@ const researchAreas = [
   {
     title: "Data Science in Neuroscience",
     icon: FaChartLine,
-    description: "Applying advanced data analysis and machine learning techniques to neuroimaging and behavioral data.",
+    description: "Exploring the application of data analysis and deep learning techniques to neuroimaging and behavioral data, with a focus on developing these skills for future research applications.",
     expertise: [
-      "Machine learning in neuroimaging",
-      "Statistical modeling",
-      "Big data analysis",
-      "Predictive modeling"
+      "Explore deep learning applications in neuroimaging",
+      "Developing statistical analysis skills",
+      "Exploring big data analysis techniques",
+      "Studying predictive modeling approaches"
     ]
   }
 ];
 
 export default function Research() {
   return (
-    <div className="mx-auto space-y-12">
+    <div className="mx-auto space-y-16">
       {/* Header */}
       <div className="flex items-center gap-3 mb-10">
-        <FaFlask className="text-3xl text-gray-700" />
-        <h1 className="text-3xl font-bold text-gray-800">Research</h1>
+        <FaFlask className="text-3xl text-blue-400" />
+        <h1 className="text-3xl font-bold text-white">Research</h1>
       </div>
 
       {/* Research Areas */}
       <section>
-        <h2 className="text-2xl font-bold text-gray-800 mb-8">Research Areas</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <h2 className="text-2xl font-bold text-white mb-8">Research Areas</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {researchAreas.map((area, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-sm p-8">
-              <area.icon className="text-4xl text-blue-600 mb-4" />
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">{area.title}</h3>
-              <p className="text-xl text-gray-600 mb-6">{area.description}</p>
-              <ul className="space-y-3">
-                {area.expertise.map((item, i) => (
-                  <li key={i} className="text-lg text-gray-600 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+            <div key={index} className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg shadow-lg p-8 border border-gray-700 hover:border-blue-400 transition-colors duration-300">
+              <div className="flex items-center gap-4 mb-6">
+                <area.icon className="text-4xl text-blue-400" />
+                <h3 className="text-xl font-bold text-white">{area.title}</h3>
+              </div>
+              <p className="text-lg text-gray-300 mb-6">{area.description}</p>
+              <div className="space-y-4">
+                <h4 className="text-lg font-semibold text-white">Key Focus Areas:</h4>
+                <ul className="space-y-3">
+                  {area.expertise.map((item, i) => (
+                    <li key={i} className="text-lg text-gray-300 flex items-start gap-3">
+                      <span className="mt-2 w-2 h-2 bg-blue-400 rounded-full flex-shrink-0"></span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>
@@ -113,39 +118,41 @@ export default function Research() {
 
       {/* Ongoing Research Projects */}
       <section>
-        <h2 className="text-2xl font-bold text-gray-800 mb-8">Ongoing Research Projects</h2>
+        <h2 className="text-2xl font-bold text-white mb-8">Ongoing Research Projects</h2>
         <div className="space-y-8">
           {ongoingResearch.map((project, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-sm p-8">
-              <div className="flex items-start justify-between mb-4">
-                <span className="px-4 py-2 bg-green-50 text-green-800 rounded-full text-lg font-medium">
+            <div key={index} className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg shadow-lg p-8 border border-gray-700 hover:border-blue-400 transition-colors duration-300">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+                <span className="px-4 py-2 bg-green-900/50 text-green-300 rounded-full text-lg font-medium border border-green-800/50 w-fit">
                   {project.category}
                 </span>
+                <span className="text-sm text-gray-400">In Progress</span>
               </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">{project.title}</h3>
-              <p className="text-xl text-gray-600 mb-6">{project.description}</p>
               
-              <div className="space-y-6">
+              <h3 className="text-xl font-bold text-white mb-4">{project.title}</h3>
+              <p className="text-lg text-gray-300 mb-6">{project.description}</p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
-                  <h4 className="text-xl font-semibold text-gray-800 mb-3">Research Objectives</h4>
+                  <h4 className="text-lg font-semibold text-white mb-3">Objectives</h4>
                   <ul className="space-y-2">
                     {project.objectives.map((objective, i) => (
-                      <li key={i} className="text-lg text-gray-600 flex items-start gap-2">
-                        <span className="mt-2 w-2 h-2 bg-blue-600 rounded-full"></span>
-                        {objective}
+                      <li key={i} className="text-lg text-gray-300 flex items-start gap-2">
+                        <span className="mt-2 w-2 h-2 bg-blue-400 rounded-full flex-shrink-0"></span>
+                        <span>{objective}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
                 
                 <div>
-                  <h4 className="text-xl font-semibold text-gray-800 mb-3">Methodology</h4>
-                  <p className="text-lg text-gray-600">{project.methods}</p>
+                  <h4 className="text-lg font-semibold text-white mb-3">Methodology</h4>
+                  <p className="text-lg text-gray-300">{project.methods}</p>
                 </div>
                 
                 <div>
-                  <h4 className="text-xl font-semibold text-gray-800 mb-3">Expected Impact</h4>
-                  <p className="text-lg text-gray-600">{project.impact}</p>
+                  <h4 className="text-lg font-semibold text-white mb-3">Impact</h4>
+                  <p className="text-lg text-gray-300">{project.impact}</p>
                 </div>
               </div>
             </div>
