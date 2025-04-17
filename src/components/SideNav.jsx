@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { FaUser, FaFlask, FaTools, FaBriefcase, FaGraduationCap, FaBook, FaEnvelope, FaLinkedin, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
+import { FaUser, FaFlask, FaTools, FaBriefcase, FaGraduationCap, FaBook, FaEnvelope, FaLinkedin, FaMapMarkerAlt, FaPhone, FaGithub } from 'react-icons/fa';
 
 export const navItems = [
   { name: 'About Me', path: '/about', icon: FaUser },
@@ -16,9 +16,9 @@ export const navItems = [
 
 export const contactLinks = [
   { icon: FaEnvelope, href: 'mailto:filimapatrick@gmail.com' },
-  { icon: FaLinkedin, href: 'https://linkedin.com' },
+  { icon: FaLinkedin, href: 'https://www.linkedin.com/in/patrick-filima-91450817b/' },
   { icon: FaPhone, href: 'tel:+2348104125890' },
-  { icon: FaMapMarkerAlt, href: '#' },
+  { icon: FaGithub, href: 'https://github.com/filimapatrick' },
 ];
 
 export default function SideNav() {

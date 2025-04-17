@@ -27,17 +27,17 @@ export default function Home() {
       className="mx-auto space-y-16"
     >
       {/* Hero Section */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-900 to-purple-900 text-white p-12 border border-blue-800/30">
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-900 to-purple-900 text-white p-6 sm:p-8 md:p-12 border border-blue-800/30">
         <div className="absolute inset-0 bg-grid-white/5 bg-grid-16 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.2))]" />
         <motion.div 
           variants={staggerContainer}
-          className="relative flex flex-col lg:flex-row items-center gap-12"
+          className="relative flex flex-col lg:flex-row items-center gap-8 lg:gap-12"
         >
           <motion.div variants={fadeInUp} className="lg:w-2/3">
-            <h1 className="text-5xl lg:text-6xl font-bold mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
               Bridging Neuroscience & Technology
             </h1>
-            <p className="text-xl lg:text-2xl text-blue-200 mb-8">
+            <p className="text-lg sm:text-xl lg:text-2xl text-blue-200 mb-6 sm:mb-8">
               Neuroscientist & Full Stack Developer specializing in brain imaging analysis and modern web development. Creating innovative solutions at the intersection of neuroscience and technology.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -61,7 +61,7 @@ export default function Home() {
             variants={fadeInUp}
             className="lg:w-1/3 aspect-square relative"
           >
-            <div className="w-64 h-64 lg:w-80 lg:h-80 relative rounded-full overflow-hidden border-4 border-blue-400/20">
+            <div className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 relative rounded-full overflow-hidden border-4 border-blue-400/20">
               <Image
                 src="/patrick.jpeg"
                 alt="Filima Patrick"
@@ -192,7 +192,7 @@ export default function Home() {
             <span>Email</span>
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/patrick-filima-91450817b/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors"
@@ -201,7 +201,7 @@ export default function Home() {
             <span>LinkedIn</span>
           </a>
           <a
-            href="https://github.com"
+            href="https://github.com/filimapatrick"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors"
