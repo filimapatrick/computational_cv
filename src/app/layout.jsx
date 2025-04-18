@@ -13,9 +13,9 @@ export const metadata = {
   publisher: "Patrick Filima",
   metadataBase: new URL('https://patrickfilima.com'),
   icons: {
-    icon: '/icon.png',
-    shortcut: '/icon.png',
-    apple: '/apple-icon.png',
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
   },
   openGraph: {
     title: "Patrick Filima - Neuroscientist & Developer Portfolio",

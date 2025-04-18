@@ -118,21 +118,15 @@ const experience = [
       {
         name: 'ABDN Platform',
         description: 'Comprehensive platform for neuroscience research collaboration.',
-        technologies: ['Next.js', 'Appwrite', 'Ant Design'],
+        technologies: ['Next.js', 'Firebase', 'FAIR Principles'],
         achievements: [
-          'Implemented FAIR principles in data management',
-          'Developed participant evaluation system',
-          'Created mobile application for network participants'
-        ]
-      },
-      {
-        name: 'Research Data Portal',
-        description: 'Centralized system for managing research data.',
-        technologies: ['React.js', 'Node.js', 'MongoDB'],
-        achievements: [
-          'Built secure data sharing infrastructure',
-          'Implemented advanced search and filtering',
-          'Developed automated data validation system'
+          'Maintained legacy site and developed new site with Next.js and firebase based on FAIR principles',
+          'Built an admin dashboard for managing content, users, and resources',
+          'Developed evaluator scoring platform for 2024 ABDN program participants',
+          'Created admin interface for managing 2024 ABDN program submissions and evaluation process',
+          'Developed an evaluator platform for EEG programs to facilitate assessment and scoring',
+          'Created a dedicated admin platform for managing EEG program evaluations, results, and participant data',
+          'Developed mobile platform for African neuroscience collaboration'
         ]
       }
     ]
