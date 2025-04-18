@@ -12,6 +12,11 @@ export const metadata = {
   creator: "Patrick Filima",
   publisher: "Patrick Filima",
   metadataBase: new URL('https://patrickfilima.com'),
+  icons: {
+    icon: '/icon.png',
+    shortcut: '/icon.png',
+    apple: '/apple-icon.png',
+  },
   openGraph: {
     title: "Patrick Filima - Neuroscientist & Developer Portfolio",
     description: "Personal portfolio of Patrick Filima, showcasing expertise in neuroscience research, brain-computer interfaces, AI integration, and healthcare platforms. Lead developer at Brainlife.io, developing AI-powered organizational dashboards and healthcare solutions.",
