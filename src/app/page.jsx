@@ -38,7 +38,7 @@ export default function Home() {
               Bridging Neuroscience & Technology
             </h1>
             <p className="text-lg sm:text-xl lg:text-2xl text-blue-200 mb-6 sm:mb-8">
-              Neuroscientist & Full Stack Developer specializing in brain imaging analysis and modern web development. Creating innovative solutions at the intersection of neuroscience and technology.
+              Neuroscientist & Software Developer specializing in brain imaging analysis and modern web development. Creating innovative solutions at the intersection of neuroscience and technology.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link

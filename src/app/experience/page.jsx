@@ -41,7 +41,7 @@ const experience = [
     ]
   },
   {
-    title: 'Full Stack Developer',
+    title: 'Software Developer',
     company: 'Lighthouse Counselling Hub',
     location: 'Remote',
     period: '2024 - 2025',

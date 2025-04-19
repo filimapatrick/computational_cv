@@ -37,7 +37,7 @@ export default function About() {
       >
         <h2 className="text-2xl font-bold text-white mb-6">Professional Overview</h2>
         <p className="text-lg text-gray-300 mb-6">
-          Patrick Filima is a unique blend of a Neuroscientist and Full Stack Developer, holding an M.Sc. in Neuroscience while working as a Lead Developer at African Brain Data Network. His passion lies in bridging the gap between neuroscience research and technology, developing innovative solutions that advance our understanding of the brain and make scientific tools more accessible to researchers.
+          Patrick Filima is a unique blend of a Neuroscientist and Software Developer, holding an M.Sc. in Neuroscience while working as a Lead Developer at African Brain Data Network. His passion lies in bridging the gap between neuroscience research and technology, developing innovative solutions that advance our understanding of the brain and make scientific tools more accessible to researchers.
         </p>
         <p className="text-lg text-gray-300 mb-6">
           With over 3 years of experience in software development and neuroimaging research, Patrick specializes in building web and mobile applications using modern technologies. His focus areas include React.js, Next.js, and React Native, complemented by a deep understanding of neuroscience and brain imaging analysis.
