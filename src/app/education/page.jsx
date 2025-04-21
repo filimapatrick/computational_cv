@@ -19,7 +19,7 @@ const education = [
   {
     degree: "Post Graduate Diploma in Computer Science",
     institution: "Ignatius Ajuru University",
-    period: "2020 - 2021",
+    period: "2024 - 2025",
     location: "Port Harcourt, Nigeria",
     researchFocus: "Computer Science and Programming",
     keyAreas: [
@@ -46,6 +46,18 @@ const education = [
 
 const additionalTraining = [
   {
+    title: "Applied AI Lab: Deep Learning for Computer Vision",
+    institution: "WorldQuant University",
+    period: "2025",
+    description: "Comprehensive training in deep learning techniques for computer vision applications, focusing on neural networks, image processing, and practical implementation of AI solutions."
+  },
+  {
+    title: "Introduction to Deep Learning for Computer Vision",
+    institution: "Coursera",
+    period: "2025",
+    description: "Fundamental course covering deep learning concepts and applications in computer vision, including convolutional neural networks, image classification, and object detection techniques."
+  },
+  {
     title: "Advanced Neuroimaging Workshop",
     institution: "brainlife.io",
     period: "2023",
@@ -54,7 +66,7 @@ const additionalTraining = [
   {
     title: "Deep Learning in Neuroscience",
     institution: "Coursera",
-    period: "2023",
+    period: "2025",
     description: "Comprehensive course on applying deep learning techniques to neuroscience data analysis, focusing on neuroimaging data processing and interpretation."
   },
   {
