@@ -24,3 +24,10 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Match the visual density users get at ~90% browser zoom on desktop. */
+@media (min-width: 1024px) {
+  html {
+    font-size: 90%;
+  }
+}

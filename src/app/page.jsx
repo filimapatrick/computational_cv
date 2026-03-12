@@ -42,12 +42,12 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
-                href="/patrick_cv.pdf"
-                download
+                href="https://filimapatrick.github.io/filimapatrick/"
+                target="_blank"
                 className="bg-blue-500 text-white px-6 py-2 rounded-xl text-lg font-semibold hover:bg-blue-600 transition-colors flex items-center gap-2"
               >
                 <FaDownload className="text-base" />
-                Download CV
+                View CV
               </Link>
               <Link
                 href="/research"
