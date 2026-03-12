@@ -163,7 +163,7 @@ export default function Home() {
             <div className="group hover:bg-gray-800/50 p-4 rounded-xl transition-colors">
               <h3 className="text-lg font-semibold text-white group-hover:text-blue-400 transition-colors">Dicompare App</h3>
               <p className="text-gray-300 mt-2">
-                Building a tool for MRI protocol standardization and comparison across different scanning sites
+               Contributed to Building a tool for MRI protocol standardization and comparison across different scanning sites
               </p>
             </div>
             <div className="group hover:bg-gray-800/50 p-4 rounded-xl transition-colors">
