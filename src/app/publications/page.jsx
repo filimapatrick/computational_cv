@@ -138,7 +138,7 @@ const talksAndPresentations = [
     topics: ['Scientific Python', 'Neuroinformatics', 'Workflow Automation', 'ABDN Kenya']
   },
   {
-    year: '2024',
+    year: '2022',
     title: 'Software Tools in Neuroimaging',
     event: 'ABDN Brain Awareness Week 2024 — Ignatius Ajuru University of Education',
     location: 'Ignatius Ajuru University of Education, Nigeria (March 22, 2024)',
@@ -295,15 +295,14 @@ export default function Publications() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                   
                   {/* Photo Container */}
-                  <div className="lg:col-span-5 relative h-56 sm:h-64 lg:h-full min-h-[220px] rounded-2xl overflow-hidden border border-white/10 shadow-xl group bg-gray-950">
+                  <div className="lg:col-span-5 relative w-full h-[280px] sm:h-[320px] rounded-2xl overflow-hidden border border-white/10 shadow-xl group bg-[#070B18] flex items-center justify-center p-1.5">
                     <Image
                       src={talk.image}
                       alt={talk.title}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="object-contain w-full h-full group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-transparent to-transparent" />
-                    <span className="absolute bottom-3 left-3 bg-[#0D1425]/90 text-cyan-300 px-3 py-1 rounded-lg text-xs font-semibold border border-white/10 backdrop-blur-md">
+                    <span className="absolute bottom-3 left-3 bg-[#0D1425]/90 text-cyan-300 px-3 py-1 rounded-lg text-xs font-semibold border border-white/10 backdrop-blur-md z-10 shadow-lg">
                       {talk.year}
                     </span>
                   </div>
