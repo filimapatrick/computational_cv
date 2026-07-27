@@ -1,5 +1,82 @@
 export const projectsData = [
   {
+    slug: 'african-brain-mri-ai-ecosystem',
+    title: 'African Brain MRI AI Research Ecosystem',
+    subtitle: 'A Multi-Project Research Program for Robust, Explainable & Clinically Validated AI in African Neuroimaging',
+    category: 'Scientific AI Ecosystem & Infrastructure',
+    status: 'Active 7-Phase Roadmap',
+    techStack: ['Python', 'PyTorch', 'MONAI', 'SimpleITK', 'Docker', 'afri_brain_core', 'BIDS', 'Bayesian Models'],
+    featured: true,
+    summary: 'Documents the architecture, dependency matrix, and 7-phase roadmap of a comprehensive research ecosystem designed to bridge the gap between idealized research MRI and real-world low-resource African clinical environments.',
+    license: 'MIT',
+    author: 'Patrick Filima',
+    phases: [
+      {
+        phase: 'Phase 1: Foundation Infrastructure',
+        projects: [
+          {
+            name: 'Project 1: African Clinical Brain MRI Benchmark',
+            purpose: 'Establish the foundational benchmark ecosystem for evaluating AI models on heterogeneous African clinical MRI data.',
+            contributions: 'Multi-centre Nigerian dataset, standardized preprocessing, patient-level splits, ML & deep learning baselines, calibration & robustness testing.'
+          },
+          {
+            name: 'Project 2: Data-Centric AI for Low-Field MRI',
+            purpose: 'Investigate how data quality, intensity normalization, augmentation, and preprocessing influence AI performance in low-field MRI.',
+            contributions: 'Optimized preprocessing recommendations, data quality framework, and low-field MRI AI best practices.'
+          }
+        ]
+      },
+      {
+        phase: 'Phase 2: Biological & Statistical Understanding',
+        projects: [
+          {
+            name: 'Project 3: Bayesian Hierarchical Modeling of Brain Morphometry',
+            purpose: 'Develop uncertainty-aware statistical models for structural brain differences across neurological disorders in Nigerian populations.',
+            contributions: 'Population-specific brain biomarkers, uncertainty-aware inference, site variance estimation, and disease-specific morphometric patterns.'
+          }
+        ]
+      },
+      {
+        phase: 'Phase 3: AI Reliability Evaluation',
+        projects: [
+          {
+            name: 'Project 4: Robust Cross-Hospital Generalization',
+            purpose: 'Evaluate whether AI models trained in one clinical environment safely generalize across different scanners and hospital protocols.',
+            contributions: 'Leave-one-hospital-out validation, domain shift analysis, and deployment readiness framework.'
+          },
+          {
+            name: 'Project 5: Quantifying MRI Image Quality Effects on AI Performance',
+            purpose: 'Measure how progressive SNR, blur, sharpness, and motion artifacts affect AI classification reliability boundaries.',
+            contributions: 'AI failure thresholds, quality-performance relationships, and operational safety limits.'
+          },
+          {
+            name: 'Project 6: Explainability and Clinical Plausibility',
+            purpose: 'Audit whether AI models learn true anatomical pathology or misleading scanner-specific shortcuts using Grad-CAM & saliency stability.',
+            contributions: 'Grad-CAM localization, anatomical consistency, saliency stability, and clinical plausibility evaluation.'
+          }
+        ]
+      },
+      {
+        phase: 'Phase 4: Clinical Translation',
+        projects: [
+          {
+            name: 'Project 7: DeepAccess-MRI',
+            purpose: 'Develop AI-assisted MRI protocol optimization through clinically validated missing sequence reconstruction to reduce scan time.',
+            contributions: 'Sequence reconstruction, transfer learning, uncertainty estimation, pathology preservation testing, and clinical validation.'
+          }
+        ]
+      }
+    ],
+    sharedArchitecture: [
+      'preprocessing/ — N4 bias correction, resampling, reorientation',
+      'datasets/ — Subject-level PyTorch Dataset loaders for T1, T2, FLAIR',
+      'evaluation/ — Calibration (ECE), RRI, AURC, and DeLong statistical tests',
+      'quality_control/ — MRIQC signal-to-noise (SNR), CNR, EFC, and FWHM profiling',
+      'explainability/ — Grad-CAM localization & attribution stability',
+      'morphometry/ — Automated segmentation & subcortical nuclei volume extraction'
+    ]
+  },
+  {
     slug: 'clinical-mri-ai-robustness',
     title: 'Beyond Research-Grade MRI: AI Robustness on Nigerian Clinical Scans',
     subtitle: 'A Methodological Study of Model Calibration, Robustness, and Explainability under Real-World MRI Quality Constraints',

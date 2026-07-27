@@ -98,12 +98,60 @@ export default function ProjectDetail({ params }) {
         <div className="bg-gray-900/90 p-6 sm:p-8 rounded-2xl border border-gray-800 space-y-3">
           <div className="flex items-center gap-2 text-purple-400 font-bold text-sm uppercase tracking-wider">
             <FaFlask />
-            <span>Core Thesis & Problem Statement</span>
+            <span>Core Research Ecosystem Vision</span>
           </div>
           <p className="text-gray-200 text-base sm:text-lg leading-relaxed">
-            {project.summary} Most neuroimaging AI systems are developed on highly curated, high-field research scanners. Their behavior under low-resource, heterogeneous clinical MRI constraints remains poorly characterized. This project systematically measures model robustness, calibration, and explainability under physical MRI quality degradation.
+            {project.summary}
           </p>
         </div>
+      )}
+
+      {/* 7-PHASE ROADMAP & PROJECTS */}
+      {project.phases && (
+        <section className="space-y-8">
+          <div className="flex items-center gap-3 pb-2 border-b border-gray-800">
+            <FaBook className="text-2xl text-purple-400" />
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">7-Phase Ecosystem Project Roadmap</h2>
+          </div>
+
+          <div className="space-y-8">
+            {project.phases.map((p, pIdx) => (
+              <div key={pIdx} className="bg-gray-900/80 p-6 sm:p-8 rounded-3xl border border-gray-800 space-y-6">
+                <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-300">
+                  {p.phase}
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {p.projects.map((proj, prIdx) => (
+                    <div key={prIdx} className="bg-gray-950/80 p-5 rounded-2xl border border-gray-800 space-y-2">
+                      <span className="text-xs font-bold text-cyan-400 uppercase tracking-wider block">{proj.name}</span>
+                      <p className="text-xs sm:text-sm font-semibold text-white">{proj.purpose}</p>
+                      <p className="text-xs text-gray-300 pt-1 leading-relaxed"><strong className="text-purple-300">Contributions:</strong> {proj.contributions}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* SHARED ARCHITECTURE */}
+      {project.sharedArchitecture && (
+        <section className="space-y-6">
+          <div className="flex items-center gap-3 pb-2 border-b border-gray-800">
+            <FaCode className="text-2xl text-cyan-400" />
+            <h2 className="text-2xl font-bold text-white">Shared Core Architecture (afri_brain_core)</h2>
+          </div>
+
+          <div className="bg-gray-950 p-6 rounded-2xl border border-gray-800 font-mono text-xs text-cyan-300 space-y-2 shadow-2xl">
+            {project.sharedArchitecture.map((arch, aIdx) => (
+              <div key={aIdx} className="flex items-center gap-2">
+                <span className="text-purple-400">├──</span>
+                <span>{arch}</span>
+              </div>
+            ))}
+          </div>
+        </section>
       )}
 
       {/* DATASET SPECIFICATIONS */}

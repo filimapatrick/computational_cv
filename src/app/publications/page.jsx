@@ -543,6 +543,46 @@ export default function Publications() {
             </div>
 
             <div className="space-y-6">
+              {/* FEATURED RESEARCH ECOSYSTEM */}
+              <div className="bg-gradient-to-br from-blue-950/80 via-gray-900 to-purple-950/80 p-6 sm:p-8 rounded-2xl border border-cyan-800/50 shadow-xl space-y-4">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <span className="px-3 py-1 rounded-full text-xs font-bold bg-cyan-950 text-cyan-300 border border-cyan-700/50">
+                    Flagship Research Ecosystem • 7-Phase Program Roadmap
+                  </span>
+                  <span className="text-xs font-mono text-purple-300 bg-gray-900 px-3 py-1 rounded-md border border-gray-800">
+                    afri_brain_core • MONAI • BIDS • Bayesian Models
+                  </span>
+                </div>
+
+                <div className="space-y-2">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">
+                    African Brain MRI AI Research Ecosystem
+                  </h3>
+                  <p className="text-xs sm:text-sm text-cyan-300 font-medium">
+                    A Multi-Project Research Program for Robust, Explainable & Clinically Validated AI in African Neuroimaging
+                  </p>
+                </div>
+
+                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed bg-gray-950/70 p-4 rounded-xl border border-gray-800">
+                  Documents the architecture, relationships, and 7-phase development roadmap of an interconnected research ecosystem—building standardized African MRI infrastructure, Bayesian morphometry, cross-hospital validation, and DeepAccess-MRI.
+                </p>
+
+                <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
+                  <div className="flex flex-wrap gap-2 text-xs font-medium text-gray-400">
+                    <span className="bg-gray-900 px-2.5 py-1 rounded-md border border-gray-800 text-cyan-300">7 Connected Projects</span>
+                    <span className="bg-gray-900 px-2.5 py-1 rounded-md border border-gray-800 text-purple-300">Shared afri_brain_core</span>
+                    <span className="bg-gray-900 px-2.5 py-1 rounded-md border border-gray-800 text-emerald-300">Phase 1 to Phase 4 Roadmap</span>
+                  </div>
+
+                  <Link
+                    href="/projects/african-brain-mri-ai-ecosystem"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white text-xs font-bold shadow-lg shadow-cyan-500/20 transition-all"
+                  >
+                    <span>Explore Full 7-Phase Research Architecture</span>
+                    <FaArrowRight className="text-[10px]" />
+                  </Link>
+                </div>
+              </div>
               {/* FEATURED METHODOLOGICAL STUDY */}
               <div className="bg-gradient-to-br from-purple-950/80 via-gray-900 to-blue-950/80 p-6 sm:p-8 rounded-2xl border border-purple-800/50 shadow-xl space-y-4">
                 <div className="flex flex-wrap items-center justify-between gap-3">
