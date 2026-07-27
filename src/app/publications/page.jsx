@@ -4,14 +4,14 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { 
-  FaBook, 
-  FaNewspaper, 
-  FaExternalLinkAlt, 
-  FaMicrophone, 
-  FaChalkboardTeacher, 
-  FaCalendarAlt, 
-  FaMapMarkerAlt, 
+import {
+  FaBook,
+  FaNewspaper,
+  FaExternalLinkAlt,
+  FaMicrophone,
+  FaChalkboardTeacher,
+  FaCalendarAlt,
+  FaMapMarkerAlt,
   FaGlobe,
   FaLayerGroup,
   FaChartLine,
@@ -206,7 +206,7 @@ const talksAndPresentations = [
     role: 'Presenter & Invited Speaker',
     type: 'Keynote & Live Demonstration',
     badgeColor: 'from-purple-500/20 to-pink-500/20 text-purple-300 border-purple-500/30',
-    image: '/baw_2026_bci_talk.jpg',
+    image: '/talks/ANR_BAW.png',
     description: 'Delivered an invited keynote presentation and live neuro-signal demonstration on EEG monitoring, real-time neurofeedback, and translating Brain-Computer Interface (BCI) devices for neuroimaging and digital healthcare in Sub-Saharan Africa.',
     topics: ['Brain-Computer Interfaces (BCI)', 'EEG Monitoring', 'Live Neurofeedback', 'ANR Lab UniPort', 'BAW 2026']
   },
@@ -300,16 +300,16 @@ export default function Publications() {
   const [activeTab, setActiveTab] = useState('all');
   const [selectedYear, setSelectedYear] = useState('All');
 
-  const filteredPublications = publications.filter(pub => 
+  const filteredPublications = publications.filter(pub =>
     selectedYear === 'All' || pub.year === selectedYear
   );
 
-  const filteredTalks = talksAndPresentations.filter(talk => 
+  const filteredTalks = talksAndPresentations.filter(talk =>
     selectedYear === 'All' || talk.year === selectedYear
   );
 
   return (
-    <motion.div 
+    <motion.div
       initial="initial"
       animate="animate"
       variants={staggerContainer}
@@ -344,8 +344,8 @@ export default function Publications() {
         {researchMetrics.map((metric, index) => {
           const MetricIcon = metric.icon;
           return (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-2xl p-5 border border-gray-800 hover:border-purple-500/40 transition-all duration-300 shadow-xl space-y-2"
             >
               <div className="p-2.5 bg-purple-950/60 text-purple-400 rounded-xl border border-purple-800/40 w-fit">
@@ -371,18 +371,16 @@ export default function Publications() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 shrink-0 ${
-                  isActive
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 shrink-0 ${isActive
                     ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg shadow-purple-500/20 border border-purple-400/40'
                     : 'text-gray-400 hover:text-white hover:bg-gray-800/60'
-                }`}
+                  }`}
               >
                 <TabIcon className={isActive ? 'text-cyan-300' : 'text-gray-400'} />
                 <span>{tab.label}</span>
                 {tab.count !== undefined && (
-                  <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
-                    isActive ? 'bg-white/20 text-white' : 'bg-gray-800 text-gray-400'
-                  }`}>
+                  <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${isActive ? 'bg-white/20 text-white' : 'bg-gray-800 text-gray-400'
+                    }`}>
                     {tab.count}
                   </span>
                 )}
@@ -399,11 +397,10 @@ export default function Publications() {
               <button
                 key={index}
                 onClick={() => setSelectedYear(year)}
-                className={`px-3 py-1 rounded-lg text-xs font-medium transition-all ${
-                  year === selectedYear
+                className={`px-3 py-1 rounded-lg text-xs font-medium transition-all ${year === selectedYear
                     ? 'bg-blue-600 text-white border border-blue-400'
                     : 'bg-gray-800/80 text-gray-300 hover:bg-gray-700/80 border border-gray-700'
-                }`}
+                  }`}
               >
                 {year}
               </button>
@@ -424,8 +421,8 @@ export default function Publications() {
 
           <div className="space-y-6">
             {filteredPublications.map((pub, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="bg-gradient-to-br from-gray-800/90 to-gray-900/90 rounded-2xl shadow-xl p-6 sm:p-7 border border-gray-700/70 hover:border-blue-500/40 transition-all duration-300 space-y-4"
               >
                 <div className="flex flex-wrap justify-between items-start gap-4">
@@ -471,12 +468,12 @@ export default function Publications() {
 
           <div className="space-y-8">
             {filteredTalks.map((talk, index) => (
-              <div 
+              <div
                 key={index}
                 className="bg-gradient-to-br from-gray-800/90 to-gray-900/90 rounded-3xl shadow-xl p-6 sm:p-8 border border-gray-700/70 hover:border-purple-500/40 transition-all duration-300 space-y-6"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                  
+
                   {/* Photo Container */}
                   <div className="lg:col-span-5 relative w-full h-[280px] sm:h-[320px] rounded-2xl overflow-hidden border border-white/10 shadow-xl group bg-[#070B18] flex items-center justify-center p-1.5">
                     <Image
@@ -882,7 +879,7 @@ export default function Publications() {
                 </div>
               </div>
 
-           
+
 
               <div className="bg-gray-900/70 p-5 rounded-2xl border border-gray-800 space-y-2">
                 <span className="text-xs font-semibold text-emerald-400 uppercase tracking-wider block">Volumetric Assessment</span>
