@@ -3,14 +3,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { 
-  FaBrain, 
-  FaCode, 
-  FaFlask, 
-  FaRocket, 
-  FaDownload, 
-  FaArrowRight, 
-  FaUsers, 
+import {
+  FaBrain,
+  FaCode,
+  FaFlask,
+  FaRocket,
+  FaDownload,
+  FaArrowRight,
+  FaUsers,
   FaFileAlt,
   FaMouse,
   FaCompass,
@@ -152,44 +152,11 @@ const featuredProjects = [
   }
 ];
 
-const impactStats = [
-  {
-    value: '200+',
-    label: 'Researchers Mentored',
-    detail: 'Across Africa & beyond',
-    icon: FaUsers,
-    iconColor: 'text-blue-400',
-    iconBg: 'bg-blue-500/10 border-blue-500/20'
-  },
-  {
-    value: '15+',
-    label: 'Research Projects',
-    detail: 'Delivered & Contributed',
-    icon: FaFlask,
-    iconColor: 'text-purple-400',
-    iconBg: 'bg-purple-500/10 border-purple-500/20'
-  },
-  {
-    value: '10+',
-    label: 'Software Products',
-    detail: 'Built for Science & Health',
-    icon: FaCode,
-    iconColor: 'text-cyan-400',
-    iconBg: 'bg-cyan-500/10 border-cyan-500/20'
-  },
-  {
-    value: '12+',
-    label: 'Peer-reviewed Papers',
-    detail: 'Published in Top Journals',
-    icon: FaFileAlt,
-    iconColor: 'text-indigo-400',
-    iconBg: 'bg-indigo-500/10 border-indigo-500/20'
-  }
-];
+
 
 export default function Home() {
   return (
-    <motion.div 
+    <motion.div
       initial="initial"
       animate="animate"
       variants={staggerContainer}
@@ -197,16 +164,16 @@ export default function Home() {
     >
       {/* 1. HERO SECTION */}
       <section className="relative min-h-[640px] pt-6 pb-12 flex flex-col justify-between">
-        
+
         {/* Background Radial Glow Effects */}
         <div className="absolute top-1/4 left-1/3 -translate-x-1/2 w-[500px] h-[500px] bg-purple-600/15 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute top-1/3 right-1/4 w-[450px] h-[450px] bg-cyan-500/15 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
-          
+
           {/* Left Column: Copy & Actions */}
           <motion.div variants={fadeInUp} className="lg:col-span-6 space-y-7">
-            
+
             {/* Top Pill Tag */}
             <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider bg-[#0B1124]/90 border border-cyan-500/30 text-cyan-300 shadow-lg shadow-cyan-500/10">
               <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
@@ -214,18 +181,14 @@ export default function Home() {
             </div>
 
             {/* Giant Main Title */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.08] text-white">
-              Building<br />
-              Software<br />
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] text-white">
+              Building Software<br />
               for{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-300">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-300">
                 Science,
               </span><br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-rose-300">
-                Healthcare
-              </span><br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-400">
-                & AI
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-300">
+                Healthcare & AI
               </span>
             </h1>
 
@@ -243,7 +206,7 @@ export default function Home() {
                 <span>View My Work</span>
                 <FaArrowRight className="text-xs" />
               </Link>
-              
+
               <a
                 href="https://filimapatrick.github.io/filimapatrick/"
                 target="_blank"
@@ -302,7 +265,7 @@ export default function Home() {
 
           {/* Right Column: Hero Portrait + Glowing Neon Orbits + Floating Cards */}
           <motion.div variants={fadeInUp} className="lg:col-span-6 relative flex justify-center items-center py-8">
-            
+
             {/* Constellation / Network Grid Backdrop */}
             <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:16px_16px] opacity-40 rounded-3xl pointer-events-none" />
 
@@ -355,45 +318,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. IMPACT METRICS BAR (4 Columns) */}
-      <motion.section variants={fadeInUp}>
-        <div className="bg-[#0B1124]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
-            {impactStats.map((stat, sIdx) => {
-              const StatIcon = stat.icon;
-              return (
-                <div 
-                  key={sIdx} 
-                  className={`flex items-start gap-4 ${sIdx !== 0 ? 'pt-6 sm:pt-0 sm:pl-6' : ''}`}
-                >
-                  <div className={`p-3 rounded-2xl border ${stat.iconBg} shrink-0`}>
-                    <StatIcon className={`text-xl ${stat.iconColor}`} />
-                  </div>
-                  <div className="space-y-1">
-                    <span className="text-2xl sm:text-3xl font-black text-white tracking-tight block">
-                      {stat.value}
-                    </span>
-                    <h3 className="text-xs font-bold text-gray-200 uppercase tracking-wider">
-                      {stat.label}
-                    </h3>
-                    <p className="text-xs text-gray-400 font-medium leading-relaxed">
-                      {stat.detail}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* 3. SCROLL TO EXPLORE INDICATOR */}
-      <motion.div variants={fadeInUp} className="flex flex-col items-center justify-center pt-2 text-gray-400">
-        <div className="flex items-center gap-2.5 text-[11px] font-semibold tracking-widest uppercase text-gray-400">
-          <FaMouse className="text-cyan-400 text-sm animate-bounce" />
-          <span>Scroll to Explore</span>
-        </div>
-      </motion.div>
 
       {/* 4. WHAT I DO (Pillar Feature Cards) */}
       <motion.section variants={fadeInUp} className="space-y-8">
@@ -499,7 +423,7 @@ export default function Home() {
             return (
               <Link key={index} href={project.link} className="group block">
                 <div className="bg-[#141D33]/80 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-white/10 group-hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-1 shadow-2xl flex flex-col justify-between space-y-6 h-full">
-                  
+
                   {/* Mockup Top Header graphic */}
                   <div className={`h-40 rounded-2xl bg-gradient-to-br ${project.gradient} p-6 border border-white/10 flex flex-col justify-between relative overflow-hidden`}>
                     <div className="absolute -right-6 -bottom-6 w-32 h-32 bg-white/5 rounded-full blur-xl" />
