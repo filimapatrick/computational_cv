@@ -3,17 +3,17 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { 
-  FaHome, 
-  FaUser, 
-  FaRocket, 
-  FaBriefcase, 
-  FaGraduationCap, 
-  FaFlask, 
-  FaBook, 
-  FaEnvelope, 
-  FaLinkedin, 
-  FaGithub, 
+import {
+  FaHome,
+  FaUser,
+  FaRocket,
+  FaBriefcase,
+  FaGraduationCap,
+  FaFlask,
+  FaBook,
+  FaEnvelope,
+  FaLinkedin,
+  FaGithub,
   FaTools,
   FaMoon,
   FaThLarge
@@ -22,7 +22,6 @@ import {
 export const navItems = [
   { name: 'Home', path: '/', icon: FaHome },
   { name: 'About', path: '/about', icon: FaUser },
-  { name: 'Projects', path: '/publications#ongoing', icon: FaThLarge },
   { name: 'Experience', path: '/experience', icon: FaBriefcase },
   { name: 'Research', path: '/research', icon: FaFlask },
   { name: 'Publications', path: '/publications', icon: FaBook },
@@ -42,7 +41,7 @@ export default function SideNav() {
     <nav className="flex w-full h-screen flex-col justify-between py-5 px-3 lg:px-4 relative">
       {/* Floating Dark Glass Sidebar Container */}
       <div className="absolute inset-2 rounded-[28px] bg-[#070B18]/90 backdrop-blur-xl border border-white/10 shadow-2xl flex flex-col justify-between p-5 overflow-y-auto">
-        
+
         {/* Top Profile Header */}
         <div>
           <Link href="/" className="text-center block group mb-6">
@@ -78,11 +77,10 @@ export default function SideNav() {
                 <Link
                   key={item.path}
                   href={item.path}
-                  className={`flex items-center gap-3.5 px-4 py-2.5 rounded-xl text-xs font-semibold transition-all duration-200 ${
-                    isActive
+                  className={`flex items-center gap-3.5 px-4 py-2.5 rounded-xl text-xs font-semibold transition-all duration-200 ${isActive
                       ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
                       : 'text-gray-400 hover:bg-white/5 hover:text-white border border-transparent'
-                  }`}
+                    }`}
                 >
                   <item.icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-gray-400'}`} />
                   <span>{item.name}</span>
@@ -95,9 +93,9 @@ export default function SideNav() {
         {/* Bottom Social & Dark Mode Toggle */}
         <div className="pt-6 border-t border-white/10 space-y-4">
           <div className="space-y-2.5">
-            <a 
-              href="https://www.linkedin.com/in/patrick-filima-91450817b/" 
-              target="_blank" 
+            <a
+              href="https://www.linkedin.com/in/patrick-filima-91450817b/"
+              target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 text-xs font-medium text-gray-400 hover:text-cyan-300 transition-colors px-2 py-1"
             >
@@ -105,9 +103,9 @@ export default function SideNav() {
               <span>LinkedIn</span>
             </a>
 
-            <a 
-              href="https://github.com/filimapatrick" 
-              target="_blank" 
+            <a
+              href="https://github.com/filimapatrick"
+              target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 text-xs font-medium text-gray-400 hover:text-cyan-300 transition-colors px-2 py-1"
             >
@@ -115,8 +113,8 @@ export default function SideNav() {
               <span>GitHub</span>
             </a>
 
-            <a 
-              href="mailto:filimapatrick@gmail.com" 
+            <a
+              href="mailto:filimapatrick@gmail.com"
               className="flex items-center gap-3 text-xs font-medium text-gray-400 hover:text-cyan-300 transition-colors px-2 py-1"
             >
               <FaEnvelope className="w-4 h-4 text-cyan-400" />
