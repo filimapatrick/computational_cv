@@ -5,16 +5,15 @@ import { motion } from 'framer-motion';
 import { 
   FaBook, 
   FaNewspaper, 
-  FaChartLine, 
   FaDatabase, 
-  FaDownload, 
   FaExternalLinkAlt, 
   FaMicrophone, 
   FaChalkboardTeacher, 
   FaCalendarAlt, 
   FaMapMarkerAlt, 
   FaGlobe,
-  FaCheckCircle
+  FaCheckCircle,
+  FaLayerGroup
 } from 'react-icons/fa';
 
 const fadeInUp = {
@@ -182,18 +181,15 @@ const researchMetrics = [
   }
 ];
 
-const yearFilters = ['All', '2025', '2024', '2023', '2019'];
+const mainTabs = [
+  { id: 'all', label: 'All Content', icon: FaLayerGroup },
+  { id: 'talks', label: 'Invited Talks & Keynotes', icon: FaMicrophone, count: talksAndPresentations.length },
+  { id: 'publications', label: 'Peer-Reviewed Publications', icon: FaNewspaper, count: publications.length },
+  { id: 'ongoing', label: 'Ongoing Research', icon: FaGlobe, count: 3 }
+];
 
 export default function Publications() {
-  const [selectedYear, setSelectedYear] = useState('All');
-
-  const filteredPublications = publications.filter(pub => 
-    selectedYear === 'All' || pub.year === selectedYear
-  );
-
-  const filteredTalks = talksAndPresentations.filter(talk => 
-    selectedYear === 'All' || talk.year === selectedYear
-  );
+  const [activeTab, setActiveTab] = useState('all');
 
   return (
     <motion.div 
@@ -218,10 +214,10 @@ export default function Publications() {
           </div>
         </div>
 
-        {/* Hero Card */}
+        {/* Hero Banner */}
         <div className="bg-gradient-to-r from-purple-950/60 via-blue-950/40 to-gray-900 p-6 sm:p-8 rounded-3xl border border-purple-800/40 backdrop-blur-md shadow-2xl">
           <p className="text-gray-200 text-base sm:text-lg leading-relaxed">
-            A comprehensive record of my peer-reviewed neuroscience publications, open data contributions, and scientific talks. I actively present on <strong className="text-purple-300 font-semibold">neuroinformatics platforms</strong>, <strong className="text-blue-300 font-semibold">FAIR data standards</strong>, and <strong className="text-cyan-300 font-semibold">computational MRI analysis</strong>.
+            A comprehensive showcase of my scientific contributions, peer-reviewed publications, and public talks. Toggle between sub-tabs below to explore <strong className="text-purple-300 font-semibold">Invited Keynotes & Workshops</strong> or <strong className="text-blue-300 font-semibold">Peer-Reviewed Papers & Datasets</strong>.
           </p>
         </div>
       </motion.div>
@@ -248,163 +244,180 @@ export default function Publications() {
         })}
       </motion.section>
 
-      {/* Year Filter Bar */}
-      <motion.div variants={fadeInUp} className="flex items-center gap-3 flex-wrap pt-2">
-        <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Filter by Year:</span>
-        <div className="flex flex-wrap gap-2">
-          {yearFilters.map((year, index) => (
-            <button
-              key={index}
-              onClick={() => setSelectedYear(year)}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all duration-200 ${
-                year === selectedYear
-                  ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-md shadow-purple-500/20 border border-purple-500/40'
-                  : 'bg-gray-800/80 text-gray-300 hover:bg-gray-700/80 border border-gray-700'
-              }`}
-            >
-              {year}
-            </button>
-          ))}
+      {/* MAIN TAB SWITCHER */}
+      <motion.div variants={fadeInUp} className="space-y-6">
+        <div className="flex items-center gap-2 p-1.5 bg-gray-900/90 rounded-2xl border border-gray-800 overflow-x-auto">
+          {mainTabs.map((tab) => {
+            const TabIcon = tab.icon;
+            const isActive = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 shrink-0 ${
+                  isActive
+                    ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg shadow-purple-500/20 border border-purple-400/40'
+                    : 'text-gray-400 hover:text-white hover:bg-gray-800/60'
+                }`}
+              >
+                <TabIcon className={isActive ? 'text-cyan-300' : 'text-gray-400'} />
+                <span>{tab.label}</span>
+                {tab.count !== undefined && (
+                  <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
+                    isActive ? 'bg-white/20 text-white' : 'bg-gray-800 text-gray-400'
+                  }`}>
+                    {tab.count}
+                  </span>
+                )}
+              </button>
+            );
+          })}
         </div>
       </motion.div>
 
-      {/* SECTION 1: TALKS & PRESENTATIONS */}
-      <motion.section variants={fadeInUp} className="space-y-8">
-        <div className="flex items-center gap-3 pb-2 border-b border-gray-800">
-          <FaMicrophone className="text-2xl text-purple-400" />
-          <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">Keynotes & Technical Talks</h2>
-        </div>
+      {/* TAB CONTENT: TALKS */}
+      {(activeTab === 'all' || activeTab === 'talks') && (
+        <motion.section variants={fadeInUp} className="space-y-8">
+          <div className="flex items-center gap-3 pb-2 border-b border-gray-800">
+            <FaMicrophone className="text-2xl text-purple-400" />
+            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">Invited Talks, Keynotes & Workshops</h2>
+          </div>
 
-        <div className="space-y-6">
-          {filteredTalks.map((talk, index) => (
-            <div 
-              key={index}
-              className="bg-gradient-to-br from-gray-800/90 to-gray-900/90 rounded-2xl shadow-xl p-6 sm:p-8 border border-gray-700/70 hover:border-purple-500/40 transition-all duration-300 space-y-5"
-            >
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-4 border-b border-gray-700/60">
-                <div className="space-y-1">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <span className={`px-2.5 py-1 rounded-full text-xs font-semibold border bg-gradient-to-r ${talk.badgeColor}`}>
-                      {talk.type}
+          <div className="space-y-6">
+            {talksAndPresentations.map((talk, index) => (
+              <div 
+                key={index}
+                className="bg-gradient-to-br from-gray-800/90 to-gray-900/90 rounded-2xl shadow-xl p-6 sm:p-8 border border-gray-700/70 hover:border-purple-500/40 transition-all duration-300 space-y-5"
+              >
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-4 border-b border-gray-700/60">
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className={`px-2.5 py-1 rounded-full text-xs font-semibold border bg-gradient-to-r ${talk.badgeColor}`}>
+                        {talk.type}
+                      </span>
+                      <span className="text-xs font-medium text-gray-400 bg-gray-800 px-2.5 py-1 rounded-md border border-gray-700">
+                        {talk.role}
+                      </span>
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-bold text-white pt-1">{talk.title}</h3>
+                    <p className="text-sm font-semibold text-purple-300">{talk.event}</p>
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-3 text-xs text-gray-300 shrink-0">
+                    <span className="flex items-center gap-1.5 bg-gray-800/80 px-3 py-1.5 rounded-lg border border-gray-700">
+                      <FaMapMarkerAlt className="text-purple-400" />
+                      {talk.location}
                     </span>
-                    <span className="text-xs font-medium text-gray-400 bg-gray-800 px-2.5 py-1 rounded-md border border-gray-700">
-                      {talk.role}
+                    <span className="flex items-center gap-1.5 bg-gray-800/80 px-3 py-1.5 rounded-lg border border-gray-700 font-semibold text-blue-300">
+                      <FaCalendarAlt className="text-blue-400" />
+                      {talk.year}
                     </span>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white pt-1">{talk.title}</h3>
-                  <p className="text-sm font-semibold text-purple-300">{talk.event}</p>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-3 text-xs text-gray-300 shrink-0">
-                  <span className="flex items-center gap-1.5 bg-gray-800/80 px-3 py-1.5 rounded-lg border border-gray-700">
-                    <FaMapMarkerAlt className="text-purple-400" />
-                    {talk.location}
-                  </span>
-                  <span className="flex items-center gap-1.5 bg-gray-800/80 px-3 py-1.5 rounded-lg border border-gray-700 font-semibold text-blue-300">
-                    <FaCalendarAlt className="text-blue-400" />
-                    {talk.year}
-                  </span>
+                <p className="text-gray-300 text-sm sm:text-base leading-relaxed bg-gray-900/50 p-4 rounded-xl border border-gray-800">
+                  {talk.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 pt-1">
+                  {talk.topics.map((topic, tIdx) => (
+                    <span
+                      key={tIdx}
+                      className="bg-purple-950/60 text-purple-300 px-3 py-1 rounded-lg text-xs font-medium border border-purple-800/40"
+                    >
+                      {topic}
+                    </span>
+                  ))}
                 </div>
               </div>
+            ))}
+          </div>
+        </motion.section>
+      )}
 
-              <p className="text-gray-300 text-sm sm:text-base leading-relaxed bg-gray-900/50 p-4 rounded-xl border border-gray-800">
-                {talk.description}
-              </p>
+      {/* TAB CONTENT: PEER-REVIEWED PUBLICATIONS */}
+      {(activeTab === 'all' || activeTab === 'publications') && (
+        <motion.section variants={fadeInUp} className="space-y-8">
+          <div className="flex items-center gap-3 pb-2 border-b border-gray-800">
+            <FaNewspaper className="text-2xl text-blue-400" />
+            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">Peer-Reviewed Publications & Datasets</h2>
+          </div>
 
-              <div className="flex flex-wrap gap-2 pt-1">
-                {talk.topics.map((topic, tIdx) => (
-                  <span
-                    key={tIdx}
-                    className="bg-purple-950/60 text-purple-300 px-3 py-1 rounded-lg text-xs font-medium border border-purple-800/40"
-                  >
-                    {topic}
+          <div className="space-y-6">
+            {publications.map((pub, index) => (
+              <div 
+                key={index} 
+                className="bg-gradient-to-br from-gray-800/90 to-gray-900/90 rounded-2xl shadow-xl p-6 sm:p-7 border border-gray-700/70 hover:border-blue-500/40 transition-all duration-300 space-y-4"
+              >
+                <div className="flex justify-between items-start gap-4">
+                  <span className="px-3 py-1 bg-blue-950/60 text-blue-300 rounded-md text-xs font-medium border border-blue-800/40">
+                    {pub.type} • {pub.category}
                   </span>
-                ))}
+                  <span className="text-xs text-blue-300 font-semibold bg-gray-800/80 px-2.5 py-1 rounded-md border border-gray-700">
+                    {pub.year}
+                  </span>
+                </div>
+
+                <div>
+                  <h3 className="text-lg sm:text-xl font-bold text-white leading-snug">{pub.title}</h3>
+                  <p className="text-xs sm:text-sm text-gray-300 mt-2 font-medium">{pub.authors}</p>
+                  <p className="text-xs sm:text-sm text-blue-400 font-semibold mt-1">{pub.journal}</p>
+                </div>
+
+                <div className="flex flex-wrap gap-3 pt-2 border-t border-gray-800">
+                  {pub.links.map((link, linkIndex) => (
+                    <a
+                      key={linkIndex}
+                      href={link.url}
+                      className="flex items-center gap-1.5 text-xs text-gray-300 hover:text-cyan-300 bg-gray-900/60 px-3 py-1.5 rounded-lg border border-gray-800 transition-colors"
+                    >
+                      <FaExternalLinkAlt className="text-xs text-purple-400" />
+                      <span>{link.type}</span>
+                    </a>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </motion.section>
+            ))}
+          </div>
+        </motion.section>
+      )}
 
-      {/* SECTION 2: PEER-REVIEWED PUBLICATIONS */}
-      <motion.section variants={fadeInUp} className="space-y-8">
-        <div className="flex items-center gap-3 pb-2 border-b border-gray-800">
-          <FaNewspaper className="text-2xl text-blue-400" />
-          <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">Peer-Reviewed Publications & Datasets</h2>
-        </div>
-
-        <div className="space-y-6">
-          {filteredPublications.map((pub, index) => (
-            <div 
-              key={index} 
-              className="bg-gradient-to-br from-gray-800/90 to-gray-900/90 rounded-2xl shadow-xl p-6 sm:p-7 border border-gray-700/70 hover:border-blue-500/40 transition-all duration-300 space-y-4"
-            >
-              <div className="flex justify-between items-start gap-4">
-                <span className="px-3 py-1 bg-blue-950/60 text-blue-300 rounded-md text-xs font-medium border border-blue-800/40">
-                  {pub.type} • {pub.category}
-                </span>
-                <span className="text-xs text-blue-300 font-semibold bg-gray-800/80 px-2.5 py-1 rounded-md border border-gray-700">
-                  {pub.year}
-                </span>
+      {/* TAB CONTENT: ONGOING RESEARCH */}
+      {(activeTab === 'all' || activeTab === 'ongoing') && (
+        <motion.section variants={fadeInUp} className="space-y-6">
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-3xl border border-gray-700/80 shadow-2xl space-y-6">
+            <div className="flex items-center gap-3 pb-4 border-b border-gray-800">
+              <div className="p-3 rounded-2xl bg-emerald-950/60 text-emerald-400 border border-emerald-800/50">
+                <FaGlobe className="text-2xl" />
               </div>
-
               <div>
-                <h3 className="text-lg sm:text-xl font-bold text-white leading-snug">{pub.title}</h3>
-                <p className="text-xs sm:text-sm text-gray-300 mt-2 font-medium">{pub.authors}</p>
-                <p className="text-xs sm:text-sm text-blue-400 font-semibold mt-1">{pub.journal}</p>
-              </div>
-
-              <div className="flex flex-wrap gap-3 pt-2 border-t border-gray-800">
-                {pub.links.map((link, linkIndex) => (
-                  <a
-                    key={linkIndex}
-                    href={link.url}
-                    className="flex items-center gap-1.5 text-xs text-gray-300 hover:text-cyan-300 bg-gray-900/60 px-3 py-1.5 rounded-lg border border-gray-800 transition-colors"
-                  >
-                    <FaExternalLinkAlt className="text-xs text-purple-400" />
-                    <span>{link.type}</span>
-                  </a>
-                ))}
+                <h2 className="text-2xl sm:text-3xl font-bold text-white">Ongoing Research Initiatives</h2>
+                <p className="text-gray-400 text-xs sm:text-sm">Active neuroimaging, clinical assessment, and cross-cultural studies</p>
               </div>
             </div>
-          ))}
-        </div>
-      </motion.section>
 
-      {/* Ongoing Research Section */}
-      <motion.section variants={fadeInUp} className="space-y-6 pt-4">
-        <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-3xl border border-gray-700/80 shadow-2xl space-y-6">
-          <div className="flex items-center gap-3 pb-4 border-b border-gray-800">
-            <div className="p-3 rounded-2xl bg-emerald-950/60 text-emerald-400 border border-emerald-800/50">
-              <FaGlobe className="text-2xl" />
-            </div>
-            <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white">Ongoing Research Initiatives</h2>
-              <p className="text-gray-400 text-xs sm:text-sm">Active neuroimaging, clinical assessment, and cross-cultural studies</p>
+            <div className="space-y-4">
+              <div className="bg-gray-900/70 p-5 rounded-2xl border border-gray-800 space-y-2">
+                <span className="text-xs font-semibold text-emerald-400 uppercase tracking-wider block">Neuroimaging Study</span>
+                <h3 className="text-base font-bold text-white">Asymmetry in Thalamic Gray Matter Changes in Nigerian Parkinson's Disease Patients</h3>
+                <p className="text-xs sm:text-sm text-gray-300">Examining asymmetrical patterns of thalamic gray matter alterations in Nigerian Parkinson’s patients using structural MRI and volumetric modeling.</p>
+              </div>
+
+              <div className="bg-gray-900/70 p-5 rounded-2xl border border-gray-800 space-y-2">
+                <span className="text-xs font-semibold text-emerald-400 uppercase tracking-wider block">Volumetric Assessment</span>
+                <h3 className="text-base font-bold text-white">Volumetric Assessment of Individual Thalamic Nuclei in Nigerian Parkinson's Disease Patients</h3>
+                <p className="text-xs sm:text-sm text-gray-300">In-depth volumetric analysis of specific thalamic nuclei to establish structural biomarkers for neurodegenerative disease progression.</p>
+              </div>
+
+              <div className="bg-gray-900/70 p-5 rounded-2xl border border-gray-800 space-y-2">
+                <span className="text-xs font-semibold text-emerald-400 uppercase tracking-wider block">Social Neuroscience</span>
+                <h3 className="text-base font-bold text-white">Screen Time & Social Connection: Cross-Cultural Study (Germany & Nigeria)</h3>
+                <p className="text-xs sm:text-sm text-gray-300">Investigating how digital interaction patterns and screen time affect social relationships across distinct cultural environments.</p>
+              </div>
             </div>
           </div>
-
-          <div className="space-y-4">
-            <div className="bg-gray-900/70 p-5 rounded-2xl border border-gray-800 space-y-2">
-              <span className="text-xs font-semibold text-emerald-400 uppercase tracking-wider block">Neuroimaging Study</span>
-              <h3 className="text-base font-bold text-white">Asymmetry in Thalamic Gray Matter Changes in Nigerian Parkinson's Disease Patients</h3>
-              <p className="text-xs sm:text-sm text-gray-300">Examining asymmetrical patterns of thalamic gray matter alterations in Nigerian Parkinson’s patients using structural MRI and volumetric modeling.</p>
-            </div>
-
-            <div className="bg-gray-900/70 p-5 rounded-2xl border border-gray-800 space-y-2">
-              <span className="text-xs font-semibold text-emerald-400 uppercase tracking-wider block">Volumetric Assessment</span>
-              <h3 className="text-base font-bold text-white">Volumetric Assessment of Individual Thalamic Nuclei in Nigerian Parkinson's Disease Patients</h3>
-              <p className="text-xs sm:text-sm text-gray-300">In-depth volumetric analysis of specific thalamic nuclei to establish structural biomarkers for neurodegenerative disease progression.</p>
-            </div>
-
-            <div className="bg-gray-900/70 p-5 rounded-2xl border border-gray-800 space-y-2">
-              <span className="text-xs font-semibold text-emerald-400 uppercase tracking-wider block">Social Neuroscience</span>
-              <h3 className="text-base font-bold text-white">Screen Time & Social Connection: Cross-Cultural Study (Germany & Nigeria)</h3>
-              <p className="text-xs sm:text-sm text-gray-300">Investigating how digital interaction patterns and screen time affect social relationships across distinct cultural environments.</p>
-            </div>
-          </div>
-        </div>
-      </motion.section>
+        </motion.section>
+      )}
     </motion.div>
   );
 }
