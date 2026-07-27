@@ -3,14 +3,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { 
-  FaBrain, 
-  FaCode, 
-  FaFlask, 
-  FaRocket, 
-  FaDownload, 
-  FaArrowRight, 
-  FaUsers, 
+import {
+  FaBrain,
+  FaCode,
+  FaFlask,
+  FaRocket,
+  FaDownload,
+  FaArrowRight,
+  FaUsers,
   FaFileAlt,
   FaMouse
 } from 'react-icons/fa';
@@ -93,7 +93,7 @@ const impactStats = [
 
 export default function Home() {
   return (
-    <motion.div 
+    <motion.div
       initial="initial"
       animate="animate"
       variants={staggerContainer}
@@ -101,16 +101,16 @@ export default function Home() {
     >
       {/* HERO SECTION */}
       <section className="relative min-h-[640px] pt-6 pb-12 flex flex-col justify-between">
-        
+
         {/* Background Radial Glow Effects */}
         <div className="absolute top-1/4 left-1/3 -translate-x-1/2 w-[500px] h-[500px] bg-purple-600/15 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute top-1/3 right-1/4 w-[450px] h-[450px] bg-cyan-500/15 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
-          
+
           {/* Left Column: Copy & Actions */}
           <motion.div variants={fadeInUp} className="lg:col-span-6 space-y-7">
-            
+
             {/* Top Pill Tag */}
             <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider bg-[#0B1124]/90 border border-cyan-500/30 text-cyan-300 shadow-lg shadow-cyan-500/10">
               <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
@@ -147,7 +147,7 @@ export default function Home() {
                 <span>View My Work</span>
                 <FaArrowRight className="text-xs" />
               </Link>
-              
+
               <a
                 href="https://filimapatrick.github.io/filimapatrick/"
                 target="_blank"
@@ -162,7 +162,7 @@ export default function Home() {
             {/* Trusted By Logos Bar */}
             <div className="pt-8 border-t border-white/10 space-y-3">
               <span className="text-[11px] uppercase tracking-wider font-semibold text-gray-400 block">
-                Trusted by leading research organisations
+                Currently collaborating with
               </span>
               <div className="flex flex-wrap items-center gap-6 sm:gap-8 opacity-85 hover:opacity-100 transition-opacity">
                 {/* brainlife.io */}
@@ -206,7 +206,7 @@ export default function Home() {
 
           {/* Right Column: Hero Portrait + Glowing Neon Orbits + Floating Cards */}
           <motion.div variants={fadeInUp} className="lg:col-span-6 relative flex justify-center items-center py-8">
-            
+
             {/* Constellation / Network Grid Backdrop */}
             <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:16px_16px] opacity-40 rounded-3xl pointer-events-none" />
 
@@ -266,8 +266,8 @@ export default function Home() {
             {impactStats.map((stat, sIdx) => {
               const StatIcon = stat.icon;
               return (
-                <div 
-                  key={sIdx} 
+                <div
+                  key={sIdx}
                   className={`flex items-start gap-4 ${sIdx !== 0 ? 'pt-6 sm:pt-0 sm:pl-6' : ''}`}
                 >
                   <div className={`p-3 rounded-2xl border ${stat.iconBg} shrink-0`}>
