@@ -25,7 +25,7 @@ export const navItems = [
   { name: 'Experience', path: '/experience', icon: FaBriefcase },
   { name: 'Research', path: '/research', icon: FaFlask },
   { name: 'Publications', path: '/publications', icon: FaBook },
-  { name: 'Contact', path: '/contact', icon: FaEnvelope },
+ 
 ];
 
 export const contactLinks = [
