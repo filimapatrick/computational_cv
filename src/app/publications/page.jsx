@@ -199,6 +199,18 @@ const publications = [
 
 const talksAndPresentations = [
   {
+    year: '2026',
+    title: 'EEG Monitoring, Live Neurofeedback & Brain-Computer Interfaces (BCI) in Low-Resource Settings',
+    event: 'Brain Awareness Week (BAW 2026) — African Neurodata Research Lab (ANR Lab)',
+    location: 'University of Port Harcourt, Nigeria (March 27, 2026)',
+    role: 'Presenter & Invited Speaker',
+    type: 'Keynote & Live Demonstration',
+    badgeColor: 'from-purple-500/20 to-pink-500/20 text-purple-300 border-purple-500/30',
+    image: '/baw_2026_bci_talk.jpg',
+    description: 'Delivered an invited keynote presentation and live neuro-signal demonstration on EEG monitoring, real-time neurofeedback, and translating Brain-Computer Interface (BCI) devices for neuroimaging and digital healthcare in Sub-Saharan Africa.',
+    topics: ['Brain-Computer Interfaces (BCI)', 'EEG Monitoring', 'Live Neurofeedback', 'ANR Lab UniPort', 'BAW 2026']
+  },
+  {
     year: '2025',
     title: 'Python for Neuroimaging Data Analysis: Loading, Inspecting & Visualizing MRI Data',
     event: 'African Brain Data Network (ABDN) Workshop — Lagos 2025',
