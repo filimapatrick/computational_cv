@@ -223,37 +223,37 @@ export default function Home() {
               <span className="text-[11px] uppercase tracking-wider font-semibold text-gray-400 block">
                 Currently collaborating with
               </span>
-              <div className="flex flex-wrap items-center gap-6 sm:gap-8 opacity-85 hover:opacity-100 transition-opacity">
+              <div className="flex flex-nowrap items-center gap-4 sm:gap-6 overflow-x-auto scrollbar-none whitespace-nowrap opacity-90 hover:opacity-100 transition-opacity py-1">
                 {/* brainlife.io */}
-                <div className="flex items-center gap-2 text-gray-200 font-bold text-sm tracking-wide shrink-0">
-                  <FaBrain className="text-cyan-400 text-lg" />
+                <div className="flex items-center gap-1.5 text-gray-200 font-bold text-xs sm:text-sm tracking-wide shrink-0">
+                  <FaBrain className="text-cyan-400 text-base" />
                   <span>brainlife.io</span>
                 </div>
 
                 {/* University of Texas at Austin */}
-                <div className="flex items-center gap-2 text-gray-300 font-semibold text-xs tracking-wider shrink-0">
-                  <div className="w-5 h-5 rounded border border-purple-400/50 flex items-center justify-center font-bold text-[9px] text-purple-300">
+                <div className="flex items-center gap-1.5 text-gray-300 font-semibold tracking-wider shrink-0">
+                  <div className="w-4 h-4 rounded border border-purple-400/50 flex items-center justify-center font-bold text-[8px] text-purple-300">
                     UT
                   </div>
-                  <span className="text-[11px] uppercase font-bold text-gray-300">
+                  <span className="text-[10px] sm:text-[11px] uppercase font-bold text-gray-300">
                     THE UNIVERSITY OF <span className="text-purple-300">TEXAS AT AUSTIN</span>
                   </span>
                 </div>
 
                 {/* University of Oxford */}
-                <div className="flex items-center gap-2 text-gray-300 font-semibold text-xs tracking-wider shrink-0">
-                  <div className="w-5 h-5 rounded border border-blue-400/50 flex items-center justify-center font-bold text-[9px] text-blue-300">
+                <div className="flex items-center gap-1.5 text-gray-300 font-semibold tracking-wider shrink-0">
+                  <div className="w-4 h-4 rounded border border-blue-400/50 flex items-center justify-center font-bold text-[8px] text-blue-300">
                     OX
                   </div>
-                  <span className="text-[11px] uppercase font-bold text-gray-300">
+                  <span className="text-[10px] sm:text-[11px] uppercase font-bold text-gray-300">
                     UNIVERSITY OF <span className="text-blue-300">OXFORD</span>
                   </span>
                 </div>
 
                 {/* African Brain Data Network */}
-                <div className="flex items-center gap-2 text-gray-300 font-semibold text-xs shrink-0">
-                  <FaFlask className="text-cyan-300 text-sm" />
-                  <span className="text-[11px] font-bold text-white uppercase tracking-wider">
+                <div className="flex items-center gap-1.5 text-gray-300 font-semibold shrink-0">
+                  <FaFlask className="text-cyan-300 text-xs" />
+                  <span className="text-[10px] sm:text-[11px] font-bold text-white uppercase tracking-wider">
                     AFRICAN <span className="text-cyan-300">BRAIN DATA NETWORK</span>
                   </span>
                 </div>
