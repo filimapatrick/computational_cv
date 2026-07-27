@@ -18,7 +18,7 @@ import {
   FaGithub,
   FaExternalLinkAlt
 } from 'react-icons/fa';
-import { projectsData } from '@/data/projectsData';
+import { projectsData } from '../../../data/projectsData';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
