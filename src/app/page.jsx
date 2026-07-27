@@ -160,10 +160,10 @@ export default function Home() {
       initial="initial"
       animate="animate"
       variants={staggerContainer}
-      className="mx-auto space-y-24 max-w-7xl pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="mx-auto space-y-12 sm:space-y-16 max-w-7xl pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-[640px] pt-6 pb-12 flex flex-col justify-between">
+      <section className="relative pt-2 flex flex-col justify-between">
 
         {/* Background Radial Glow Effects */}
         <div className="absolute top-1/4 left-1/3 -translate-x-1/2 w-[500px] h-[500px] bg-purple-600/15 rounded-full blur-[120px] pointer-events-none" />
