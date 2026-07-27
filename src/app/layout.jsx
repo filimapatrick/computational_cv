@@ -5,9 +5,9 @@ import ClientLayout from "./client-layout";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Patrick Filima - Neuroscientist & Developer Portfolio",
-  description: "Personal portfolio of Patrick Filima, showcasing expertise in neuroscience research, brain-computer interfaces, AI integration, and healthcare platforms. Lead developer at Brainlife.io, developing AI-powered organizational dashboards and healthcare solutions.",
-  keywords: "Patrick Filima, neuroscience, research, software development, portfolio, brain-computer interfaces, BCI, React developer, Next.js, neural data analysis, full-stack development, neuroscientist portfolio, computational neuroscience, healthcare platforms, AI integration, organizational dashboard, project management, analytics dashboard",
+  title: "Filima Patrick - Research Software Engineer & Technical Product Lead",
+  description: "Personal portfolio of Filima Patrick, Research Software Engineer and Technical Product Lead building scientific software platforms across neuroinformatics, AI, and digital health.",
+  keywords: "Filima Patrick, Research Software Engineer, Technical Product Lead, computational neuroscience, neuroinformatics, Brainlife.io, React, Next.js, Python, FAIR data, scientific computing",
   authors: [{ name: "Patrick Filima" }],
   creator: "Patrick Filima",
   publisher: "Patrick Filima",

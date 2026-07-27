@@ -40,7 +40,7 @@ export default function SideNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="hidden md:flex w-64 lg:w-72 h-screen flex-col justify-between py-6 px-3 lg:px-4 relative z-30">
+    <nav className="flex w-full h-screen flex-col justify-between py-6 px-3 lg:px-4 relative">
       {/* Floating Glass Sidebar Container */}
       <div className="absolute inset-2 rounded-3xl bg-[#0D1425]/75 backdrop-blur-xl border border-white/10 shadow-2xl flex flex-col justify-between p-5 overflow-y-auto">
         
