@@ -43,6 +43,7 @@ export default function MobileNav({ isOpen, setIsOpen, navItems, contactLinks })
                     src="/patrick.jpeg"
                     alt="Filima Patrick"
                     fill
+                    sizes="80px"
                     className="object-cover"
                   />
                 </div>

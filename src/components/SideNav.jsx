@@ -53,6 +53,7 @@ export default function SideNav() {
                 src="/patrick.jpeg"
                 alt="Filima Patrick"
                 fill
+                sizes="96px"
                 className="object-cover"
                 priority
               />

@@ -258,6 +258,7 @@ export default function Home() {
                   src="/patrick.jpeg"
                   alt="Filima Patrick"
                   fill
+                  sizes="(max-width: 640px) 280px, 350px"
                   className="object-cover scale-105"
                   priority
                 />

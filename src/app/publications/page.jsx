@@ -468,6 +468,7 @@ export default function Publications() {
                       src={talk.image}
                       alt={talk.title}
                       fill
+                      sizes="(max-width: 1024px) 100vw, 500px"
                       className="object-contain w-full h-full group-hover:scale-105 transition-transform duration-500"
                     />
                     <span className="absolute bottom-3 left-3 bg-[#0D1425]/90 text-cyan-300 px-3 py-1 rounded-lg text-xs font-semibold border border-white/10 backdrop-blur-md z-10 shadow-lg">
