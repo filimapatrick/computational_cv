@@ -160,7 +160,7 @@ export default function Home() {
       initial="initial"
       animate="animate"
       variants={staggerContainer}
-      className="mx-auto space-y-12 sm:space-y-16 max-w-7xl pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="mx-auto space-y-12 sm:space-y-16 max-w-7xl pb-16 px-4 sm:px-6 lg:px-8"
     >
       {/* 1. HERO SECTION */}
       <section className="relative pt-2 flex flex-col justify-between">
@@ -290,8 +290,8 @@ export default function Home() {
             </div>
 
             {/* Floating Glass Cards: Desktop Side-Stack (lg+) & Mobile 2x2 Grid (< lg) */}
-            {/* Desktop Stacked Floating (lg+) */}
-            <div className="hidden lg:flex flex-col space-y-3.5 absolute right-0 top-1/2 -translate-y-1/2 z-20 translate-x-10 xl:translate-x-16">
+            {/* Desktop Stacked Floating (lg+ >= 1024px) */}
+            <div className="hidden lg:flex lg:flex-col space-y-3.5 lg:absolute lg:right-2 xl:right-4 lg:top-1/2 lg:-translate-y-1/2 z-20">
               {floatingBadges.map((badge, idx) => {
                 const BadgeIcon = badge.icon;
                 return (
