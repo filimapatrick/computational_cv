@@ -11,7 +11,6 @@ export default function sitemap() {
     '/publications',
     '/research',
     '/skills',
-    '/contact',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),

@@ -505,13 +505,13 @@ export default function Home() {
               >
                 <FaGithub className="text-blue-400" /> GitHub
               </a>
-              <Link
-                href="/contact"
+              <a
+                href="mailto:filimapatrick@gmail.com"
                 className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white px-6 py-2.5 rounded-xl text-xs font-bold shadow-lg shadow-purple-500/20 flex items-center gap-2 transition-all"
               >
                 <span>Start a Conversation</span>
                 <FaArrowRight className="text-[10px]" />
-              </Link>
+              </a>
             </div>
           </div>
         </div>
