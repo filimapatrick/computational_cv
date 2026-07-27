@@ -10,12 +10,12 @@ export default function ClientLayout({ children }) {
 
   return (
     <div className="flex h-screen w-full overflow-hidden bg-[#070B18]">
-      {/* Desktop Sidebar */}
-      <div className="hidden lg:block w-72 flex-shrink-0">
+      {/* Desktop & Laptop Sidebar (Visible from 768px up) */}
+      <div className="hidden md:block w-64 lg:w-72 flex-shrink-0">
         <SideNav />
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation (For screens under 768px) */}
       <MobileNav
         isOpen={isMobileMenuOpen}
         setIsOpen={setIsMobileMenuOpen}

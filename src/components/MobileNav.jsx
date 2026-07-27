@@ -10,18 +10,18 @@ export default function MobileNav({ isOpen, setIsOpen, navItems, contactLinks })
 
   return (
     <>
-      {/* Mobile Menu Button */}
+      {/* Mobile Menu Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Toggle Navigation"
-        className="lg:hidden fixed top-4 right-4 z-50 p-3 rounded-full bg-[#0D1425]/90 backdrop-blur-md border border-white/20 text-white shadow-xl hover:bg-white/20 transition-all duration-300"
+        className="md:hidden fixed top-4 right-4 z-50 p-3.5 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white border border-cyan-400/50 shadow-xl shadow-blue-500/30 hover:scale-105 transition-all duration-300 flex items-center justify-center"
       >
-        {isOpen ? <FaTimes className="w-5 h-5 text-cyan-400" /> : <FaBars className="w-5 h-5 text-blue-400" />}
+        {isOpen ? <FaTimes className="w-5 h-5 text-cyan-300" /> : <FaBars className="w-5 h-5 text-white" />}
       </button>
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`lg:hidden fixed inset-0 bg-[#070B18]/90 backdrop-blur-md z-40 transition-opacity duration-300 ${
+        className={`md:hidden fixed inset-0 bg-[#070B18]/90 backdrop-blur-md z-40 transition-opacity duration-300 ${
           isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         onClick={() => setIsOpen(false)}
@@ -29,7 +29,7 @@ export default function MobileNav({ isOpen, setIsOpen, navItems, contactLinks })
 
       {/* Mobile Menu Content */}
       <div
-        className={`lg:hidden fixed top-0 left-0 w-72 h-full z-50 transform transition-transform duration-300 ease-in-out ${
+        className={`md:hidden fixed top-0 left-0 w-72 h-full z-50 transform transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
