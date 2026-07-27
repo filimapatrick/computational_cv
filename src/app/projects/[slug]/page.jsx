@@ -215,6 +215,8 @@ export default function ProjectDetail({ params }) {
             ))}
           </div>
         </section>
+      )}
+
       {/* EXPLAINABILITY ATTRIBUTION METHODS & RUBRIC */}
       {project.xaiMethods && (
         <section className="space-y-8">
