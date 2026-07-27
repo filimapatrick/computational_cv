@@ -29,6 +29,12 @@ export const navItems = [
   { name: 'Contact', path: '/contact', icon: FaEnvelope },
 ];
 
+export const contactLinks = [
+  { icon: FaLinkedin, href: 'https://www.linkedin.com/in/patrick-filima-91450817b/', label: 'LinkedIn' },
+  { icon: FaGithub, href: 'https://github.com/filimapatrick', label: 'GitHub' },
+  { icon: FaEnvelope, href: 'mailto:filimapatrick@gmail.com', label: 'Email' }
+];
+
 export default function SideNav() {
   const pathname = usePathname();
 
