@@ -271,6 +271,9 @@ export default function ProjectDetail({ params }) {
               </div>
             </div>
           )}
+        </section>
+      )}
+
       {/* AFRICAN CLINICAL BRAIN MRI BENCHMARK TASKS & METRICS */}
       {project.benchmarkTasks && (
         <section className="space-y-8">
