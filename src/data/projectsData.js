@@ -1,5 +1,39 @@
 export const projectsData = [
   {
+    slug: 'glm-vs-dl-fmri-cognitive-control',
+    title: 'GLM vs. Deep Learning Behavior in Small-Sample Task-Based fMRI of Cognitive Control',
+    subtitle: 'A Controlled Methodological Study of Predictive Generalization, Overfitting Dynamics, and Spatial Representation Alignment',
+    category: 'Functional Neuroimaging & Methodological Machine Learning',
+    status: 'Active Methodological Study / Project 8',
+    techStack: ['Python 3.8+', 'FSL 6.0+', 'PyTorch', 'TensorFlow', 'Nilearn', 'NiPype', 'OpenNeuro ds000102', 'LOSO CV'],
+    featured: true,
+    summary: 'Investigating model behavior under small-sample, high-dimensional fMRI conditions (NYU Slow Flanker task, N=26) to compare classical General Linear Models (GLM) and deep learning architectures across cross-subject generalization, statistical stability, and spatial correspondence (Pearson r / Dice).',
+    license: 'MIT',
+    author: 'Patrick Filima',
+    fmriDataset: {
+      source: 'OpenNeuro (ds000102 - NYU Slow Flanker Dataset)',
+      subjects: '26 healthy adults (ages 19-50)',
+      task: 'Eriksen Flanker Task (Cognitive Control paradigm: Congruent vs. Incongruent)',
+      scanner: '3T Siemens Allegra (TR=2s, 146 volumes per run, event-related design)'
+    },
+    novelContributions: [
+      { title: '1. Cross-Paradigm Shared Evaluation Framework', detail: 'Both GLM statistical inference and DL predictive classifiers evaluated under identical FSL preprocessing and Leave-One-Subject-Out (LOSO) splits.' },
+      { title: '2. Focus on Small-Sample Instability Regimes (N=26)', detail: 'Explicitly characterizing failure modes, fold variance, and degradation under severe sample constraints rather than accuracy optimization.' },
+      { title: '3. Quantification of Overfitting as a Comparative Property', detail: 'Measuring training-validation divergence trajectories and learning curves across statistical vs. predictive model classes.' },
+      { title: '4. Spatial Representation Correspondence', detail: 'Quantifying spatial alignment between GLM Z-activation maps and DL attribution maps using Pearson r and Dice coefficients.' },
+      { title: '5. Representation-Centric Interpretation', detail: 'Framing GLM as hypothesis-driven statistical inference and DL as data-driven representation learning.' },
+      { title: '6. Permutation Null Modeling', detail: 'Non-parametric permutation testing (≥1,000 label shuffles) establishing empirical chance performance.' }
+    ],
+    fmriPhases: [
+      { phase: 'Phase 1: Quality Control & MRIQC', detail: 'Framewise Displacement (FD < 0.5mm), DVARS (< 75), and temporal SNR (tSNR > 50) profiling.' },
+      { phase: 'Phase 2: FSL Preprocessing', detail: 'BET brain extraction, MCFLIRT motion correction, slice timing, FWHM 5mm smoothing, 100s high-pass filter, MNI152 registration.' },
+      { phase: 'Phase 3: Classical GLM Analysis', detail: 'Canonical HRF convolution, first-level contrasts [Incongruent > Congruent], FLAME 1+2 mixed-effects group maps (Z > 3.1, p < 0.05).' },
+      { phase: 'Phase 4: Feature Extraction & LOSO', detail: 'Voxel-wise contrast maps, ROI activation summaries, and PCA/ICA embeddings with Leave-One-Subject-Out cross-validation.' },
+      { phase: 'Phase 5: Small-Sample Deep Learning', detail: 'Shallow MLPs, 1D CNNs on voxel time series, and 3D CNNs on full-brain volumes with explicit L2 & dropout regularization.' },
+      { phase: 'Phase 6: Spatial Attribution Evaluation', detail: 'Pearson spatial correlation & Dice coefficient overlap measuring alignment between GLM Z-maps and DL attributions.' }
+    ]
+  },
+  {
     slug: 'deepaccess-mri',
     title: 'DeepAccess-MRI: AI-Assisted MRI Protocol Optimization via Missing Sequence Reconstruction',
     subtitle: 'Clinically Validated Transfer Learning & Missing Sequence Synthesis for Shorter, Affordable Neuroimaging Protocols in Nigeria',

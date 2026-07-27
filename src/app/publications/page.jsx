@@ -279,7 +279,7 @@ const mainTabs = [
   { id: 'all', label: 'All Content', icon: FaLayerGroup },
   { id: 'publications', label: 'Peer-Reviewed Publications', icon: FaNewspaper, count: publications.length },
   { id: 'talks', label: 'Invited Talks & Keynotes', icon: FaMicrophone, count: talksAndPresentations.length },
-  { id: 'ongoing', label: 'Ongoing Research', icon: FaGlobe, count: 7 }
+  { id: 'ongoing', label: 'Ongoing Research', icon: FaGlobe, count: 8 }
 ];
 
 const yearFilters = ['All', '2026', '2025', '2024', '2023', '2019'];
@@ -783,6 +783,47 @@ export default function Publications() {
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs font-bold shadow-lg shadow-purple-500/20 transition-all"
                   >
                     <span>Read Proposal & Prototype Specifications</span>
+                    <FaArrowRight className="text-[10px]" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* GLM VS DEEP LEARNING FMRI STUDY */}
+              <div className="bg-gradient-to-br from-blue-950/80 via-gray-900 to-cyan-950/80 p-6 sm:p-8 rounded-2xl border border-blue-800/50 shadow-xl space-y-4">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <span className="px-3 py-1 rounded-full text-xs font-bold bg-blue-950 text-blue-300 border border-blue-700/50">
+                    fMRI Methodological Study • OpenNeuro ds000102
+                  </span>
+                  <span className="text-xs font-mono text-cyan-300 bg-gray-900 px-3 py-1 rounded-md border border-gray-800">
+                    FSL 6.0+ • Nilearn • PyTorch • TensorFlow • LOSO CV
+                  </span>
+                </div>
+
+                <div className="space-y-2">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">
+                    GLM vs. Deep Learning Behavior in Small-Sample Task-Based fMRI of Cognitive Control
+                  </h3>
+                  <p className="text-xs sm:text-sm text-blue-300 font-medium">
+                    A Controlled Methodological Study of Predictive Generalization, Overfitting Dynamics, and Spatial Representation Alignment
+                  </p>
+                </div>
+
+                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed bg-gray-950/70 p-4 rounded-xl border border-gray-800">
+                  Investigating model behavior under small-sample fMRI conditions (NYU Slow Flanker task, N=26) to compare classical General Linear Models (GLM) and deep learning architectures across cross-subject generalization, statistical stability, and spatial correspondence (Pearson r / Dice).
+                </p>
+
+                <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
+                  <div className="flex flex-wrap gap-2 text-xs font-medium text-gray-400">
+                    <span className="bg-gray-900 px-2.5 py-1 rounded-md border border-gray-800 text-cyan-300">NYU Flanker Dataset (N=26)</span>
+                    <span className="bg-gray-900 px-2.5 py-1 rounded-md border border-gray-800 text-purple-300">GLM Z-Maps vs DL Attributions</span>
+                    <span className="bg-gray-900 px-2.5 py-1 rounded-md border border-gray-800 text-emerald-300">Pearson r & Dice Overlap</span>
+                  </div>
+
+                  <Link
+                    href="/projects/glm-vs-dl-fmri-cognitive-control"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white text-xs font-bold shadow-lg shadow-blue-500/20 transition-all"
+                  >
+                    <span>Read fMRI Study Pipeline & Spatial Alignment</span>
                     <FaArrowRight className="text-[10px]" />
                   </Link>
                 </div>

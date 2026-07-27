@@ -400,6 +400,62 @@ export default function ProjectDetail({ params }) {
         </section>
       )}
 
+      {/* GLM VS DEEP LEARNING FMRI METHODOLOGY & CONTRIBUTIONS */}
+      {project.fmriDataset && (
+        <section className="space-y-8">
+          <div className="flex items-center gap-3 pb-2 border-b border-gray-800">
+            <FaBook className="text-2xl text-cyan-400" />
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">NYU Slow Flanker fMRI Dataset (ds000102) & Setup</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-gray-900/80 p-5 rounded-2xl border border-gray-800 space-y-1">
+              <span className="text-xs font-bold text-purple-400 uppercase tracking-wider block">Source Dataset</span>
+              <p className="text-sm font-bold text-white">{project.fmriDataset.source}</p>
+              <p className="text-xs text-gray-300">{project.fmriDataset.subjects}</p>
+            </div>
+            <div className="bg-gray-900/80 p-5 rounded-2xl border border-gray-800 space-y-1">
+              <span className="text-xs font-bold text-cyan-400 uppercase tracking-wider block">Task & Acquisition</span>
+              <p className="text-sm font-bold text-white">{project.fmriDataset.task}</p>
+              <p className="text-xs text-gray-300">{project.fmriDataset.scanner}</p>
+            </div>
+          </div>
+
+          {/* 6 Novel Methodological Contributions */}
+          {project.novelContributions && (
+            <div className="space-y-4">
+              <span className="text-xs font-bold text-cyan-400 uppercase tracking-wider block">6 Novel Methodological Contributions</span>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {project.novelContributions.map((nc, nIdx) => (
+                  <div key={nIdx} className="bg-gray-900/90 p-5 rounded-2xl border border-gray-800 space-y-1">
+                    <span className="text-xs font-bold text-purple-300 block">{nc.title}</span>
+                    <p className="text-xs text-gray-300 leading-relaxed">{nc.detail}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* 6-Phase Experimental Methodology */}
+          {project.fmriPhases && (
+            <div className="bg-gray-900/90 rounded-2xl border border-gray-800 overflow-hidden shadow-xl space-y-2">
+              <div className="p-4 bg-gray-950 border-b border-gray-800 flex items-center justify-between">
+                <span className="text-xs font-bold text-gray-300 uppercase tracking-wider">Methodological Phase</span>
+                <span className="text-xs font-bold text-cyan-400 uppercase tracking-wider">Pipeline Specifications & FSL Execution</span>
+              </div>
+              <div className="divide-y divide-gray-800/60 text-xs sm:text-sm">
+                {project.fmriPhases.map((fp, fIdx) => (
+                  <div key={fIdx} className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-gray-800/40">
+                    <span className="font-bold text-cyan-300 shrink-0">{fp.phase}</span>
+                    <span className="text-xs text-gray-300">{fp.detail}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </section>
+      )}
+
       {/* DATASET SPECIFICATIONS */}
       {project.datasetSpecs && (
         <section className="space-y-6">
