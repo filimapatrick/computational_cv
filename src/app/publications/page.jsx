@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -870,11 +870,7 @@ export default function Publications() {
                 </div>
               </div>
 
-              <div className="bg-gray-900/70 p-5 rounded-2xl border border-gray-800 space-y-2">
-                <span className="text-xs font-semibold text-emerald-400 uppercase tracking-wider block">Neuroimaging Study</span>
-                <h3 className="text-base font-bold text-white">Asymmetry in Thalamic Gray Matter Changes in Nigerian Parkinson's Disease Patients</h3>
-                <p className="text-xs sm:text-sm text-gray-300">Examining asymmetrical patterns of thalamic gray matter alterations in Nigerian Parkinson’s patients using structural MRI and volumetric modeling.</p>
-              </div>
+           
 
               <div className="bg-gray-900/70 p-5 rounded-2xl border border-gray-800 space-y-2">
                 <span className="text-xs font-semibold text-emerald-400 uppercase tracking-wider block">Volumetric Assessment</span>

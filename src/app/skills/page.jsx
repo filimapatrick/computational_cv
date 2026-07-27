@@ -214,7 +214,7 @@ export default function Skills() {
       </motion.div>
 
       {/* Core Technical & Product Competencies Grid */}
-      <motion.section variants={fadeInUp} className="space-y-8">
+      <motion.section id="expertise" variants={fadeInUp} className="space-y-8">
         <div className="flex items-center gap-3 pb-2 border-b border-gray-800">
           <FaRocket className="text-2xl text-blue-400" />
           <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">Core Competencies & Stack</h2>

@@ -23,7 +23,7 @@ export const navItems = [
   { name: 'About', path: '/about', icon: FaUser },
   { name: 'What I Do', path: '/skills', icon: FaTools },
   { name: 'Expertise', path: '/skills#expertise', icon: FaRocket },
-  { name: 'Projects', path: '/experience#projects', icon: FaFlask },
+  { name: 'Projects', path: '/publications#ongoing', icon: FaFlask },
   { name: 'Experience', path: '/experience', icon: FaBriefcase },
   { name: 'Education', path: '/education', icon: FaGraduationCap },
   { name: 'Publications & Talks', path: '/publications', icon: FaBook },
