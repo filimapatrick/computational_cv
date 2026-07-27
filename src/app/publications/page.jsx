@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { 
   FaBook, 
@@ -14,7 +15,9 @@ import {
   FaGlobe,
   FaLayerGroup,
   FaChartLine,
-  FaAward
+  FaAward,
+  FaFlask,
+  FaArrowRight
 } from 'react-icons/fa';
 
 const fadeInUp = {
@@ -539,7 +542,48 @@ export default function Publications() {
               </div>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-6">
+              {/* FEATURED METHODOLOGICAL STUDY */}
+              <div className="bg-gradient-to-br from-purple-950/80 via-gray-900 to-blue-950/80 p-6 sm:p-8 rounded-2xl border border-purple-800/50 shadow-xl space-y-4">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <span className="px-3 py-1 rounded-full text-xs font-bold bg-purple-900/60 text-purple-300 border border-purple-700/50">
+                    Flagship Methodological Study • Active Phase 3B
+                  </span>
+                  <span className="text-xs font-mono text-cyan-300 bg-gray-900 px-3 py-1 rounded-md border border-gray-800">
+                    Python 3.11+ • MONAI • PyTorch • PyRadiomics
+                  </span>
+                </div>
+
+                <div className="space-y-2">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">
+                    Beyond Research-Grade MRI: AI Robustness on a Nigerian Clinical Brain MRI Dataset
+                  </h3>
+                  <p className="text-xs sm:text-sm text-purple-300 font-medium">
+                    A Methodological Study of AI Robustness, Calibration, and Explainability under Real-World MRI Quality Constraints
+                  </p>
+                </div>
+
+                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed bg-gray-950/70 p-4 rounded-xl border border-gray-800">
+                  Systematically characterizing AI model robustness, calibration error (ECE), and salience map stability across 4 progressive physical degradations (Gaussian blur, Rician noise, slice downsampling, and motion ringing) on an 88-subject Nigerian clinical MRI dataset (787 scans).
+                </p>
+
+                <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
+                  <div className="flex flex-wrap gap-2 text-xs font-medium text-gray-400">
+                    <span className="bg-gray-900 px-2.5 py-1 rounded-md border border-gray-800 text-cyan-300">88 Subjects / 787 Scans</span>
+                    <span className="bg-gray-900 px-2.5 py-1 rounded-md border border-gray-800 text-purple-300">ResNet-18 & DenseNet-121</span>
+                    <span className="bg-gray-900 px-2.5 py-1 rounded-md border border-gray-800 text-emerald-300">PyRadiomics Baseline</span>
+                  </div>
+
+                  <Link
+                    href="/projects/clinical-mri-ai-robustness"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white text-xs font-bold shadow-lg shadow-purple-500/20 transition-all"
+                  >
+                    <span>Read Full Technical Case Study & Benchmarks</span>
+                    <FaArrowRight className="text-[10px]" />
+                  </Link>
+                </div>
+              </div>
+
               <div className="bg-gray-900/70 p-5 rounded-2xl border border-gray-800 space-y-2">
                 <span className="text-xs font-semibold text-emerald-400 uppercase tracking-wider block">Neuroimaging Study</span>
                 <h3 className="text-base font-bold text-white">Asymmetry in Thalamic Gray Matter Changes in Nigerian Parkinson's Disease Patients</h3>
