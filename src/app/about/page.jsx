@@ -12,7 +12,8 @@ import {
   FaGlobe, 
   FaLightbulb, 
   FaCheckCircle,
-  FaBuilding
+  FaBuilding,
+  FaMicrophone
 } from 'react-icons/fa';
 
 const fadeInUp = {
