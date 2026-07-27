@@ -154,6 +154,69 @@ export default function ProjectDetail({ params }) {
         </section>
       )}
 
+      {/* HOSPITAL COHORTS & CLINICAL DATASET */}
+      {project.hospitalCohorts && (
+        <section className="space-y-6">
+          <div className="flex items-center gap-3 pb-2 border-b border-gray-800">
+            <FaDatabase className="text-2xl text-cyan-400" />
+            <h2 className="text-2xl font-bold text-white">Multi-Center African Hospital Cohorts & Scanners</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {project.hospitalCohorts.map((hosp, hIdx) => (
+              <div key={hIdx} className="bg-gray-900/80 p-6 rounded-2xl border border-gray-800 space-y-2">
+                <span className="text-xs font-bold text-purple-400 uppercase tracking-wider block">{hosp.type}</span>
+                <h3 className="text-base font-bold text-white">{hosp.name}</h3>
+                <p className="text-xs text-gray-300">{hosp.location}</p>
+                <span className="inline-block text-xs font-mono text-cyan-300 bg-gray-950 px-2.5 py-1 rounded-md border border-gray-800">
+                  {hosp.specs}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Disease Distribution Table */}
+          {project.diseaseDistribution && (
+            <div className="bg-gray-900/90 rounded-2xl border border-gray-800 overflow-hidden shadow-xl space-y-2">
+              <div className="p-4 bg-gray-950 border-b border-gray-800 flex items-center justify-between">
+                <span className="text-xs font-bold text-gray-300 uppercase tracking-wider">Disease Pathology</span>
+                <span className="text-xs font-bold text-cyan-400 uppercase tracking-wider">Subjects (225 Total)</span>
+              </div>
+              <div className="divide-y divide-gray-800/60 text-xs sm:text-sm">
+                {project.diseaseDistribution.map((dis, dIdx) => (
+                  <div key={dIdx} className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-gray-800/40">
+                    <div>
+                      <span className="font-bold text-white block">{dis.disease}</span>
+                      <span className="text-xs text-gray-400">{dis.pathology}</span>
+                    </div>
+                    <span className="font-semibold text-cyan-300 shrink-0">{dis.subjects} subjects</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </section>
+      )}
+
+      {/* FACTORIAL PREPROCESSING PIPELINES (A -> G) */}
+      {project.pipelines && (
+        <section className="space-y-6">
+          <div className="flex items-center gap-3 pb-2 border-b border-gray-800">
+            <FaMicrochip className="text-2xl text-purple-400" />
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">Factorial Preprocessing Pipelines (Pipelines A → G)</h2>
+          </div>
+
+          <div className="space-y-4">
+            {project.pipelines.map((pipe, pIdx) => (
+              <div key={pIdx} className="bg-gray-900/90 p-5 rounded-2xl border border-gray-800 space-y-1">
+                <span className="text-xs font-bold text-purple-400 uppercase tracking-wider block">{pipe.name}</span>
+                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">{pipe.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* DATASET SPECIFICATIONS */}
       {project.datasetSpecs && (
         <section className="space-y-6">

@@ -1,5 +1,44 @@
 export const projectsData = [
   {
+    slug: 'data-centric-ai-low-field-mri',
+    title: 'Data-Centric AI: Evaluating MRI Preprocessing on Low-Field African Brain MRI',
+    subtitle: 'A Multi-Center Factorial Study of Preprocessing Impact on Model Robustness, Calibration, and Explainability',
+    category: 'Data-Centric Medical AI',
+    status: 'Active Benchmark / Project 2',
+    techStack: ['Python 3.11+', 'PyTorch 2.0+', 'MONAI 1.2+', 'ANTsPy', 'SimpleITK', 'TorchIO', 'ResNet-18', 'DenseNet-121', 'EfficientNet-B0'],
+    featured: true,
+    summary: 'Evaluating whether optimizing preprocessing quality via factorial experimental design (Pipelines A–G) yields greater classification accuracy, calibration, and cross-hospital generalization than increasing neural network complexity on 225 low-field African brain MRI scans.',
+    license: 'MIT',
+    author: 'Patrick Filima',
+    hospitalCohorts: [
+      { name: 'LifeBridge Hospital', type: 'Private Diagnostic Centre', location: 'Abuja, Nigeria', specs: '1.5T Scanner' },
+      { name: 'University of Port Harcourt Teaching Hospital (UPTH)', type: 'Federal Teaching Hospital', location: 'Port Harcourt, Nigeria', specs: '0.2T - 1.5T Scanners' },
+      { name: 'Rivers State University Teaching Hospital (RSUTH)', type: 'State Teaching Hospital', location: 'Port Harcourt, Nigeria', specs: '1.5T Scanner' }
+    ],
+    diseaseDistribution: [
+      { disease: 'Hydrocephalus', subjects: 70, pathology: 'Marked ventricular enlargement, thinning of the corpus callosum' },
+      { disease: 'Dementia', subjects: 40, pathology: 'Generalized cortical atrophy, hippocampal volume loss' },
+      { disease: 'Parkinson’s Disease', subjects: 35, pathology: 'Subtle structural alterations, structural exclusion' },
+      { disease: 'Epilepsy', subjects: 30, pathology: 'Hippocampal sclerosis, structural lesions' },
+      { disease: 'Healthy Controls', subjects: 50, pathology: 'Age-matched controls, no structural abnormalities' }
+    ],
+    pipelines: [
+      { name: 'Pipeline A (Minimal Baseline)', description: 'DICOM to NIfTI, RAS coordinate alignment, spatial resampling to 256x256x32, min-max scaling [0,1].' },
+      { name: 'Pipeline B (+N4 Bias Field)', description: 'Pipeline A + N4 Bias Field Correction (ANTsPy/SimpleITK) to remove RF coil non-uniformity.' },
+      { name: 'Pipeline C (+Skull Stripping)', description: 'Pipeline B + Deep learning brain extraction (HD-BET / MONAI UNet) to isolate brain parenchyma.' },
+      { name: 'Pipeline D (+Intensity Z-Score)', description: 'Pipeline C + Z-score standardization (mu=0, sigma=1) & histogram matching.' },
+      { name: 'Pipeline E (+NLM Denoising)', description: 'Pipeline D + Non-Local Means / Anisotropic Diffusion filtering to attenuate noise.' },
+      { name: 'Pipeline F (+CLAHE Contrast)', description: 'Pipeline E + Adaptive contrast enhancement (CLAHE) for tissue-contrast definition.' },
+      { name: 'Pipeline G (Complete Unified Workflow)', description: 'Full sequential pipeline: Orientation -> N4 Bias -> Brain Extract -> Denoise -> CLAHE -> Z-Score.' }
+    ],
+    experimentalSetup: {
+      split: 'Stratified patient-level 60/20/20 split preventing slice-level data leakage',
+      crossValidation: 'Leave-One-Hospital-Out (LOHO) cross-validation for external generalization testing',
+      models: 'ResNet-18 (primary), DenseNet-121, EfficientNet-B0 (secondary)',
+      optimizer: 'AdamW (lr=1e-4, Cosine Annealing, Cross-Entropy Loss, batch size 32)'
+    }
+  },
+  {
     slug: 'african-brain-mri-ai-ecosystem',
     title: 'African Brain MRI AI Research Ecosystem',
     subtitle: 'A Multi-Project Research Program for Robust, Explainable & Clinically Validated AI in African Neuroimaging',
