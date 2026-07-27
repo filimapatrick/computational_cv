@@ -116,47 +116,47 @@ const publications = [
 const talksAndPresentations = [
   {
     year: '2025',
-    title: 'Building Scalable & Reproducible Neuroimaging Workflows',
-    event: 'Brainlife.io Technical Workshop',
-    location: 'University of Texas at Austin (Remote / Global)',
-    role: 'Keynote & Technical Speaker',
-    type: 'Invited Talk',
-    badgeColor: 'from-purple-500/20 to-indigo-500/20 text-purple-300 border-purple-500/30',
-    description: 'Presented technical strategies for automated MRI/fMRI error diagnostic platforms, pipeline observability, and scaling HPC scientific workflows for computational neuroscientists worldwide.',
-    topics: ['Neuroinformatics', 'Workflow Observability', 'HPC Computing', 'Open Science']
+    title: 'Python for Neuroimaging Data Analysis: Loading, Inspecting & Visualizing MRI Data',
+    event: 'African Brain Data Network (ABDN) Workshop — Lagos 2025',
+    location: 'Lagos, Nigeria',
+    role: 'Lead Instructor & Speaker',
+    type: 'Hands-on Workshop',
+    badgeColor: 'from-blue-500/20 to-cyan-500/20 text-cyan-300 border-cyan-500/30',
+    description: 'Practical training for African Brain Data Network participants on loading NIfTI neuroimaging data using Nibabel, inspecting multi-dimensional MRI arrays with NumPy, and building interactive visualization strategies.',
+    topics: ['Python', 'Nibabel & NumPy', 'MRI Inspection', 'Neuroimaging Data']
   },
   {
     year: '2024',
-    title: 'FAIR Data Infrastructure & Open Neuroscience Capacity Building in Africa',
-    event: 'African Brain Data Network (ABDN) Annual Summit',
-    location: 'Pan-African Conference (Virtual)',
-    role: 'Lead Presenter & Workshop Facilitator',
-    type: 'Conference Talk',
-    badgeColor: 'from-blue-500/20 to-cyan-500/20 text-blue-300 border-blue-500/30',
-    description: 'Delivered an invited presentation on implementing FAIR (Findable, Accessible, Interoperable, Reusable) data standards across regional neuroimaging repositories and facilitating collaborative research across 50+ countries.',
-    topics: ['FAIR Principles', 'Data Governance', 'Research Platforms', 'Capacity Building']
+    title: 'Introduction to Scientific Python for Neuroimaging Workflows',
+    event: 'African Brain Data Network (ABDN) Workshop — Kenya 2024',
+    location: 'Kenya (Dec 2024)',
+    role: 'Technical Instructor',
+    type: 'International Workshop',
+    badgeColor: 'from-purple-500/20 to-indigo-500/20 text-purple-300 border-purple-500/30',
+    description: 'Technical instruction delivered to ABDN participants in Kenya on foundational Python programming, scientific computing libraries, and automating computational neuroimaging pipelines.',
+    topics: ['Scientific Python', 'Neuroinformatics', 'Workflow Automation', 'ABDN Kenya']
   },
   {
-    year: '2023',
-    title: 'Hands-on MRI Preprocessing & Automated Segmentation Pipelines',
-    event: 'Advanced Neuroimaging Workshop',
-    location: 'Port Harcourt, Nigeria',
-    role: 'Workshop Instructor',
-    type: 'Technical Workshop',
+    year: '2024',
+    title: 'Software Tools in Neuroimaging',
+    event: 'ABDN Brain Awareness Week 2024 — Ignatius Ajuru University of Education',
+    location: 'Ignatius Ajuru University of Education, Nigeria (March 22, 2024)',
+    role: 'Co-Speaker & Panelist',
+    type: 'Symposium & Lecture',
     badgeColor: 'from-emerald-500/20 to-teal-500/20 text-emerald-300 border-emerald-500/30',
-    description: 'Led a multi-day practical workshop training graduate researchers and clinicians on utilizing FSL, FreeSurfer, and Python-based automated structural brain analysis pipelines.',
-    topics: ['MRI Analysis', 'FreeSurfer & FSL', 'Python Scientific Stack', 'Neuroimaging']
+    description: 'Delivered an invited presentation under the theme "Redefining Possibilities: Empowering African Youths in Neuroimaging Research" to Computer Science students and faculty on modern neuroimaging software tools.',
+    topics: ['Software Tools', 'Neuroimaging Research', 'Computer Science', 'Youth Empowerment']
   },
   {
-    year: '2023',
-    title: 'Clinical MRI Datasets & Morphometric Asymmetry in Neurodegenerative Research',
-    event: 'Neuroscience Research Colloquium',
-    location: 'University of Port Harcourt',
-    role: 'Research Presenter',
-    type: 'Research Seminar',
+    year: '2024',
+    title: 'African Brain Data Infrastructure & FAIR Principles: Built for Rigor, Ready for Reuse',
+    event: 'African Brain Data Network (ABDN) Regional Symposium',
+    location: 'Virtual / Regional Summit',
+    role: 'Invited Keynote Speaker',
+    type: 'Keynote Talk',
     badgeColor: 'from-amber-500/20 to-yellow-500/20 text-amber-300 border-amber-500/30',
-    description: 'Presented volumetric findings on thalamic nuclei gray matter alterations in Parkinson’s disease and highlighted the open-access clinical MRI dataset published in Nature Scientific Data.',
-    topics: ['Parkinson’s Disease', 'Brain Morphometry', 'Clinical MRI', 'Neurodegenerative Research']
+    description: 'Presented key strategies for building African brain data repositories adhering to FAIR principles (Findable, Accessible, Interoperable, Reusable), BIDS standards, and robust data governance.',
+    topics: ['FAIR Data Principles', 'BIDS Architecture', 'Data Governance', 'Open Science']
   }
 ];
 
