@@ -269,20 +269,20 @@ export default function Home() {
             <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:16px_16px] opacity-40 rounded-3xl pointer-events-none" />
 
             {/* Glowing Neon Outer Ring */}
-            <div className="absolute w-[360px] h-[360px] sm:w-[440px] sm:h-[440px] rounded-full bg-gradient-to-tr from-cyan-500/20 via-purple-600/20 to-blue-500/20 blur-3xl animate-pulse" />
+            <div className="absolute w-[280px] h-[280px] sm:w-[380px] sm:h-[380px] lg:w-[440px] lg:h-[440px] rounded-full bg-gradient-to-tr from-cyan-500/20 via-purple-600/20 to-blue-500/20 blur-3xl animate-pulse" />
 
             {/* Orbital Ring Lines */}
-            <div className="absolute w-[340px] h-[340px] sm:w-[420px] sm:h-[420px] rounded-full border border-cyan-400/30 shadow-[0_0_30px_rgba(6,182,212,0.2)] animate-spin-slow pointer-events-none" />
-            <div className="absolute w-[360px] h-[360px] sm:w-[450px] sm:h-[450px] rounded-full border border-purple-500/20 pointer-events-none" />
+            <div className="absolute w-[260px] h-[260px] sm:w-[360px] sm:h-[360px] lg:w-[420px] lg:h-[420px] rounded-full border border-cyan-400/30 shadow-[0_0_30px_rgba(6,182,212,0.2)] animate-spin-slow pointer-events-none" />
+            <div className="absolute w-[280px] h-[280px] sm:w-[380px] sm:h-[380px] lg:w-[450px] lg:h-[450px] rounded-full border border-purple-500/20 pointer-events-none" />
 
             {/* Main Circular Portrait Container */}
-            <div className="relative w-[290px] h-[290px] sm:w-[370px] sm:h-[370px] rounded-full p-2 bg-gradient-to-tr from-cyan-400 via-blue-600 to-purple-600 shadow-[0_0_60px_rgba(37,99,235,0.4)]">
+            <div className="relative w-[230px] h-[230px] sm:w-[320px] sm:h-[320px] lg:w-[370px] lg:h-[370px] rounded-full p-2 bg-gradient-to-tr from-cyan-400 via-blue-600 to-purple-600 shadow-[0_0_60px_rgba(37,99,235,0.4)]">
               <div className="w-full h-full rounded-full overflow-hidden relative bg-[#060A17]">
                 <Image
                   src="/patrick.jpeg"
                   alt="Filima Patrick"
                   fill
-                  sizes="(max-width: 640px) 290px, 370px"
+                  sizes="(max-width: 640px) 230px, (max-width: 1024px) 320px, 370px"
                   className="object-cover scale-105"
                   priority
                 />
