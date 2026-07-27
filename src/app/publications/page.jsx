@@ -1,18 +1,17 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { 
   FaBook, 
   FaNewspaper, 
-  FaDatabase, 
   FaExternalLinkAlt, 
   FaMicrophone, 
   FaChalkboardTeacher, 
   FaCalendarAlt, 
   FaMapMarkerAlt, 
   FaGlobe,
-  FaCheckCircle,
   FaLayerGroup
 } from 'react-icons/fa';
 
@@ -122,6 +121,7 @@ const talksAndPresentations = [
     role: 'Lead Instructor & Speaker',
     type: 'Hands-on Workshop',
     badgeColor: 'from-blue-500/20 to-cyan-500/20 text-cyan-300 border-cyan-500/30',
+    image: '/talks/lagos_2025.png',
     description: 'Practical training for African Brain Data Network participants on loading NIfTI neuroimaging data using Nibabel, inspecting multi-dimensional MRI arrays with NumPy, and building interactive visualization strategies.',
     topics: ['Python', 'Nibabel & NumPy', 'MRI Inspection', 'Neuroimaging Data']
   },
@@ -133,6 +133,7 @@ const talksAndPresentations = [
     role: 'Technical Instructor',
     type: 'International Workshop',
     badgeColor: 'from-purple-500/20 to-indigo-500/20 text-purple-300 border-purple-500/30',
+    image: '/talks/kenya_2024.jpg',
     description: 'Technical instruction delivered to ABDN participants in Kenya on foundational Python programming, scientific computing libraries, and automating computational neuroimaging pipelines.',
     topics: ['Scientific Python', 'Neuroinformatics', 'Workflow Automation', 'ABDN Kenya']
   },
@@ -141,9 +142,10 @@ const talksAndPresentations = [
     title: 'Software Tools in Neuroimaging',
     event: 'ABDN Brain Awareness Week 2024 — Ignatius Ajuru University of Education',
     location: 'Ignatius Ajuru University of Education, Nigeria (March 22, 2024)',
-    role: 'Co-Speaker & Panelist',
+    role: 'Speaker & Panelist',
     type: 'Symposium & Lecture',
     badgeColor: 'from-emerald-500/20 to-teal-500/20 text-emerald-300 border-emerald-500/30',
+    image: '/talks/ignatius_ajuru_2024.jpg',
     description: 'Delivered an invited presentation under the theme "Redefining Possibilities: Empowering African Youths in Neuroimaging Research" to Computer Science students and faculty on modern neuroimaging software tools.',
     topics: ['Software Tools', 'Neuroimaging Research', 'Computer Science', 'Youth Empowerment']
   },
@@ -155,6 +157,7 @@ const talksAndPresentations = [
     role: 'Invited Keynote Speaker',
     type: 'Keynote Talk',
     badgeColor: 'from-amber-500/20 to-yellow-500/20 text-amber-300 border-amber-500/30',
+    image: '/talks/african_brain_data_fair.jpg',
     description: 'Presented key strategies for building African brain data repositories adhering to FAIR principles (Findable, Accessible, Interoperable, Reusable), BIDS standards, and robust data governance.',
     topics: ['FAIR Data Principles', 'BIDS Architecture', 'Data Governance', 'Open Science']
   }
@@ -275,7 +278,7 @@ export default function Publications() {
         </div>
       </motion.div>
 
-      {/* TAB CONTENT: TALKS */}
+      {/* TAB CONTENT: TALKS WITH IMAGE CARDS */}
       {(activeTab === 'all' || activeTab === 'talks') && (
         <motion.section variants={fadeInUp} className="space-y-8">
           <div className="flex items-center gap-3 pb-2 border-b border-gray-800">
@@ -283,51 +286,70 @@ export default function Publications() {
             <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">Invited Talks, Keynotes & Workshops</h2>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-8">
             {talksAndPresentations.map((talk, index) => (
               <div 
                 key={index}
-                className="bg-gradient-to-br from-gray-800/90 to-gray-900/90 rounded-2xl shadow-xl p-6 sm:p-8 border border-gray-700/70 hover:border-purple-500/40 transition-all duration-300 space-y-5"
+                className="bg-gradient-to-br from-gray-800/90 to-gray-900/90 rounded-3xl shadow-xl p-6 sm:p-8 border border-gray-700/70 hover:border-purple-500/40 transition-all duration-300 space-y-6"
               >
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-4 border-b border-gray-700/60">
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <span className={`px-2.5 py-1 rounded-full text-xs font-semibold border bg-gradient-to-r ${talk.badgeColor}`}>
-                        {talk.type}
-                      </span>
-                      <span className="text-xs font-medium text-gray-400 bg-gray-800 px-2.5 py-1 rounded-md border border-gray-700">
-                        {talk.role}
-                      </span>
-                    </div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-white pt-1">{talk.title}</h3>
-                    <p className="text-sm font-semibold text-purple-300">{talk.event}</p>
-                  </div>
-
-                  <div className="flex flex-wrap items-center gap-3 text-xs text-gray-300 shrink-0">
-                    <span className="flex items-center gap-1.5 bg-gray-800/80 px-3 py-1.5 rounded-lg border border-gray-700">
-                      <FaMapMarkerAlt className="text-purple-400" />
-                      {talk.location}
-                    </span>
-                    <span className="flex items-center gap-1.5 bg-gray-800/80 px-3 py-1.5 rounded-lg border border-gray-700 font-semibold text-blue-300">
-                      <FaCalendarAlt className="text-blue-400" />
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                  
+                  {/* Photo Container */}
+                  <div className="lg:col-span-5 relative h-56 sm:h-64 lg:h-full min-h-[220px] rounded-2xl overflow-hidden border border-white/10 shadow-xl group bg-gray-950">
+                    <Image
+                      src={talk.image}
+                      alt={talk.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-transparent to-transparent" />
+                    <span className="absolute bottom-3 left-3 bg-[#0D1425]/90 text-cyan-300 px-3 py-1 rounded-lg text-xs font-semibold border border-white/10 backdrop-blur-md">
                       {talk.year}
                     </span>
                   </div>
-                </div>
 
-                <p className="text-gray-300 text-sm sm:text-base leading-relaxed bg-gray-900/50 p-4 rounded-xl border border-gray-800">
-                  {talk.description}
-                </p>
+                  {/* Talk Information */}
+                  <div className="lg:col-span-7 space-y-4">
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className={`px-2.5 py-1 rounded-full text-xs font-semibold border bg-gradient-to-r ${talk.badgeColor}`}>
+                          {talk.type}
+                        </span>
+                        <span className="text-xs font-medium text-gray-300 bg-gray-800/80 px-2.5 py-1 rounded-md border border-gray-700">
+                          {talk.role}
+                        </span>
+                      </div>
+                      <h3 className="text-xl sm:text-2xl font-bold text-white leading-tight">{talk.title}</h3>
+                      <p className="text-sm font-semibold text-purple-300">{talk.event}</p>
+                    </div>
 
-                <div className="flex flex-wrap gap-2 pt-1">
-                  {talk.topics.map((topic, tIdx) => (
-                    <span
-                      key={tIdx}
-                      className="bg-purple-950/60 text-purple-300 px-3 py-1 rounded-lg text-xs font-medium border border-purple-800/40"
-                    >
-                      {topic}
-                    </span>
-                  ))}
+                    <div className="flex flex-wrap items-center gap-3 text-xs text-gray-300">
+                      <span className="flex items-center gap-1.5 bg-gray-900/80 px-3 py-1.5 rounded-lg border border-gray-800">
+                        <FaMapMarkerAlt className="text-purple-400" />
+                        {talk.location}
+                      </span>
+                      <span className="flex items-center gap-1.5 bg-gray-900/80 px-3 py-1.5 rounded-lg border border-gray-800 font-semibold text-blue-300">
+                        <FaCalendarAlt className="text-blue-400" />
+                        {talk.year}
+                      </span>
+                    </div>
+
+                    <p className="text-gray-300 text-xs sm:text-sm leading-relaxed bg-gray-900/60 p-4 rounded-xl border border-gray-800/80">
+                      {talk.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {talk.topics.map((topic, tIdx) => (
+                        <span
+                          key={tIdx}
+                          className="bg-purple-950/60 text-purple-300 px-2.5 py-1 rounded-lg text-xs font-medium border border-purple-800/40"
+                        >
+                          {topic}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
                 </div>
               </div>
             ))}
