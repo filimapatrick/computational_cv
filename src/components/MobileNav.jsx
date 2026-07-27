@@ -1,6 +1,6 @@
 'use client';
 
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaMoon } from 'react-icons/fa';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -13,14 +13,15 @@ export default function MobileNav({ isOpen, setIsOpen, navItems, contactLinks })
       {/* Mobile Menu Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="lg:hidden fixed top-4 right-4 z-50 p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 transition-all duration-300"
+        aria-label="Toggle Navigation"
+        className="lg:hidden fixed top-4 right-4 z-50 p-3 rounded-full bg-[#0D1425]/90 backdrop-blur-md border border-white/20 text-white shadow-xl hover:bg-white/20 transition-all duration-300"
       >
-        {isOpen ? <FaTimes className="w-6 h-6" /> : <FaBars className="w-6 h-6" />}
+        {isOpen ? <FaTimes className="w-5 h-5 text-cyan-400" /> : <FaBars className="w-5 h-5 text-blue-400" />}
       </button>
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`lg:hidden fixed inset-0 bg-gray-900/80 backdrop-blur-sm z-40 transition-opacity duration-300 ${
+        className={`lg:hidden fixed inset-0 bg-[#070B18]/90 backdrop-blur-md z-40 transition-opacity duration-300 ${
           isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         onClick={() => setIsOpen(false)}
@@ -32,63 +33,68 @@ export default function MobileNav({ isOpen, setIsOpen, navItems, contactLinks })
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        <div className="relative h-full">
-          {/* Glassmorphic Background */}
-          <div className="absolute inset-0 bg-gray-900/80 backdrop-blur-lg border-r border-white/10" />
-          
-          {/* Content Container */}
-          <div className="relative z-10 flex flex-col h-full overflow-y-auto">
-            <div className="text-center py-8 px-4">
-              <div className="w-32 h-32 relative rounded-full overflow-hidden mx-auto mb-6 border-4 border-white/20 group-hover:border-white/40 transition-all duration-300">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-sm" />
-                <Image
-                  src="/patrick.jpeg"
-                  alt="Filima Patrick"
-                  fill
-                  className="object-cover"
-                />
+        <div className="relative h-full p-4">
+          <div className="relative h-full rounded-3xl bg-[#0D1425]/95 backdrop-blur-xl border border-white/10 shadow-2xl flex flex-col justify-between p-5 overflow-y-auto">
+            
+            <div>
+              <div className="text-center py-4">
+                <div className="w-20 h-20 relative rounded-full overflow-hidden mx-auto mb-3 border-2 border-blue-500/40 shadow-lg shadow-blue-500/20">
+                  <Image
+                    src="/patrick.jpeg"
+                    alt="Filima Patrick"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <h1 className="text-base font-extrabold text-white tracking-wider uppercase">FILIMA PATRICK</h1>
+                <p className="text-xs font-medium text-blue-400 mt-1">Research Software Engineer & Technical Product Lead</p>
               </div>
-              <h1 className="text-2xl font-bold text-white mb-2">FILIMA PATRICK</h1>
-              <p className="text-blue-400 text-lg">Neuroscientist & Developer</p>
+
+              <div className="space-y-1 my-4">
+                {navItems.map((item) => {
+                  const isActive = pathname === item.path;
+                  return (
+                    <Link
+                      key={item.path}
+                      href={item.path}
+                      onClick={() => setIsOpen(false)}
+                      className={`flex items-center gap-3 px-4 py-2.5 rounded-xl text-xs font-semibold transition-all duration-200 ${
+                        isActive
+                          ? 'bg-gradient-to-r from-blue-600/40 to-purple-600/40 text-white border border-blue-500/40'
+                          : 'text-gray-300 hover:bg-white/5 hover:text-white'
+                      }`}
+                    >
+                      <item.icon className={`w-4 h-4 ${isActive ? 'text-cyan-400' : 'text-gray-400'}`} />
+                      <span>{item.name}</span>
+                    </Link>
+                  );
+                })}
+              </div>
             </div>
 
-            <div className="flex justify-center gap-4 mb-8">
-              {contactLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.href}
-                  className="text-blue-400 hover:text-blue-300 transition-colors p-3 rounded-full bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10"
-                  target={link.href.startsWith('http') ? '_blank' : undefined}
-                  rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                >
-                  <link.icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
-
-            <div className="px-4 space-y-2">
-              {navItems.map((item) => {
-                const isActive = pathname === item.path;
-                return (
-                  <Link
-                    key={item.path}
-                    href={item.path}
-                    onClick={() => setIsOpen(false)}
-                    className={`flex items-center gap-4 px-6 py-3 rounded-lg transition-all duration-300 w-full ${
-                      isActive
-                        ? 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-white border border-white/20'
-                        : 'text-gray-300 hover:bg-white/5 hover:text-white border border-transparent hover:border-white/10'
-                    }`}
+            <div className="pt-4 border-t border-white/10 space-y-3">
+              <div className="flex justify-center gap-3">
+                {contactLinks.map((link, index) => (
+                  <a
+                    key={index}
+                    href={link.href}
+                    className="text-gray-300 hover:text-cyan-300 p-2.5 rounded-xl bg-white/5 border border-white/10"
+                    target={link.href.startsWith('http') ? '_blank' : undefined}
+                    rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   >
-                    <item.icon className={`w-5 h-5 ${isActive ? 'text-blue-400' : 'text-gray-400'}`} />
-                    <span className="font-medium">{item.name}</span>
-                  </Link>
-                );
-              })}
+                    <link.icon className="w-4 h-4" />
+                  </a>
+                ))}
+              </div>
+              <div className="flex items-center justify-between text-[10px] text-gray-400">
+                <span>© 2026 Filima Patrick</span>
+                <FaMoon className="text-cyan-400 w-3 h-3" />
+              </div>
             </div>
+
           </div>
         </div>
       </div>
     </>
   );
-} 
+}
