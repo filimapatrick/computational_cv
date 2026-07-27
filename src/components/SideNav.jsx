@@ -26,7 +26,7 @@ export const navItems = [
   { name: 'Projects', path: '/experience#projects', icon: FaFlask },
   { name: 'Experience', path: '/experience', icon: FaBriefcase },
   { name: 'Education', path: '/education', icon: FaGraduationCap },
-  { name: 'Publications', path: '/publications', icon: FaBook },
+  { name: 'Publications & Talks', path: '/publications', icon: FaBook },
   { name: 'Contact', path: '/contact', icon: FaEnvelope },
 ];
 

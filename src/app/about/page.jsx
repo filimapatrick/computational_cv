@@ -85,6 +85,11 @@ const careerHighlights = [
     description: "Developing scientific software products that improve neuroimaging workflows, including workflow monitoring systems, error diagnostics platforms, and tools that increase visibility into distributed computational pipelines."
   },
   {
+    title: "Keynotes, Talks & Workshops",
+    icon: FaMicrophone,
+    description: "Delivering keynotes, invited talks, and hands-on workshops on neuroinformatics platforms, workflow observability, FAIR data principles, and reproducible computational pipelines."
+  },
+  {
     title: "Scientific Research & Open Science",
     icon: FaFlask,
     description: "Contributing to neuroscience research through neuroimaging analysis, FAIR data initiatives, and open scientific infrastructure designed to improve accessibility and reproducibility."
