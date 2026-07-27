@@ -263,7 +263,7 @@ export default function Home() {
           </motion.div>
 
           {/* Right Column: Hero Portrait + Glowing Neon Orbits + Floating Cards */}
-          <motion.div variants={fadeInUp} className="lg:col-span-6 relative flex justify-center items-center py-8">
+          <motion.div variants={fadeInUp} className="lg:col-span-6 relative flex flex-col justify-center items-center py-8">
 
             {/* Constellation / Network Grid Backdrop */}
             <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:16px_16px] opacity-40 rounded-3xl pointer-events-none" />
@@ -289,8 +289,9 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Floating Glass Cards Stacked on the Right */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 space-y-3.5 z-20 translate-x-3 sm:translate-x-6">
+            {/* Floating Glass Cards: Desktop Side-Stack (lg+) & Mobile 2x2 Grid (< lg) */}
+            {/* Desktop Stacked Floating (lg+) */}
+            <div className="hidden lg:flex flex-col space-y-3.5 absolute right-0 top-1/2 -translate-y-1/2 z-20 translate-x-10 xl:translate-x-16">
               {floatingBadges.map((badge, idx) => {
                 const BadgeIcon = badge.icon;
                 return (
@@ -308,6 +309,26 @@ export default function Home() {
                       {badge.title}
                     </span>
                   </motion.div>
+                );
+              })}
+            </div>
+
+            {/* Mobile / Small Screen Grid (below portrait, 0% overlap) */}
+            <div className="grid grid-cols-2 gap-2.5 mt-6 w-full max-w-md lg:hidden z-20">
+              {floatingBadges.map((badge, idx) => {
+                const BadgeIcon = badge.icon;
+                return (
+                  <div
+                    key={idx}
+                    className={`bg-[#0B1124]/90 backdrop-blur-md border ${badge.color} p-2.5 rounded-xl shadow-lg flex items-center gap-2`}
+                  >
+                    <div className={`p-1.5 rounded-lg ${badge.iconBg} shrink-0`}>
+                      <BadgeIcon className="text-xs" />
+                    </div>
+                    <span className="text-[11px] font-bold text-white tracking-wide truncate">
+                      {badge.title}
+                    </span>
+                  </div>
                 );
               })}
             </div>
