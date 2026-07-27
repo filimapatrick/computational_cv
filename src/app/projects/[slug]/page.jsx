@@ -345,6 +345,58 @@ export default function ProjectDetail({ params }) {
         </section>
       )}
 
+      {/* DEEPACCESS-MRI OBJECTIVES & PROTOTYPE MODULES */}
+      {project.objectives && (
+        <section className="space-y-8">
+          <div className="flex items-center gap-3 pb-2 border-b border-gray-800">
+            <FaFlask className="text-2xl text-purple-400" />
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">5 Translational Research Objectives</h2>
+          </div>
+
+          <div className="space-y-4">
+            {project.objectives.map((obj, oIdx) => (
+              <div key={oIdx} className="bg-gray-900/90 p-5 rounded-2xl border border-gray-800 space-y-1">
+                <span className="text-xs font-bold text-purple-400 uppercase tracking-wider block">{obj.name}</span>
+                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">{obj.detail}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Prototype Modular Architecture */}
+          {project.prototypeModules && (
+            <div className="bg-gray-900/90 rounded-2xl border border-gray-800 overflow-hidden shadow-xl space-y-2">
+              <div className="p-4 bg-gray-950 border-b border-gray-800 flex items-center justify-between">
+                <span className="text-xs font-bold text-gray-300 uppercase tracking-wider">DeepAccess-MRI Software Prototype Module</span>
+                <span className="text-xs font-bold text-purple-400 uppercase tracking-wider">Functional Clinical Deliverable</span>
+              </div>
+              <div className="divide-y divide-gray-800/60 text-xs sm:text-sm">
+                {project.prototypeModules.map((pm, pIdx) => (
+                  <div key={pIdx} className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-gray-800/40">
+                    <span className="font-bold text-cyan-300 shrink-0">{pm.module}</span>
+                    <span className="text-xs text-gray-300">{pm.description}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Planned Project Publications */}
+          {project.plannedPapers && (
+            <div className="bg-gray-900/90 p-6 rounded-2xl border border-gray-800 space-y-3">
+              <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider block">Planned Peer-Reviewed Publications & Doctoral Outputs</span>
+              <div className="space-y-2 text-xs sm:text-sm text-gray-300">
+                {project.plannedPapers.map((paper, pIdx) => (
+                  <div key={pIdx} className="flex items-center gap-2">
+                    <span className="text-purple-400 font-bold">📄</span>
+                    <span className="font-medium text-white">{paper}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </section>
+      )}
+
       {/* DATASET SPECIFICATIONS */}
       {project.datasetSpecs && (
         <section className="space-y-6">

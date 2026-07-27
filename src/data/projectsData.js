@@ -1,5 +1,38 @@
 export const projectsData = [
   {
+    slug: 'deepaccess-mri',
+    title: 'DeepAccess-MRI: AI-Assisted MRI Protocol Optimization via Missing Sequence Reconstruction',
+    subtitle: 'Clinically Validated Transfer Learning & Missing Sequence Synthesis for Shorter, Affordable Neuroimaging Protocols in Nigeria',
+    category: 'Translational Medical AI & Clinical Protocol Optimization',
+    status: 'Active Clinical Translational Study / Project 7',
+    techStack: ['Python 3.11+', 'PyTorch', 'MONAI', 'Diffusion Models', 'cGANs', 'U-Net', 'SimpleITK', 'Monte Carlo Dropout', 'Radiologist Audit'],
+    featured: true,
+    summary: 'Developing and clinically validating a transfer-learning framework that synthesizes missing structural MRI sequences (e.g. T1 -> FLAIR/T2) from heterogeneous Nigerian clinical scans, enabling shorter, non-inferior acquisition protocols without compromising diagnostic confidence.',
+    license: 'MIT',
+    author: 'Patrick Filima',
+    objectives: [
+      { name: 'Objective 1: Transfer Learning & Domain Adaptation', detail: 'Fine-tuning international research-grade pre-trained weights (BraTS, IXI, HCP) on local Nigerian clinical datasets.' },
+      { name: 'Objective 2: Radiologist Non-Inferiority', detail: 'Evaluating whether AI-assisted reduced protocols match full physical acquisition protocols in diagnostic accuracy.' },
+      { name: 'Objective 3: Pathology Preservation & Safety', detail: 'Auditing that synthetic sequences preserve disease-specific pathology (ventriculomegaly, lesions, atrophy) without hallucinations.' },
+      { name: 'Objective 4: Quality & Noise Thresholding', detail: 'Locating exact limits of clinical noise, motion blur, and SNR where sequence reconstruction remains safe.' },
+      { name: 'Objective 5: Multi-Center Generalization', detail: 'Validating zero-shot transferability across LifeBridge, UPTH, and RSUTH hospital networks.' }
+    ],
+    prototypeModules: [
+      { module: 'Clinical Quality Assessment', description: 'Automated evaluation of input scan quality against minimum safety thresholds.' },
+      { module: 'Sequence Inventory Audit', description: 'Automatic identification of present and missing MRI sequence modalities (T1, T2, FLAIR).' },
+      { module: 'Missing Sequence Reconstruction', description: 'Clinically validated synthesis of missing target sequences using transfer-learned generators.' },
+      { module: 'Voxel-Wise Uncertainty Mapping', description: 'Monte Carlo Dropout spatial confidence maps highlighting low-confidence reconstruction zones.' },
+      { module: 'Protocol Optimization Decision Support', description: 'Actionable recommendations for reduced physical scan times without diagnostic confidence loss.' }
+    ],
+    plannedPapers: [
+      'Paper 1: Characterizing Real-World Nigerian Clinical Brain MRI Data for AI Development',
+      'Paper 2: Transfer Learning and Domain Adaptation for Multimodal MRI Sequence Synthesis using Clinical Data',
+      'Paper 3: Quantifying the Impact of Motion, Noise, and Resolution Degradation on Deep Learning Synthesis Reliability',
+      'Paper 4: Pathology Preservation, Hallucination Audits, and Radiologist Non-Inferiority Assessment of AI-Reconstructed MRI Sequences',
+      'Paper 5: AI-Assisted Protocol Optimization: Clinical and Economic Evaluation of Shortened MRI Examinations in Nigerian Hospitals'
+    ]
+  },
+  {
     slug: 'image-quality-vs-ai-performance',
     title: 'Quantifying Clinical MRI Quality Effects on Deep Learning Performance',
     subtitle: 'Treating Real-World Image Quality Degradation as a Continuous Independent Variable to Define AI Safety Boundaries',

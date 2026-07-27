@@ -279,7 +279,7 @@ const mainTabs = [
   { id: 'all', label: 'All Content', icon: FaLayerGroup },
   { id: 'publications', label: 'Peer-Reviewed Publications', icon: FaNewspaper, count: publications.length },
   { id: 'talks', label: 'Invited Talks & Keynotes', icon: FaMicrophone, count: talksAndPresentations.length },
-  { id: 'ongoing', label: 'Ongoing Research', icon: FaGlobe, count: 6 }
+  { id: 'ongoing', label: 'Ongoing Research', icon: FaGlobe, count: 7 }
 ];
 
 const yearFilters = ['All', '2026', '2025', '2024', '2023', '2019'];
@@ -742,6 +742,47 @@ export default function Publications() {
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500 text-white text-xs font-bold shadow-lg shadow-teal-500/20 transition-all"
                   >
                     <span>Read Image Quality Metrics & Failure Thresholds</span>
+                    <FaArrowRight className="text-[10px]" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* DEEPACCESS-MRI TRANSLATIONAL STUDY */}
+              <div className="bg-gradient-to-br from-purple-950/80 via-gray-900 to-indigo-950/80 p-6 sm:p-8 rounded-2xl border border-purple-800/50 shadow-xl space-y-4">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <span className="px-3 py-1 rounded-full text-xs font-bold bg-purple-950 text-purple-300 border border-purple-700/50">
+                    Translational Study • Project 7
+                  </span>
+                  <span className="text-xs font-mono text-cyan-300 bg-gray-900 px-3 py-1 rounded-md border border-gray-800">
+                    DeepAccess-MRI • cGANs • Diffusion • Radiologist Audit
+                  </span>
+                </div>
+
+                <div className="space-y-2">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">
+                    DeepAccess-MRI: AI-Assisted MRI Protocol Optimization
+                  </h3>
+                  <p className="text-xs sm:text-sm text-purple-300 font-medium">
+                    Clinically Validated Missing Sequence Reconstruction for Shorter, Affordable Neuroimaging Protocols in Sub-Saharan Africa
+                  </p>
+                </div>
+
+                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed bg-gray-950/70 p-4 rounded-xl border border-gray-800">
+                  Developing and validating a transfer-learning framework that synthesizes missing structural MRI sequences (e.g. T1 $\rightarrow$ FLAIR) from heterogeneous Nigerian clinical scans, enabling shorter, non-inferior acquisition protocols without compromising diagnostic confidence.
+                </p>
+
+                <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
+                  <div className="flex flex-wrap gap-2 text-xs font-medium text-gray-400">
+                    <span className="bg-gray-900 px-2.5 py-1 rounded-md border border-gray-800 text-cyan-300">5 Translational Objectives</span>
+                    <span className="bg-gray-900 px-2.5 py-1 rounded-md border border-gray-800 text-purple-300">Radiologist Non-Inferiority Audit</span>
+                    <span className="bg-gray-900 px-2.5 py-1 rounded-md border border-gray-800 text-emerald-300">DeepAccess Prototype Software</span>
+                  </div>
+
+                  <Link
+                    href="/projects/deepaccess-mri"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs font-bold shadow-lg shadow-purple-500/20 transition-all"
+                  >
+                    <span>Read Proposal & Prototype Specifications</span>
                     <FaArrowRight className="text-[10px]" />
                   </Link>
                 </div>
