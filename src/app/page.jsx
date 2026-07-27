@@ -46,7 +46,7 @@ const floatingBadges = [
   },
   {
     icon: FaCode,
-    title: 'Full Stack Engineer',
+    title: 'Research software Engineer',
     color: 'from-blue-500/20 to-indigo-500/20 text-blue-400 border-blue-500/40',
     iconBg: 'bg-blue-500/20 text-blue-300'
   },
