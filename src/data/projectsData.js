@@ -1,5 +1,38 @@
 export const projectsData = [
   {
+    slug: 'explainability-and-clinical-plausibility',
+    title: 'Explainability & Clinical Plausibility of Deep Learning on Low-Field African Brain MRI',
+    subtitle: 'Evaluating Anatomical Attention vs. Shortcut Learning across Low-Field Scanners with Neuroradiology Expert Auditing',
+    category: 'Explainable AI (XAI) & Clinical Plausibility',
+    status: 'Active Benchmark / Project 6',
+    techStack: ['Python 3.11+', 'PyTorch', 'MONAI', 'Grad-CAM++', 'Integrated Gradients', 'Occlusion Sensitivity', 'KernelSHAP', 'ResNet-18', 'DenseNet-121', 'ConvNeXt Tiny'],
+    featured: true,
+    summary: 'Evaluating whether deep learning models trained on heterogeneous low-field African clinical MRI base decisions on medically plausible neuroanatomy or spurious imaging shortcuts using a 5-point neuroradiologist rating rubric and quantitative anatomical IoU.',
+    license: 'MIT',
+    author: 'Patrick Filima',
+    xaiMethods: [
+      { name: 'Grad-CAM', type: 'Gradient-based', description: 'Coarse class activation mapping from final convolutional layer gradients.' },
+      { name: 'Grad-CAM++', type: 'Gradient-based', description: 'Enhanced localization handling multiple object instances of identical classes.' },
+      { name: 'Integrated Gradients', type: 'Pixel-Attribution', description: 'Path-integrated gradients relative to a baseline image.' },
+      { name: 'Occlusion Sensitivity', type: 'Perturbation-based', description: 'Systematic patch masking to measure prediction probability changes.' },
+      { name: 'SHAP (Kernel/Deep)', type: 'Game-Theoretic', description: 'Shapley values assigning exact feature importance weights.' }
+    ],
+    anatomicalTargets: [
+      { disease: 'Hydrocephalus', targetROI: 'Lateral ventricles, third ventricle, periventricular zones', shortcut: 'Skull edges, orbits, neck, background noise' },
+      { disease: 'Dementia', targetROI: 'Hippocampal formation, temporal lobes, cortical sulci', shortcut: 'Occipital lobe, skull, cerebellomedullary cistern' },
+      { disease: 'Parkinson’s Disease', targetROI: 'Midbrain region, substantia nigra locus', shortcut: 'Frontal cortex, orbits, scanner artifacts' },
+      { disease: 'Epilepsy', targetROI: 'Hippocampus, mesial temporal lobes, cortical gyri', shortcut: 'Ventricles, skull, skull base' },
+      { disease: 'Healthy Controls', targetROI: 'Distributed, non-focal normal anatomical structures', shortcut: 'Single-voxel spikes, background noise' }
+    ],
+    scoringRubric: [
+      { score: 'Score 1 (Entirely Implausible)', detail: 'Heatmap focuses purely on background, skull, or imaging artifacts.' },
+      { score: 'Score 2 (Mostly Implausible)', detail: 'Attention is mostly on non-diagnostic regions with minimal target overlap.' },
+      { score: 'Score 3 (Indeterminate)', detail: 'Focus is diffuse across normal brain structures showing no diagnostic preference.' },
+      { score: 'Score 4 (Mostly Plausible)', detail: 'Major attention resides on expected diagnostic neuroanatomy with minor distraction.' },
+      { score: 'Score 5 (Highly Plausible)', detail: 'Attention maps are strictly confined to pathological structures per diagnostic criteria.' }
+    ]
+  },
+  {
     slug: 'data-centric-ai-low-field-mri',
     title: 'Data-Centric AI: Evaluating MRI Preprocessing on Low-Field African Brain MRI',
     subtitle: 'A Multi-Center Factorial Study of Preprocessing Impact on Model Robustness, Calibration, and Explainability',
@@ -7,7 +40,7 @@ export const projectsData = [
     status: 'Active Benchmark / Project 2',
     techStack: ['Python 3.11+', 'PyTorch 2.0+', 'MONAI 1.2+', 'ANTsPy', 'SimpleITK', 'TorchIO', 'ResNet-18', 'DenseNet-121', 'EfficientNet-B0'],
     featured: true,
-    summary: 'Evaluating whether optimizing preprocessing quality via factorial experimental design (Pipelines A–G) yields greater classification accuracy, calibration, and cross-hospital generalization than increasing neural network complexity on 225 low-field African brain MRI scans.',
+    summary: 'Evaluating whether optimizing preprocessing quality via factorial experimental design (Pipelines A–G) yields greater classification accuracy, calibration, and cross-hospital generalization than increasing model complexity on 225 low-field African brain MRI scans.',
     license: 'MIT',
     author: 'Patrick Filima',
     hospitalCohorts: [

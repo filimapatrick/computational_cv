@@ -624,6 +624,47 @@ export default function Publications() {
                 </div>
               </div>
 
+              {/* EXPLAINABILITY & CLINICAL PLAUSIBILITY STUDY */}
+              <div className="bg-gradient-to-br from-amber-950/80 via-gray-900 to-purple-950/80 p-6 sm:p-8 rounded-2xl border border-amber-800/50 shadow-xl space-y-4">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <span className="px-3 py-1 rounded-full text-xs font-bold bg-amber-950 text-amber-300 border border-amber-700/50">
+                    XAI & Clinical Plausibility • Project 6
+                  </span>
+                  <span className="text-xs font-mono text-purple-300 bg-gray-900 px-3 py-1 rounded-md border border-gray-800">
+                    Grad-CAM++ • Integrated Gradients • SHAP • MONAI
+                  </span>
+                </div>
+
+                <div className="space-y-2">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">
+                    Explainability & Clinical Plausibility of Deep Learning on Low-Field African Brain MRI
+                  </h3>
+                  <p className="text-xs sm:text-sm text-amber-300 font-medium">
+                    Evaluating Anatomical Attention vs. Shortcut Learning across Low-Field Scanners with Neuroradiology Expert Auditing
+                  </p>
+                </div>
+
+                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed bg-gray-950/70 p-4 rounded-xl border border-gray-800">
+                  Auditing whether deep learning models base decisions on medically plausible neuroanatomy or spurious imaging artifacts using a panel of expert neuroradiologists, 5-point Likert scoring rubrics, and quantitative anatomical overlap (IoU).
+                </p>
+
+                <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
+                  <div className="flex flex-wrap gap-2 text-xs font-medium text-gray-400">
+                    <span className="bg-gray-900 px-2.5 py-1 rounded-md border border-gray-800 text-cyan-300">5 Attribution Frameworks</span>
+                    <span className="bg-gray-900 px-2.5 py-1 rounded-md border border-gray-800 text-purple-300">Expert Neuroradiology Rubric</span>
+                    <span className="bg-gray-900 px-2.5 py-1 rounded-md border border-gray-800 text-emerald-300">Anatomical IoU & ECE</span>
+                  </div>
+
+                  <Link
+                    href="/projects/explainability-and-clinical-plausibility"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-500 hover:to-yellow-500 text-white text-xs font-bold shadow-lg shadow-amber-500/20 transition-all"
+                  >
+                    <span>Read XAI Framework & Scoring Rubric</span>
+                    <FaArrowRight className="text-[10px]" />
+                  </Link>
+                </div>
+              </div>
+
               {/* FEATURED METHODOLOGICAL STUDY */}
               <div className="bg-gradient-to-br from-purple-950/80 via-gray-900 to-blue-950/80 p-6 sm:p-8 rounded-2xl border border-purple-800/50 shadow-xl space-y-4">
                 <div className="flex flex-wrap items-center justify-between gap-3">

@@ -215,6 +215,61 @@ export default function ProjectDetail({ params }) {
             ))}
           </div>
         </section>
+      {/* EXPLAINABILITY ATTRIBUTION METHODS & RUBRIC */}
+      {project.xaiMethods && (
+        <section className="space-y-8">
+          <div className="flex items-center gap-3 pb-2 border-b border-gray-800">
+            <FaFlask className="text-2xl text-cyan-400" />
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">5-Attribution Explainability Framework</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {project.xaiMethods.map((xai, xIdx) => (
+              <div key={xIdx} className="bg-gray-900/80 p-5 rounded-2xl border border-gray-800 space-y-1">
+                <span className="text-xs font-bold text-purple-400 uppercase tracking-wider block">{xai.type}</span>
+                <h3 className="text-base font-bold text-white">{xai.name}</h3>
+                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">{xai.description}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Expert Scoring Rubric */}
+          {project.scoringRubric && (
+            <div className="bg-gray-900/90 rounded-2xl border border-gray-800 overflow-hidden shadow-xl space-y-2">
+              <div className="p-4 bg-gray-950 border-b border-gray-800 flex items-center justify-between">
+                <span className="text-xs font-bold text-gray-300 uppercase tracking-wider">Neuroradiologist 5-Point Likert Rubric</span>
+                <span className="text-xs font-bold text-cyan-400 uppercase tracking-wider">Clinical Plausibility Criteria</span>
+              </div>
+              <div className="divide-y divide-gray-800/60 text-xs sm:text-sm">
+                {project.scoringRubric.map((rub, rIdx) => (
+                  <div key={rIdx} className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-gray-800/40">
+                    <span className="font-bold text-cyan-300 shrink-0">{rub.score}</span>
+                    <span className="text-xs text-gray-300">{rub.detail}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Anatomical Targets vs Implausible Shortcuts */}
+          {project.anatomicalTargets && (
+            <div className="bg-gray-900/90 rounded-2xl border border-gray-800 overflow-hidden shadow-xl space-y-2">
+              <div className="p-4 bg-gray-950 border-b border-gray-800 flex items-center justify-between">
+                <span className="text-xs font-bold text-gray-300 uppercase tracking-wider">Disease Pathology</span>
+                <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider">Expected ROI vs. Shortcut Trap</span>
+              </div>
+              <div className="divide-y divide-gray-800/60 text-xs sm:text-sm">
+                {project.anatomicalTargets.map((anat, aIdx) => (
+                  <div key={aIdx} className="p-4 grid grid-cols-1 md:grid-cols-12 gap-3 hover:bg-gray-800/40 items-center">
+                    <div className="md:col-span-3 font-bold text-white">{anat.disease}</div>
+                    <div className="md:col-span-5 text-xs text-emerald-300"><strong className="text-gray-400">Target ROI:</strong> {anat.targetROI}</div>
+                    <div className="md:col-span-4 text-xs text-rose-300"><strong className="text-gray-400">Shortcut Trap:</strong> {anat.shortcut}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </section>
       )}
 
       {/* DATASET SPECIFICATIONS */}
