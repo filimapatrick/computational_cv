@@ -443,6 +443,52 @@ export default function Experience() {
         </div>
       </motion.div>
 
+      {/* FEATURED CASE STUDY PROJECT CARD */}
+      <motion.section id="projects" variants={fadeInUp} className="bg-gradient-to-br from-purple-950/60 via-gray-900 to-blue-950/60 p-8 sm:p-10 rounded-3xl border border-purple-800/40 shadow-2xl space-y-6">
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="p-3 rounded-2xl bg-gradient-to-tr from-purple-600 to-blue-500 text-white shadow-lg shadow-purple-500/20">
+              <FaFlask className="text-xl" />
+            </div>
+            <div>
+              <span className="text-xs font-bold text-cyan-300 uppercase tracking-wider block">Featured Methodological Case Study</span>
+              <h2 className="text-2xl sm:text-3xl font-black text-white">Beyond Research-Grade MRI: AI Robustness on Clinical Scans</h2>
+            </div>
+          </div>
+
+          <Link
+            href="/projects/clinical-mri-ai-robustness"
+            className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white text-xs font-bold shadow-lg shadow-purple-500/20 flex items-center gap-2 transition-all shrink-0"
+          >
+            <span>View Full Technical Case Study</span>
+            <FaExternalLinkAlt className="text-[10px]" />
+          </Link>
+        </div>
+
+        <p className="text-gray-300 text-sm sm:text-base leading-relaxed bg-gray-950/60 p-5 rounded-2xl border border-gray-800/80">
+          A systematic empirical benchmark investigating how classical radiomics (PyRadiomics) and 3D deep learning models (MONAI ResNet-18 & DenseNet-121) degrade under real-world clinical MRI quality constraints (Gaussian blur, Rician noise, slice downsampling, and motion ringing) on an 88-subject Nigerian brain MRI dataset.
+        </p>
+
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
+          <div className="bg-gray-900/80 p-4 rounded-xl border border-gray-800 space-y-1">
+            <span className="text-[10px] text-purple-400 uppercase font-semibold block">Cohort</span>
+            <span className="text-xs font-bold text-white">88 Subjects / 787 Scans</span>
+          </div>
+          <div className="bg-gray-900/80 p-4 rounded-xl border border-gray-800 space-y-1">
+            <span className="text-[10px] text-blue-400 uppercase font-semibold block">Models</span>
+            <span className="text-xs font-bold text-white">ResNet-18, DenseNet-121, PyRadiomics</span>
+          </div>
+          <div className="bg-gray-900/80 p-4 rounded-xl border border-gray-800 space-y-1">
+            <span className="text-[10px] text-cyan-400 uppercase font-semibold block">Metrics</span>
+            <span className="text-xs font-bold text-white">RRI, AURC, ECE, Grad-CAM</span>
+          </div>
+          <div className="bg-gray-900/80 p-4 rounded-xl border border-gray-800 space-y-1">
+            <span className="text-[10px] text-emerald-400 uppercase font-semibold block">Frameworks</span>
+            <span className="text-xs font-bold text-white">Python 3.11+, PyTorch, MONAI</span>
+          </div>
+        </div>
+      </motion.section>
+
       {/* Experience List */}
       <div className="space-y-12">
         {experiences.map((job, jobIndex) => {
