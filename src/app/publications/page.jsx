@@ -279,7 +279,7 @@ const mainTabs = [
   { id: 'all', label: 'All Content', icon: FaLayerGroup },
   { id: 'publications', label: 'Peer-Reviewed Publications', icon: FaNewspaper, count: publications.length },
   { id: 'talks', label: 'Invited Talks & Keynotes', icon: FaMicrophone, count: talksAndPresentations.length },
-  { id: 'ongoing', label: 'Ongoing Research', icon: FaGlobe, count: 3 }
+  { id: 'ongoing', label: 'Ongoing Research', icon: FaGlobe, count: 4 }
 ];
 
 const yearFilters = ['All', '2026', '2025', '2024', '2023', '2019'];
