@@ -271,6 +271,40 @@ export default function ProjectDetail({ params }) {
               </div>
             </div>
           )}
+      {/* AFRICAN CLINICAL BRAIN MRI BENCHMARK TASKS & METRICS */}
+      {project.benchmarkTasks && (
+        <section className="space-y-8">
+          <div className="flex items-center gap-3 pb-2 border-b border-gray-800">
+            <FaCheckCircle className="text-2xl text-cyan-400" />
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">7 Standardized Afri-Brain-Bench Tasks</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {project.benchmarkTasks.map((bt, bIdx) => (
+              <div key={bIdx} className="bg-gray-900/80 p-5 rounded-2xl border border-gray-800 space-y-1">
+                <span className="text-xs font-bold text-cyan-400 uppercase tracking-wider block">{bt.name}</span>
+                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">{bt.detail}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Benchmark Metrics & Axes */}
+          {project.benchmarkMetrics && (
+            <div className="bg-gray-900/90 rounded-2xl border border-gray-800 overflow-hidden shadow-xl space-y-2">
+              <div className="p-4 bg-gray-950 border-b border-gray-800 flex items-center justify-between">
+                <span className="text-xs font-bold text-gray-300 uppercase tracking-wider">Evaluation Axis</span>
+                <span className="text-xs font-bold text-cyan-400 uppercase tracking-wider">Target Metrics & Protocol</span>
+              </div>
+              <div className="divide-y divide-gray-800/60 text-xs sm:text-sm">
+                {project.benchmarkMetrics.map((bm, mIdx) => (
+                  <div key={mIdx} className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-gray-800/40">
+                    <span className="font-bold text-purple-300 shrink-0">{bm.axis}</span>
+                    <span className="text-xs text-gray-300">{bm.metric}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </section>
       )}
 

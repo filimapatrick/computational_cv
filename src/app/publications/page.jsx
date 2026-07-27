@@ -665,6 +665,47 @@ export default function Publications() {
                 </div>
               </div>
 
+              {/* AFRICAN CLINICAL BRAIN MRI BENCHMARK */}
+              <div className="bg-gradient-to-br from-indigo-950/80 via-gray-900 to-cyan-950/80 p-6 sm:p-8 rounded-2xl border border-indigo-800/50 shadow-xl space-y-4">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <span className="px-3 py-1 rounded-full text-xs font-bold bg-indigo-950 text-indigo-300 border border-indigo-700/50">
+                    Benchmark Ecosystem • Project 1
+                  </span>
+                  <span className="text-xs font-mono text-cyan-300 bg-gray-900 px-3 py-1 rounded-md border border-gray-800">
+                    Afri-Brain-Bench • TorchIO • MONAI • PyTorch
+                  </span>
+                </div>
+
+                <div className="space-y-2">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">
+                    African Clinical Brain MRI Benchmark (Afri-Brain-Bench)
+                  </h3>
+                  <p className="text-xs sm:text-sm text-indigo-300 font-medium">
+                    A Standardized Benchmark Ecosystem for Evaluating AI Generalization, Calibration, and Explainability on African Clinical Scans
+                  </p>
+                </div>
+
+                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed bg-gray-950/70 p-4 rounded-xl border border-gray-800">
+                  Introducing Afri-Brain-Bench—a standardized multi-center benchmark dataset of 225 clinical MRI examinations across 3 Nigerian hospitals providing 7 standardized evaluation tasks, cross-hospital splits, ECE calibration scoring, and Grad-CAM spatial ROI auditing.
+                </p>
+
+                <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
+                  <div className="flex flex-wrap gap-2 text-xs font-medium text-gray-400">
+                    <span className="bg-gray-900 px-2.5 py-1 rounded-md border border-gray-800 text-cyan-300">7 Benchmark Tasks</span>
+                    <span className="bg-gray-900 px-2.5 py-1 rounded-md border border-gray-800 text-purple-300">ML & DL Baseline Suite</span>
+                    <span className="bg-gray-900 px-2.5 py-1 rounded-md border border-gray-800 text-emerald-300">LOHO & Cross-Hospital Validation</span>
+                  </div>
+
+                  <Link
+                    href="/projects/african-brain-mri-benchmark"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 text-white text-xs font-bold shadow-lg shadow-indigo-500/20 transition-all"
+                  >
+                    <span>Read Benchmark Tasks & Baseline Suite</span>
+                    <FaArrowRight className="text-[10px]" />
+                  </Link>
+                </div>
+              </div>
+
               {/* FEATURED METHODOLOGICAL STUDY */}
               <div className="bg-gradient-to-br from-purple-950/80 via-gray-900 to-blue-950/80 p-6 sm:p-8 rounded-2xl border border-purple-800/50 shadow-xl space-y-4">
                 <div className="flex flex-wrap items-center justify-between gap-3">

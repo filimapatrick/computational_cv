@@ -1,5 +1,38 @@
 export const projectsData = [
   {
+    slug: 'african-brain-mri-benchmark',
+    title: 'African Clinical Brain MRI Benchmark (Afri-Brain-Bench)',
+    subtitle: 'A Standardized Benchmark Ecosystem for Evaluating AI Generalization, Calibration, and Explainability on African Clinical Scans',
+    category: 'Benchmark Ecosystem & Clinical Dataset',
+    status: 'Active Benchmark / Project 1',
+    techStack: ['Python 3.11+', 'PyTorch', 'MONAI', 'TorchIO', 'ResNet-18', 'DenseNet-121', 'EfficientNet-B0', 'ConvNeXt Tiny', 'Scikit-Learn'],
+    featured: true,
+    summary: 'Introducing Afri-Brain-Bench—a standardized multi-center benchmark dataset of 225 clinical MRI examinations across 3 Nigerian hospitals for evaluating deep learning model robustness, calibration error (ECE), and out-of-hospital domain generalization.',
+    license: 'MIT',
+    author: 'Patrick Filima',
+    benchmarkTasks: [
+      { name: 'Task 1: Multi-Class Disease Classification', detail: 'Classify scans into 5 categories (Hydrocephalus, Dementia, Parkinson’s, Epilepsy, Control).' },
+      { name: 'Task 2: Binary Disease Detection', detail: 'Predict neurological pathology vs. Healthy Control.' },
+      { name: 'Task 3: Disease-Specific Experiments', detail: 'Targeted binary classification experiments (e.g., Hydrocephalus vs. Control).' },
+      { name: 'Task 4: Cross-Hospital Evaluation', detail: 'Train on LifeBridge, test on UPTH to evaluate direct domain transfer.' },
+      { name: 'Task 5: Leave-One-Hospital-Out (LOHO)', detail: 'Train on 2 hospitals, evaluate zero-shot generalization on the 3rd hospital.' },
+      { name: 'Task 6: Image Quality Robustness', detail: 'Evaluate performance stratified across High, Moderate, and Low SNR quality cohorts.' },
+      { name: 'Task 7: Explainability Evaluation', detail: 'Spatial ROI overlap (IoU) of Grad-CAM attention maps under clinical domain shift.' }
+    ],
+    baselineSuite: [
+      { category: 'Classical Machine Learning', models: 'Logistic Regression, Support Vector Machines (SVM), Random Forest on radiomics/voxel inputs' },
+      { category: 'Deep Learning Architectures', models: 'ResNet-18, DenseNet-121, EfficientNet-B0, ConvNeXt Tiny (2D/3D)' }
+    ],
+    benchmarkMetrics: [
+      { axis: 'Classification', metric: 'Accuracy, Precision, Recall, F1-Score, ROC-AUC, PR-AUC' },
+      { axis: 'Calibration', metric: 'Expected Calibration Error (ECE), Brier Score' },
+      { axis: 'Robustness', metric: 'Cross-hospital accuracy decay (Delta F1-Score)' },
+      { axis: 'Generalization', metric: 'Leave-One-Hospital-Out zero-shot degradation' },
+      { axis: 'Explainability', metric: 'Grad-CAM Attention Consistency & Spatial ROI Overlap (IoU)' },
+      { axis: 'Statistical Stability', metric: '95% Bootstrap Confidence Intervals (1,000 iterations)' }
+    ]
+  },
+  {
     slug: 'explainability-and-clinical-plausibility',
     title: 'Explainability & Clinical Plausibility of Deep Learning on Low-Field African Brain MRI',
     subtitle: 'Evaluating Anatomical Attention vs. Shortcut Learning across Low-Field Scanners with Neuroradiology Expert Auditing',

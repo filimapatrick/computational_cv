@@ -51,7 +51,7 @@ export default function Sidebar() {
         <div className="mt-auto">
           <div className="flex flex-col space-y-3">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/filimapatrick/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-xl text-gray-600 hover:text-blue-600 transition-colors"
