@@ -18,7 +18,9 @@ import {
   FaBuilding,
   FaUsers,
   FaArrowRight,
-  FaTerminal
+  FaTerminal,
+  FaFlask,
+  FaExternalLinkAlt
 } from 'react-icons/fa';
 
 const fadeInUp = {
