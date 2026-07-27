@@ -706,6 +706,47 @@ export default function Publications() {
                 </div>
               </div>
 
+              {/* IMAGE QUALITY VS AI PERFORMANCE */}
+              <div className="bg-gradient-to-br from-teal-950/80 via-gray-900 to-emerald-950/80 p-6 sm:p-8 rounded-2xl border border-teal-800/50 shadow-xl space-y-4">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <span className="px-3 py-1 rounded-full text-xs font-bold bg-teal-950 text-teal-300 border border-teal-700/50">
+                    Image Quality Study • Project 5
+                  </span>
+                  <span className="text-xs font-mono text-cyan-300 bg-gray-900 px-3 py-1 rounded-md border border-gray-800">
+                    IQMs • SimpleITK • OpenCV • PyTorch
+                  </span>
+                </div>
+
+                <div className="space-y-2">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">
+                    Quantifying Clinical MRI Quality Effects on Deep Learning Performance
+                  </h3>
+                  <p className="text-xs sm:text-sm text-teal-300 font-medium">
+                    Treating Real-World Image Quality Degradation as a Continuous Independent Variable to Define AI Safety Boundaries
+                  </p>
+                </div>
+
+                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed bg-gray-950/70 p-4 rounded-xl border border-gray-800">
+                  Core Clinical Question: "When MRI quality degrades, how reliable do AI diagnostic systems remain?" Systematically measuring sharpness, SNR, CNR, entropy, and motion blur as continuous independent variables to establish safe operational deployment thresholds.
+                </p>
+
+                <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
+                  <div className="flex flex-wrap gap-2 text-xs font-medium text-gray-400">
+                    <span className="bg-gray-900 px-2.5 py-1 rounded-md border border-gray-800 text-cyan-300">9 Image Quality Metrics (IQMs)</span>
+                    <span className="bg-gray-900 px-2.5 py-1 rounded-md border border-gray-800 text-purple-300">4 Quality Strata Tiers</span>
+                    <span className="bg-gray-900 px-2.5 py-1 rounded-md border border-gray-800 text-emerald-300">ECE & Grad-CAM Drift Analysis</span>
+                  </div>
+
+                  <Link
+                    href="/projects/image-quality-vs-ai-performance"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500 text-white text-xs font-bold shadow-lg shadow-teal-500/20 transition-all"
+                  >
+                    <span>Read Image Quality Metrics & Failure Thresholds</span>
+                    <FaArrowRight className="text-[10px]" />
+                  </Link>
+                </div>
+              </div>
+
               {/* FEATURED METHODOLOGICAL STUDY */}
               <div className="bg-gradient-to-br from-purple-950/80 via-gray-900 to-blue-950/80 p-6 sm:p-8 rounded-2xl border border-purple-800/50 shadow-xl space-y-4">
                 <div className="flex flex-wrap items-center justify-between gap-3">

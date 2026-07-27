@@ -1,5 +1,33 @@
 export const projectsData = [
   {
+    slug: 'image-quality-vs-ai-performance',
+    title: 'Quantifying Clinical MRI Quality Effects on Deep Learning Performance',
+    subtitle: 'Treating Real-World Image Quality Degradation as a Continuous Independent Variable to Define AI Safety Boundaries',
+    category: 'Medical Image Quality & AI Reliability',
+    status: 'Active Benchmark / Project 5',
+    techStack: ['Python 3.11+', 'PyTorch', 'MONAI', 'SimpleITK', 'OpenCV', 'Scikit-Image', 'ResNet-18', 'DenseNet-121', 'EfficientNet-B0'],
+    featured: true,
+    summary: 'Systematically quantifying how continuous objective Image Quality Metrics (SNR, CNR, blur, sharpness, edge strength) affect diagnostic accuracy, calibration error (ECE), and Grad-CAM saliency drift across 225 clinical scans.',
+    license: 'MIT',
+    author: 'Patrick Filima',
+    iqmList: [
+      { name: 'Sharpness', metric: 'Edge definition measured via the variance of Laplacian.' },
+      { name: 'Signal-to-Noise Ratio (SNR)', metric: 'Signal intensity relative to estimated background noise.' },
+      { name: 'Contrast-to-Noise Ratio (CNR)', metric: 'Tissue contrast definition relative to image noise.' },
+      { name: 'Entropy', metric: 'Information content and spatial image complexity.' },
+      { name: 'Blur', metric: 'Estimated via gradient-based and frequency-domain methods.' },
+      { name: 'Edge Strength', metric: 'Preservation of anatomical boundaries.' },
+      { name: 'Intensity Uniformity', metric: 'Assesses bias field and RF coil inhomogeneity.' },
+      { name: 'Resolution Metrics', metric: 'Pixel spacing, slice thickness, and matrix dimensions.' }
+    ],
+    qualityTiers: [
+      { tier: 'High Quality', description: 'High sharpness, high SNR, minimal noise, clean anatomical boundaries.' },
+      { tier: 'Moderate Quality', description: 'Mild blur or noise, clinically clean and acceptable.' },
+      { tier: 'Low Quality', description: 'Noticeable artifacts, visible motion blur, low contrast.' },
+      { tier: 'Very Low Quality', description: 'Significant degradation, severe motion/blur, but still clinically interpretable.' }
+    ]
+  },
+  {
     slug: 'african-brain-mri-benchmark',
     title: 'African Clinical Brain MRI Benchmark (Afri-Brain-Bench)',
     subtitle: 'A Standardized Benchmark Ecosystem for Evaluating AI Generalization, Calibration, and Explainability on African Clinical Scans',
@@ -7,7 +35,7 @@ export const projectsData = [
     status: 'Active Benchmark / Project 1',
     techStack: ['Python 3.11+', 'PyTorch', 'MONAI', 'TorchIO', 'ResNet-18', 'DenseNet-121', 'EfficientNet-B0', 'ConvNeXt Tiny', 'Scikit-Learn'],
     featured: true,
-    summary: 'Introducing Afri-Brain-Bench—a standardized multi-center benchmark dataset of 225 clinical MRI examinations across 3 Nigerian hospitals for evaluating deep learning model robustness, calibration error (ECE), and out-of-hospital domain generalization.',
+    summary: 'Introducing Afri-Brain-Bench—a standardized multi-center benchmark dataset of 225 clinical MRI examinations across 3 Nigerian hospitals providing 7 standardized evaluation tasks, cross-hospital splits, ECE calibration scoring, and Grad-CAM spatial ROI auditing.',
     license: 'MIT',
     author: 'Patrick Filima',
     benchmarkTasks: [

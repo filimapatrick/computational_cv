@@ -308,6 +308,43 @@ export default function ProjectDetail({ params }) {
         </section>
       )}
 
+      {/* IMAGE QUALITY METRICS (IQMs) & QUALITY TIERS */}
+      {project.iqmList && (
+        <section className="space-y-8">
+          <div className="flex items-center gap-3 pb-2 border-b border-gray-800">
+            <FaChartLine className="text-2xl text-teal-400" />
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">Objective Image Quality Metrics (IQMs) & Quality Tiers</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {project.iqmList.map((iqm, iIdx) => (
+              <div key={iIdx} className="bg-gray-900/80 p-5 rounded-2xl border border-gray-800 space-y-1">
+                <span className="text-xs font-bold text-teal-300 uppercase tracking-wider block">{iqm.name}</span>
+                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">{iqm.metric}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Quality Stratification Tiers */}
+          {project.qualityTiers && (
+            <div className="bg-gray-900/90 rounded-2xl border border-gray-800 overflow-hidden shadow-xl space-y-2">
+              <div className="p-4 bg-gray-950 border-b border-gray-800 flex items-center justify-between">
+                <span className="text-xs font-bold text-gray-300 uppercase tracking-wider">Quality Stratification Tier</span>
+                <span className="text-xs font-bold text-teal-400 uppercase tracking-wider">Cohort Characteristics & Degradation</span>
+              </div>
+              <div className="divide-y divide-gray-800/60 text-xs sm:text-sm">
+                {project.qualityTiers.map((qt, qIdx) => (
+                  <div key={qIdx} className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-gray-800/40">
+                    <span className="font-bold text-teal-300 shrink-0">{qt.tier}</span>
+                    <span className="text-xs text-gray-300">{qt.description}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </section>
+      )}
+
       {/* DATASET SPECIFICATIONS */}
       {project.datasetSpecs && (
         <section className="space-y-6">

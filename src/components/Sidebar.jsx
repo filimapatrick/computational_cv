@@ -59,7 +59,7 @@ export default function Sidebar() {
               GitHub
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://linkedin.com/in/patrickfilima"
               target="_blank"
               rel="noopener noreferrer"
               className="text-xl text-gray-600 hover:text-blue-600 transition-colors"
