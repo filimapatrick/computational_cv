@@ -12,7 +12,9 @@ import {
   FaCalendarAlt, 
   FaMapMarkerAlt, 
   FaGlobe,
-  FaLayerGroup
+  FaLayerGroup,
+  FaChartLine,
+  FaAward
 } from 'react-icons/fa';
 
 const fadeInUp = {
@@ -31,84 +33,164 @@ const staggerContainer = {
 
 const publications = [
   {
+    year: '2026',
+    monthYear: 'June 2026',
+    type: 'Journal Article',
+    category: 'Neuroscience & Data Governance',
+    title: 'Who Owns African Brain Data? Reclaiming Control, Value, and Responsibility in Africa’s Brain Data Future',
+    authors: 'Damian Eke, Olivia P Matshabane, Alfred K Njamnshi, Amadi O Ihunwo, Patrick Leo Filima, et al.',
+    journal: 'Frontiers in Neuroinformatics / ABDN Initiative',
+    links: [{ type: 'Journal Article', url: '#' }, { type: 'DOI', url: '#' }]
+  },
+  {
     year: '2025',
+    monthYear: 'October 2025',
+    type: 'Conference Poster',
+    category: 'Neuroimaging & Cloud Computing',
+    title: 'CURE Neuroscience Collaboration across the Atlantic: Bridging the Atlantic with Undergraduate Research and Cloud Computing (Analysis of Brain Volumetric Differences in ADHD)',
+    authors: 'Abdularahman Aljifareri, Khadija Alrabiey, Nathaniel Brownlee, Franco Delogu, Patrick Leo Filima, et al.',
+    journal: 'Neuroscience Society of Nigeria Annual Conference',
+    links: [{ type: 'Poster', url: '#' }, { type: 'Abstract', url: '#' }]
+  },
+  {
+    year: '2025',
+    monthYear: 'August 2025',
     type: 'Journal Article',
+    category: 'Anthropometry',
+    title: 'Application of Linear Anthropometric Parameters in Estimating Stature: A Study of Adult Igbo Population in Nigeria',
+    authors: 'Faustina Chiamaka Irozulike, Doris K. Ogbuokiri, Tobi Boma Selekekeme, Amobichukwu Ezeorachi, Patrick Leo Filima, et al.',
+    journal: 'Journal of Anthropometric Research',
+    links: [{ type: 'Journal Article', url: '#' }]
+  },
+  {
+    year: '2025',
+    monthYear: 'March 2025',
+    type: 'Dataset & Paper',
     category: 'Neuroscience',
+    title: 'A labeled Clinical-MRI dataset of Nigerian brains',
+    authors: 'Eberechi Wogu, Patrick Leo Filima, Brad Caron, Franco Pestilli, et al.',
+    journal: 'Scientific Data (Nature Portfolio), dx.doi:2211.04425(v1)',
+    links: [{ type: 'Nature Scientific Data', url: '#' }, { type: 'DOI', url: '#' }]
+  },
+  {
+    year: '2025',
+    monthYear: 'March 2025',
+    type: 'Journal Article',
+    category: 'Neuroinformatics',
     title: 'FAIR African brain data: challenges and opportunities',
-    authors: 'Wogu, E., Ogoh, G. I., Filima, P. L., Eke, D.',
+    authors: 'Eberechi Wogu, George Inyila Ogoh, Patrick Leo Filima, Damian Eke, et al.',
     journal: 'Frontiers in Neuroinformatics',
-    links: [
-      { type: 'Journal Article', url: '#' },
-      { type: 'DOI', url: '#' }
-    ]
+    links: [{ type: 'Frontiers Article', url: '#' }, { type: 'DOI', url: '#' }]
   },
   {
-    year: '2024',
+    year: '2025',
+    monthYear: 'February 2025',
     type: 'Journal Article',
-    category: 'Neuroscience',
-    title: 'Thalamic Nuclei Morphometry and Handedness: Assessing Grey Matter Volume Differences in Left- and Right-Dominant Individuals',
-    authors: 'Wogu, E., Filima, P. L.',
-    journal: 'Nigerian Journal of Neuroscience, 15(1):22-27',
-    links: [
-      { type: 'Journal Article', url: '#' },
-      { type: 'DOI', url: '#' }
-    ]
+    category: 'Medical Research',
+    title: 'Anthropometric Health Assessment of the Igbo Ethnic Group in Nigeria: A Study of BMI and Waist-to-Hip Ratio',
+    authors: 'Faustina Chiamaka Irozulike, Jervas Ekezie, Kelechi Peace Godson, Patrick Leo Filima, et al.',
+    journal: 'Asian Journal of Medical Principles and Clinical Practice',
+    links: [{ type: 'Journal Article', url: '#' }]
   },
   {
     year: '2024',
+    monthYear: 'December 2024',
+    type: 'Journal Article',
+    category: 'Forensic Research',
+    title: 'Assessment of Earlobe Patterns and Ear Shapes in Hausa Ethnic Group of Nigeria: Implications for Forensic and Clinical Applications',
+    authors: 'Faustina Chiamaka Irozulike, Gospel Uchechukwu Collins, Nwofor Priscilla Nkechinyere, Tobi Boma Selekekeme, Patrick Leo Filima, et al.',
+    journal: 'Journal of Forensic & Clinical Research',
+    links: [{ type: 'Journal Article', url: '#' }]
+  },
+  {
+    year: '2024',
+    monthYear: 'November 2024',
     type: 'Journal Article',
     category: 'Anthropometry',
     title: 'Anthropometric Analysis of Cephalic Index in Orlu Population of Imo State, Nigeria',
-    authors: 'Irozulike, F. C., Filima, P. L., Ekokodje, J. W., Asiwe, N.',
+    authors: 'Faustina Chiamaka Irozulike, Patrick Leo Filima, Joy Wilberforce Ekokodje, Nicholas Asiwe, et al.',
     journal: 'Journal of Anthropometry',
-    links: [
-      { type: 'Journal Article', url: '#' }
-    ]
+    links: [{ type: 'Journal Article', url: '#' }]
   },
   {
     year: '2024',
+    monthYear: 'November 2024',
     type: 'Journal Article',
     category: 'Medical Research',
-    title: 'Knowledge, Attitudes, and Perceptions of Cesarean Section Among Women in Delta State, Nigeria',
-    authors: 'Iwegbu, R. E., Irozulike, F. C., Asiwe, N., Filima, P. L.',
+    title: 'Knowledge, Attitudes, and Perceptions of Cesarean Section Among Women in Delta State, Nigeria: Implications for Maternal Health Interventions',
+    authors: 'Rosemary Ewere Iwegbu, Faustina Chiamaka Irozulike, Nicholas Asiwe, Patrick Leo Filima, et al.',
     journal: 'Journal of Maternal Health',
-    links: [
-      { type: 'Journal Article', url: '#' }
-    ]
+    links: [{ type: 'Journal Article', url: '#' }]
   },
   {
-    year: '2023',
-    type: 'Dataset',
+    year: '2024',
+    monthYear: 'June 2024',
+    type: 'Journal Article',
     category: 'Neuroscience',
-    title: 'A labeled Clinical-MRI dataset of Nigerian brains',
-    authors: 'Wogu, E., Filima, P. L., Caron, B., Pestilli, F.',
-    journal: 'Nature Scientific Data, dx.doi:2211.04425(v1)',
-    links: [
-      { type: 'Dataset', url: '#' },
-      { type: 'DOI', url: '#' }
-    ]
+    title: 'Thalamic Nuclei Morphometry and Handedness: Assessing Grey Matter Volume Differences in Left- and Right-Dominant Individuals',
+    authors: 'Eberechi Wogu, Patrick Leo Filima',
+    journal: 'Nigerian Journal of Neuroscience, 15(1):22-27',
+    links: [{ type: 'Journal Article', url: '#' }, { type: 'DOI', url: '#' }]
   },
   {
-    year: '2023',
+    year: '2024',
+    monthYear: 'June 2024',
+    type: 'Journal Article',
+    category: 'Forensic Anthropometry',
+    title: 'Discriminant and Multiple Linear Regression Analysis for Sex and Stature Estimation Using Upper Arm and Forearm-Hand Length: A Study among Mgbidi Population of Imo State Nigeria',
+    authors: 'Nicholas Asiwe, Oghenefego Michael Adheke, Ikechukwu Ezeah, Victor Buseni, Patrick Leo Filima, et al.',
+    journal: 'Asian Journal of Medical Principles and Clinical Practice',
+    links: [{ type: 'Journal Article', url: '#' }]
+  },
+  {
+    year: '2024',
+    monthYear: 'June 2024',
+    type: 'Journal Article',
+    category: 'Anthropometry',
+    title: 'Anthropometric Estimation of Biological Parameters in Nigerian Sub-Populations',
+    authors: 'Nicholas Asiwe, Oghenefego Michael Adheke, Ikechukwu Ezeah, Victor Buseni, Patrick Leo Filima, et al.',
+    journal: 'Asian Journal of Medical Principles and Clinical Practice',
+    links: [{ type: 'Journal Article', url: '#' }]
+  },
+  {
+    year: '2024',
+    monthYear: 'January 2024',
     type: 'Journal Article',
     category: 'Medical Research',
-    title: 'Prevalence of Dysmenorrhea and its Management among Undergraduate Students of the University of Port Harcourt',
-    authors: 'Irozulike, F. C., Asiwe, N., Ekokodje, J. W., Filima, P. L.',
+    title: 'Comparative Morphometric Analysis of Physical Attributes in Nigerian Sub-Populations',
+    authors: 'Faustina Chiamaka Irozulike, Patrick Leo Filima, Joy Wilberforce Ekokodje, Nicholas Asiwe, et al.',
+    journal: 'Asian Journal of Medical Principles and Clinical Practice',
+    links: [{ type: 'Journal Article', url: '#' }]
+  },
+  {
+    year: '2023',
+    monthYear: 'November 2023',
+    type: 'Journal Article',
+    category: 'Medical Research',
+    title: 'Prevalence of Dysmenorrhea and its Management among Undergraduate Students of the University of Port Harcourt, Nigeria',
+    authors: 'Faustina Chiamaka Irozulike, Nicholas Asiwe, Joy Wilberforce Ekokodje, Patrick Leo Filima, et al.',
     journal: 'Asian Journal of Advanced Research and Reports',
-    links: [
-      { type: 'Journal Article', url: '#' }
-    ]
+    links: [{ type: 'Journal Article', url: '#' }]
+  },
+  {
+    year: '2023',
+    monthYear: 'November 2023',
+    type: 'Journal Article',
+    category: 'Anthropometry',
+    title: 'Pattern of Earlobe Attachment among Igbo Ethnic Group of Nigeria',
+    authors: 'Nicholas Asiwe, Faustina Chiamaka Irozulike, Patrick Leo Filima, Bariereyiga Nadum Yirate, et al.',
+    journal: 'Asian Journal of Advanced Research and Reports',
+    links: [{ type: 'Journal Article', url: '#' }]
   },
   {
     year: '2019',
+    monthYear: 'December 2019',
     type: 'Journal Article',
     category: 'Neuroscience',
-    title: 'Neuroprotective effect of aqueous extract of xylopia aethiopica seed on lead-induced injury on the hippocampus and cerebral cortex',
-    authors: 'George, S., Filima, P. L., David, L. K., Orish, C.',
+    title: 'Neuroprotective effect of aqueous extract of xylopia aethiopica seed on lead-induced injury on the hippocampus and cerebral cortex of male wistar rat',
+    authors: 'S. George, Patrick Leo Filima, Lekpa Kingdom David, Chinna Orish',
     journal: 'IBRO Reports',
-    links: [
-      { type: 'Journal Article', url: '#' }
-    ]
+    links: [{ type: 'Journal Article', url: '#' }, { type: 'DOI', url: '#' }]
   }
 ];
 
@@ -138,7 +220,7 @@ const talksAndPresentations = [
     topics: ['Scientific Python', 'Neuroinformatics', 'Workflow Automation', 'ABDN Kenya']
   },
   {
-    year: '2022',
+    year: '2024',
     title: 'Software Tools in Neuroimaging',
     event: 'ABDN Brain Awareness Week 2024 — Ignatius Ajuru University of Education',
     location: 'Ignatius Ajuru University of Education, Nigeria (March 22, 2024)',
@@ -165,34 +247,51 @@ const talksAndPresentations = [
 
 const researchMetrics = [
   {
-    number: '12+',
-    label: 'Publications & Articles',
-    description: 'Peer-reviewed articles, journal papers, & dataset publications',
+    number: '16',
+    label: 'Research Items',
+    description: '14 Journal Articles, 1 Dataset (Nature Scientific Data), 1 Poster',
     icon: FaNewspaper
+  },
+  {
+    number: '42',
+    label: 'Citations',
+    description: 'Research cited across neuroscience & neuroinformatics',
+    icon: FaChartLine
+  },
+  {
+    number: '5',
+    label: 'h-index',
+    description: 'Research Impact Score: 40.8 on ResearchGate',
+    icon: FaAward
   },
   {
     number: '4+',
     label: 'Invited Talks & Keynotes',
-    description: 'Conference keynotes, technical seminars, & workshop facilitation',
+    description: 'Conference keynotes, technical workshops & ABDN lectures',
     icon: FaMicrophone
-  },
-  {
-    number: '200+',
-    label: 'Researchers Trained',
-    description: 'Neuroscientists and clinicians mentored in computational workflows',
-    icon: FaChalkboardTeacher
   }
 ];
 
 const mainTabs = [
   { id: 'all', label: 'All Content', icon: FaLayerGroup },
-  { id: 'talks', label: 'Invited Talks & Keynotes', icon: FaMicrophone, count: talksAndPresentations.length },
   { id: 'publications', label: 'Peer-Reviewed Publications', icon: FaNewspaper, count: publications.length },
+  { id: 'talks', label: 'Invited Talks & Keynotes', icon: FaMicrophone, count: talksAndPresentations.length },
   { id: 'ongoing', label: 'Ongoing Research', icon: FaGlobe, count: 3 }
 ];
 
+const yearFilters = ['All', '2026', '2025', '2024', '2023', '2019'];
+
 export default function Publications() {
   const [activeTab, setActiveTab] = useState('all');
+  const [selectedYear, setSelectedYear] = useState('All');
+
+  const filteredPublications = publications.filter(pub => 
+    selectedYear === 'All' || pub.year === selectedYear
+  );
+
+  const filteredTalks = talksAndPresentations.filter(talk => 
+    selectedYear === 'All' || talk.year === selectedYear
+  );
 
   return (
     <motion.div 
@@ -209,10 +308,10 @@ export default function Publications() {
           </div>
           <div>
             <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Publications & Talks
+              Publications & Research
             </h1>
             <p className="text-purple-400 font-medium text-sm sm:text-base">
-              Peer-Reviewed Research • Invited Keynotes • Technical Workshops • Open Datasets
+              16 Peer-Reviewed Items • 42 Citations • 5 h-index • Invited Keynotes & Workshops
             </p>
           </div>
         </div>
@@ -220,35 +319,35 @@ export default function Publications() {
         {/* Hero Banner */}
         <div className="bg-gradient-to-r from-purple-950/60 via-blue-950/40 to-gray-900 p-6 sm:p-8 rounded-3xl border border-purple-800/40 backdrop-blur-md shadow-2xl">
           <p className="text-gray-200 text-base sm:text-lg leading-relaxed">
-            A comprehensive showcase of my scientific contributions, peer-reviewed publications, and public talks. Toggle between sub-tabs below to explore <strong className="text-purple-300 font-semibold">Invited Keynotes & Workshops</strong> or <strong className="text-blue-300 font-semibold">Peer-Reviewed Papers & Datasets</strong>.
+            A comprehensive record of my scientific publications, open datasets (including <strong className="text-purple-300 font-semibold">Nature Scientific Data</strong> and <strong className="text-blue-300 font-semibold">Frontiers in Neuroinformatics</strong>), conference posters, and invited keynotes.
           </p>
         </div>
       </motion.div>
 
       {/* Research Impact Metrics */}
-      <motion.section variants={fadeInUp} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <motion.section variants={fadeInUp} className="grid grid-cols-2 lg:grid-cols-4 gap-6">
         {researchMetrics.map((metric, index) => {
           const MetricIcon = metric.icon;
           return (
             <div 
               key={index} 
-              className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-2xl p-6 border border-gray-800 hover:border-purple-500/40 transition-all duration-300 shadow-xl space-y-3"
+              className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-2xl p-5 border border-gray-800 hover:border-purple-500/40 transition-all duration-300 shadow-xl space-y-2"
             >
-              <div className="p-3 bg-purple-950/60 text-purple-400 rounded-xl border border-purple-800/40 w-fit">
-                <MetricIcon className="text-2xl" />
+              <div className="p-2.5 bg-purple-950/60 text-purple-400 rounded-xl border border-purple-800/40 w-fit">
+                <MetricIcon className="text-xl" />
               </div>
               <div className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-300">
                 {metric.number}
               </div>
-              <div className="text-base font-bold text-white">{metric.label}</div>
-              <p className="text-xs text-gray-300 leading-relaxed">{metric.description}</p>
+              <div className="text-sm font-bold text-white">{metric.label}</div>
+              <p className="text-[11px] text-gray-400 leading-tight">{metric.description}</p>
             </div>
           );
         })}
       </motion.section>
 
-      {/* MAIN TAB SWITCHER */}
-      <motion.div variants={fadeInUp} className="space-y-6">
+      {/* MAIN TAB SWITCHER & YEAR FILTER */}
+      <motion.div variants={fadeInUp} className="space-y-4">
         <div className="flex items-center gap-2 p-1.5 bg-gray-900/90 rounded-2xl border border-gray-800 overflow-x-auto">
           {mainTabs.map((tab) => {
             const TabIcon = tab.icon;
@@ -276,7 +375,76 @@ export default function Publications() {
             );
           })}
         </div>
+
+        {/* Year Filter */}
+        <div className="flex items-center gap-2.5 flex-wrap pt-1">
+          <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Filter Year:</span>
+          <div className="flex flex-wrap gap-1.5">
+            {yearFilters.map((year, index) => (
+              <button
+                key={index}
+                onClick={() => setSelectedYear(year)}
+                className={`px-3 py-1 rounded-lg text-xs font-medium transition-all ${
+                  year === selectedYear
+                    ? 'bg-blue-600 text-white border border-blue-400'
+                    : 'bg-gray-800/80 text-gray-300 hover:bg-gray-700/80 border border-gray-700'
+                }`}
+              >
+                {year}
+              </button>
+            ))}
+          </div>
+        </div>
       </motion.div>
+
+      {/* TAB CONTENT: PEER-REVIEWED PUBLICATIONS (ALL 16 ITEMS) */}
+      {(activeTab === 'all' || activeTab === 'publications') && (
+        <motion.section variants={fadeInUp} className="space-y-8">
+          <div className="flex items-center gap-3 pb-2 border-b border-gray-800">
+            <FaNewspaper className="text-2xl text-blue-400" />
+            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+              Peer-Reviewed Publications & Research Items ({filteredPublications.length})
+            </h2>
+          </div>
+
+          <div className="space-y-6">
+            {filteredPublications.map((pub, index) => (
+              <div 
+                key={index} 
+                className="bg-gradient-to-br from-gray-800/90 to-gray-900/90 rounded-2xl shadow-xl p-6 sm:p-7 border border-gray-700/70 hover:border-blue-500/40 transition-all duration-300 space-y-4"
+              >
+                <div className="flex flex-wrap justify-between items-start gap-4">
+                  <span className="px-3 py-1 bg-blue-950/60 text-blue-300 rounded-md text-xs font-medium border border-blue-800/40">
+                    {pub.type} • {pub.category}
+                  </span>
+                  <span className="text-xs text-blue-300 font-semibold bg-gray-800/80 px-2.5 py-1 rounded-md border border-gray-700">
+                    {pub.monthYear}
+                  </span>
+                </div>
+
+                <div>
+                  <h3 className="text-lg sm:text-xl font-bold text-white leading-snug">{pub.title}</h3>
+                  <p className="text-xs sm:text-sm text-gray-300 mt-2 font-medium">{pub.authors}</p>
+                  <p className="text-xs sm:text-sm text-blue-400 font-semibold mt-1">{pub.journal}</p>
+                </div>
+
+                <div className="flex flex-wrap gap-3 pt-2 border-t border-gray-800">
+                  {pub.links.map((link, linkIndex) => (
+                    <a
+                      key={linkIndex}
+                      href={link.url}
+                      className="flex items-center gap-1.5 text-xs text-gray-300 hover:text-cyan-300 bg-gray-900/60 px-3 py-1.5 rounded-lg border border-gray-800 transition-colors"
+                    >
+                      <FaExternalLinkAlt className="text-xs text-purple-400" />
+                      <span>{link.type}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.section>
+      )}
 
       {/* TAB CONTENT: TALKS WITH IMAGE CARDS */}
       {(activeTab === 'all' || activeTab === 'talks') && (
@@ -287,7 +455,7 @@ export default function Publications() {
           </div>
 
           <div className="space-y-8">
-            {talksAndPresentations.map((talk, index) => (
+            {filteredTalks.map((talk, index) => (
               <div 
                 key={index}
                 className="bg-gradient-to-br from-gray-800/90 to-gray-900/90 rounded-3xl shadow-xl p-6 sm:p-8 border border-gray-700/70 hover:border-purple-500/40 transition-all duration-300 space-y-6"
@@ -349,53 +517,6 @@ export default function Publications() {
                     </div>
                   </div>
 
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.section>
-      )}
-
-      {/* TAB CONTENT: PEER-REVIEWED PUBLICATIONS */}
-      {(activeTab === 'all' || activeTab === 'publications') && (
-        <motion.section variants={fadeInUp} className="space-y-8">
-          <div className="flex items-center gap-3 pb-2 border-b border-gray-800">
-            <FaNewspaper className="text-2xl text-blue-400" />
-            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">Peer-Reviewed Publications & Datasets</h2>
-          </div>
-
-          <div className="space-y-6">
-            {publications.map((pub, index) => (
-              <div 
-                key={index} 
-                className="bg-gradient-to-br from-gray-800/90 to-gray-900/90 rounded-2xl shadow-xl p-6 sm:p-7 border border-gray-700/70 hover:border-blue-500/40 transition-all duration-300 space-y-4"
-              >
-                <div className="flex justify-between items-start gap-4">
-                  <span className="px-3 py-1 bg-blue-950/60 text-blue-300 rounded-md text-xs font-medium border border-blue-800/40">
-                    {pub.type} • {pub.category}
-                  </span>
-                  <span className="text-xs text-blue-300 font-semibold bg-gray-800/80 px-2.5 py-1 rounded-md border border-gray-700">
-                    {pub.year}
-                  </span>
-                </div>
-
-                <div>
-                  <h3 className="text-lg sm:text-xl font-bold text-white leading-snug">{pub.title}</h3>
-                  <p className="text-xs sm:text-sm text-gray-300 mt-2 font-medium">{pub.authors}</p>
-                  <p className="text-xs sm:text-sm text-blue-400 font-semibold mt-1">{pub.journal}</p>
-                </div>
-
-                <div className="flex flex-wrap gap-3 pt-2 border-t border-gray-800">
-                  {pub.links.map((link, linkIndex) => (
-                    <a
-                      key={linkIndex}
-                      href={link.url}
-                      className="flex items-center gap-1.5 text-xs text-gray-300 hover:text-cyan-300 bg-gray-900/60 px-3 py-1.5 rounded-lg border border-gray-800 transition-colors"
-                    >
-                      <FaExternalLinkAlt className="text-xs text-purple-400" />
-                      <span>{link.type}</span>
-                    </a>
-                  ))}
                 </div>
               </div>
             ))}
