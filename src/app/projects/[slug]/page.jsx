@@ -39,7 +39,7 @@ export default function ProjectDetail({ params }) {
       initial="initial"
       animate="animate"
       variants={fadeInUp}
-      className="mx-auto max-w-5xl space-y-12 pb-20"
+      className="w-full space-y-14 pb-20"
     >
       {/* Back Button */}
       <div>

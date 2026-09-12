@@ -6,26 +6,26 @@ import { usePathname } from 'next/navigation';
 import {
   FaHome,
   FaUser,
-  FaRocket,
   FaBriefcase,
-  FaGraduationCap,
+  FaRocket,
   FaFlask,
   FaBook,
+  FaGraduationCap,
+  FaTools,
   FaEnvelope,
   FaLinkedin,
-  FaGithub,
-  FaTools,
-  FaMoon,
-  FaThLarge
+  FaGithub
 } from 'react-icons/fa';
 
 export const navItems = [
   { name: 'Home', path: '/', icon: FaHome },
   { name: 'About', path: '/about', icon: FaUser },
   { name: 'Experience', path: '/experience', icon: FaBriefcase },
+  { name: 'Projects', path: '/projects', icon: FaRocket },
   { name: 'Research', path: '/research', icon: FaFlask },
   { name: 'Publications', path: '/publications', icon: FaBook },
- 
+  { name: 'Education', path: '/education', icon: FaGraduationCap },
+  { name: 'Skills & Stack', path: '/skills', icon: FaTools },
 ];
 
 export const contactLinks = [
@@ -38,51 +38,52 @@ export default function SideNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="flex w-full h-screen flex-col justify-between py-5 px-3 lg:px-4 relative">
-      {/* Floating Dark Glass Sidebar Container */}
-      <div className="absolute inset-2 rounded-[28px] bg-[#070B18]/90 backdrop-blur-xl border border-white/10 shadow-2xl flex flex-col justify-between p-5 overflow-y-auto">
+    <nav className="flex w-full h-screen flex-col justify-between py-4 pl-3 pr-1 lg:pl-4 lg:pr-1 relative">
+      {/* Sidebar Container */}
+      <div className="w-full h-full rounded-2xl bg-[#0F172A]/90 backdrop-blur-xl border border-white/10 shadow-2xl flex flex-col justify-between p-4 overflow-y-auto">
 
         {/* Top Profile Header */}
         <div>
-          <Link href="/" className="text-center block group mb-6">
-            <div className="w-24 h-24 relative rounded-full mx-auto mb-3 p-1 bg-gradient-to-tr from-cyan-400 via-blue-500 to-purple-500 shadow-xl shadow-blue-500/30">
-              <div className="w-full h-full rounded-full overflow-hidden relative bg-[#070B18]">
+          <Link href="/" className="text-center block group mb-5">
+            <div className="w-20 h-20 relative rounded-full mx-auto mb-3 p-0.5 bg-gradient-to-b from-sky-400/40 to-indigo-500/20 border border-sky-400/30 shadow-lg">
+              <div className="w-full h-full rounded-full overflow-hidden relative bg-[#0B1120]">
                 <Image
                   src="/patrick.jpeg"
-                  alt="Filima Patrick"
+                  alt="Patrick Filima"
                   fill
-                  sizes="96px"
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
                   priority
+                  loading="eager"
+                  sizes="80px"
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              {/* Online indicator dot */}
-              <span className="absolute bottom-1 right-1 w-4 h-4 bg-emerald-400 border-2 border-[#070B18] rounded-full shadow-md animate-pulse" />
             </div>
 
-            <h1 className="text-lg font-bold text-white tracking-wide group-hover:text-cyan-300 transition-colors">
-              Filima Patrick
+            <h1 className="text-base font-bold text-white tracking-tight group-hover:text-sky-300 transition-colors">
+              Patrick Filima
             </h1>
-            <div className="text-[11px] font-medium mt-1 leading-tight space-y-0.5">
-              <p className="text-cyan-400">Research Software Engineer</p>
-              <p className="text-purple-400">Technical Product Lead</p>
+            <div className="text-[11px] text-slate-400 font-medium mt-0.5 leading-tight space-y-0.5">
+              <p className="text-sky-400">Research Software Engineer</p>
+              <p className="text-indigo-300">Computational Neuroscientist</p>
             </div>
           </Link>
 
           {/* Navigation Links */}
-          <div className="space-y-1.5">
+          <div className="space-y-1">
             {navItems.map((item) => {
-              const isActive = pathname === item.path;
+              const isActive = pathname === item.path || (item.path !== '/' && pathname.startsWith(item.path));
+              const ItemIcon = item.icon;
               return (
                 <Link
                   key={item.path}
                   href={item.path}
-                  className={`flex items-center gap-3.5 px-4 py-2.5 rounded-xl text-xs font-semibold transition-all duration-200 ${isActive
-                      ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
-                      : 'text-gray-400 hover:bg-white/5 hover:text-white border border-transparent'
-                    }`}
+                  className={`flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-200 ${
+                    isActive
+                      ? 'bg-sky-500/15 text-sky-300 border border-sky-500/30 shadow-sm'
+                      : 'text-slate-400 hover:bg-white/5 hover:text-slate-200 border border-transparent'
+                  }`}
                 >
-                  <item.icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-gray-400'}`} />
+                  <ItemIcon className={`w-3.5 h-3.5 ${isActive ? 'text-sky-400' : 'text-slate-400'}`} />
                   <span>{item.name}</span>
                 </Link>
               );
@@ -90,47 +91,28 @@ export default function SideNav() {
           </div>
         </div>
 
-        {/* Bottom Social & Dark Mode Toggle */}
-        <div className="pt-6 border-t border-white/10 space-y-4">
-          <div className="space-y-2.5">
-            <a
-              href="https://www.linkedin.com/in/patrick-filima-91450817b/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 text-xs font-medium text-gray-400 hover:text-cyan-300 transition-colors px-2 py-1"
-            >
-              <FaLinkedin className="w-4 h-4 text-blue-400" />
-              <span>LinkedIn</span>
-            </a>
-
-            <a
-              href="https://github.com/filimapatrick"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 text-xs font-medium text-gray-400 hover:text-cyan-300 transition-colors px-2 py-1"
-            >
-              <FaGithub className="w-4 h-4 text-purple-400" />
-              <span>GitHub</span>
-            </a>
-
-            <a
-              href="mailto:filimapatrick@gmail.com"
-              className="flex items-center gap-3 text-xs font-medium text-gray-400 hover:text-cyan-300 transition-colors px-2 py-1"
-            >
-              <FaEnvelope className="w-4 h-4 text-cyan-400" />
-              <span>Email Me</span>
-            </a>
+        {/* Bottom Social Links & Affiliations */}
+        <div className="pt-4 border-t border-white/10 space-y-3">
+          <div className="flex items-center justify-around">
+            {contactLinks.map((link, idx) => {
+              const Icon = link.icon;
+              return (
+                <a
+                  key={idx}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.label}
+                  className="p-2 rounded-lg bg-white/5 hover:bg-sky-500/15 text-slate-400 hover:text-sky-300 border border-white/5 hover:border-sky-500/30 transition-colors"
+                >
+                  <Icon className="w-4 h-4" />
+                </a>
+              );
+            })}
           </div>
 
-          <div className="flex items-center justify-between pt-3 border-t border-white/10 text-xs font-medium text-gray-300">
-            <div className="flex items-center gap-2">
-              <FaMoon className="text-cyan-400 text-sm" />
-              <span>Dark Mode</span>
-            </div>
-            {/* Toggle Switch */}
-            <div className="w-10 h-5 bg-blue-600 rounded-full p-0.5 flex items-center justify-end shadow-inner">
-              <div className="w-4 h-4 bg-white rounded-full shadow-md" />
-            </div>
+          <div className="text-[10px] text-center text-slate-500 font-medium">
+            Austin, TX • Oxford • Global
           </div>
         </div>
       </div>

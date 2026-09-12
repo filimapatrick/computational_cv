@@ -1,101 +1,243 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+'use client';
 
-const projects = [
+import { useState } from 'react';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { 
+  FaRocket, 
+  FaBrain, 
+  FaCode, 
+  FaGlobeAfrica, 
+  FaArrowRight, 
+  FaServer, 
+  FaMobileAlt, 
+  FaHeartbeat,
+  FaShieldAlt,
+  FaFlask
+} from 'react-icons/fa';
+import { projectsData } from '../../data/projectsData';
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 18 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] }
+};
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.08
+    }
+  }
+};
+
+const softwarePlatforms = [
   {
-    title: 'Aposto Admin Platform',
-    description: 'A comprehensive admin platform for event staff scheduling and knowledge transfer, enhancing event-day communication and operational efficiency.',
-    image: '/placeholder-project.jpg',
-    tags: ['React.js', 'Next.js', 'Firebase', 'Material UI'],
-    company: 'Lizard Global',
-    link: '#'
+    slug: 'brainlife-monitoring',
+    title: 'Brainlife Error Monitoring & Diagnostics Dashboard',
+    subtitle: 'Observability platform improving failure visibility across distributed HPC neuroimaging pipelines',
+    category: 'Production Platform',
+    type: 'software',
+    role: 'Lead Developer',
+    techStack: ['React', 'Next.js', 'ELK Stack', 'Node.js', 'Docker', 'HPC Telemetry'],
+    summary: 'Centralized observability dashboard aggregating failure logs, stack traces, and automated error classification across thousands of distributed containerized jobs on Brainlife.io.',
+    link: '/experience',
+    isExternalOrRoute: true
   },
   {
-    title: 'Flexpackerz Mobile App',
-    description: 'Cross-platform mobile application enabling flex workers to discover and connect with nearby co-working spaces, featuring location-based services.',
-    image: '/placeholder-project.jpg',
-    tags: ['React Native', 'Firebase', 'Location Services'],
-    company: 'Lizard Global',
-    link: '#'
+    slug: 'brainlife-mobile',
+    title: 'Brainlife Mobile Companion Application',
+    subtitle: 'Real-time mobile status tracking and push alerts for long-running compute jobs',
+    category: 'Mobile Platform',
+    type: 'software',
+    role: 'Mobile Lead',
+    techStack: ['React Native', 'Push Notifications', 'Brainlife REST API', 'iOS / Android'],
+    summary: 'Cross-platform mobile application giving neuroscientists real-time visibility into multi-day pipeline execution status, error logs, and immediate completion alerts.',
+    link: '/experience',
+    isExternalOrRoute: true
   },
   {
-    title: 'Lizard Global Website',
-    description: 'Modern, responsive company website built with Next.js and Firebase, featuring optimized performance and enhanced SEO capabilities.',
-    image: '/placeholder-project.jpg',
-    tags: ['Next.js', 'Tailwind CSS', 'Firebase'],
-    company: 'Lizard Global',
-    link: '#'
+    slug: 'abdn-eval-platform',
+    title: 'ABDN Fellowship Evaluation Platform',
+    subtitle: 'Digitized admissions and multi-reviewer scoring workflows for pan-African programs',
+    category: 'Education & Admissions',
+    type: 'software',
+    role: 'Technical Product Lead',
+    techStack: ['Next.js', 'Firebase', 'Tailwind CSS', 'Access Governance'],
+    summary: 'Full-stack evaluation platform supporting structured multi-reviewer assessment, reviewer assignment matrices, and score normalization for 1,000+ candidates across 50 countries.',
+    link: '/experience',
+    isExternalOrRoute: true
   },
   {
-    title: 'ABDN Evaluation Platform',
-    description: 'Participant evaluation platform for ABDN programs, facilitating assessment and feedback for neuroscience initiatives across Africa.',
-    image: '/placeholder-project.jpg',
-    tags: ['Next.js', 'Appwrite', 'Ant Design'],
-    company: 'African Brain Data Network',
-    link: '#'
+    slug: 'dicompare-qc',
+    title: 'Dicompare — Medical Imaging Quality Control',
+    subtitle: 'DICOM header validation and MRI protocol standardization utility',
+    category: 'Scientific Tool',
+    type: 'software',
+    role: 'Creator & Developer',
+    techStack: ['Python', 'PyDICOM', 'Tkinter', 'MRI Protocol QC'],
+    summary: 'Desktop application for clinical MRI quality control, protocol comparison, and automated metadata validation across multi-scanner clinical trials.',
+    link: '/experience',
+    isExternalOrRoute: true
   },
+  {
+    slug: 'lighthouse-health',
+    title: 'Lighthouse Digital Health Platform',
+    subtitle: 'Therapist discovery and appointment scheduling workflow system',
+    category: 'Digital Health',
+    type: 'software',
+    role: 'Product & Engineering Lead',
+    techStack: ['Next.js', 'Node.js', 'PostgreSQL', 'Tailwind CSS'],
+    summary: 'Modern web platform connecting patients with certified mental health professionals through directory search, scheduling workflows, and administrative dashboards.',
+    link: '/experience',
+    isExternalOrRoute: true
+  }
 ];
 
-export default function Projects() {
+export default function ProjectsPage() {
+  const [filter, setFilter] = useState('all');
+
+  // Format computational research projects from data
+  const researchProjects = projectsData.map(p => ({
+    ...p,
+    type: 'research',
+    link: `/projects/${p.slug}`,
+    isExternalOrRoute: false
+  }));
+
+  const allProjects = [...softwarePlatforms, ...researchProjects];
+
+  const filteredProjects = allProjects.filter(p => {
+    if (filter === 'all') return true;
+    if (filter === 'software') return p.type === 'software';
+    if (filter === 'research') return p.type === 'research';
+    return true;
+  });
+
   return (
-    <div className=" mx-auto">
-      <h1 className="text-4xl font-bold mb-8">Featured Projects</h1>
-      
-      <div className="grid grid-cols-1 gap-8">
-        {projects.map((project, index) => (
-          <div key={index} className="bg-white rounded-lg overflow-hidden shadow-sm">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="relative h-64 md:h-full">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <div className="mb-4">
-                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                  <p className="text-blue-600 text-sm mb-3">{project.company}</p>
-                  <p className="text-gray-600 mb-4">{project.description}</p>
+    <motion.div 
+      initial="initial"
+      animate="animate"
+      variants={staggerContainer}
+      className="w-full space-y-14 pb-16"
+    >
+      {/* 1. PAGE HEADER */}
+      <motion.div variants={fadeInUp} className="space-y-4">
+        <div className="flex items-center gap-3">
+          <div className="p-2.5 rounded-xl bg-sky-500/10 text-sky-400 border border-sky-500/20">
+            <FaRocket className="text-xl" />
+          </div>
+          <div>
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              Projects & Research Programs
+            </h1>
+            <p className="text-xs sm:text-sm text-slate-400 font-medium">
+              Production software systems, open science infrastructure, and computational neuroscience studies
+            </p>
+          </div>
+        </div>
+
+        {/* Filter Pills */}
+        <div className="flex items-center gap-2 pt-2 flex-wrap">
+          <button
+            onClick={() => setFilter('all')}
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all ${
+              filter === 'all'
+                ? 'bg-sky-500 text-slate-950 shadow-md'
+                : 'bg-[#0F172A] text-slate-300 hover:bg-[#1E293B] border border-white/10'
+            }`}
+          >
+            All Projects ({allProjects.length})
+          </button>
+          <button
+            onClick={() => setFilter('software')}
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all ${
+              filter === 'software'
+                ? 'bg-sky-500 text-slate-950 shadow-md'
+                : 'bg-[#0F172A] text-slate-300 hover:bg-[#1E293B] border border-white/10'
+            }`}
+          >
+            Production Software ({softwarePlatforms.length})
+          </button>
+          <button
+            onClick={() => setFilter('research')}
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all ${
+              filter === 'research'
+                ? 'bg-sky-500 text-slate-950 shadow-md'
+                : 'bg-[#0F172A] text-slate-300 hover:bg-[#1E293B] border border-white/10'
+            }`}
+          >
+            Computational & AI Research ({researchProjects.length})
+          </button>
+        </div>
+      </motion.div>
+
+      {/* 2. PROJECTS GRID */}
+      <motion.div variants={fadeInUp} className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-6">
+        {filteredProjects.map((item, index) => {
+          const isResearch = item.type === 'research';
+
+          return (
+            <div
+              key={index}
+              className="bg-[#0F172A]/80 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all flex flex-col justify-between space-y-5"
+            >
+              <div className="space-y-3">
+                <div className="flex items-center justify-between gap-2 flex-wrap">
+                  <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-semibold border ${
+                    isResearch 
+                      ? 'text-indigo-300 bg-indigo-500/10 border-indigo-500/20' 
+                      : 'text-sky-300 bg-sky-500/10 border-sky-500/20'
+                  }`}>
+                    {item.category}
+                  </span>
+
+                  {item.status && (
+                    <span className="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                      {item.status}
+                    </span>
+                  )}
                 </div>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map((tag, tagIndex) => (
+
+                <h2 className="text-lg sm:text-xl font-bold text-white leading-snug">
+                  {item.title}
+                </h2>
+
+                {item.subtitle && (
+                  <p className="text-xs text-sky-300/90 font-medium">
+                    {item.subtitle}
+                  </p>
+                )}
+
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  {item.summary}
+                </p>
+              </div>
+
+              <div className="space-y-4 pt-3 border-t border-white/5">
+                <div className="flex flex-wrap gap-1.5">
+                  {(item.techStack || []).map((t, tIdx) => (
                     <span
-                      key={tagIndex}
-                      className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm"
+                      key={tIdx}
+                      className="bg-[#141E33] text-slate-300 px-2 py-0.5 rounded text-[11px] font-medium border border-white/5"
                     >
-                      {tag}
+                      {t}
                     </span>
                   ))}
                 </div>
-                <div className="flex gap-4">
-                  <Link
-                    href={project.link}
-                    className="flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaExternalLinkAlt className="w-4 h-4" />
-                    <span>Live Demo</span>
-                  </Link>
-                  <Link
-                    href="#"
-                    className="flex items-center gap-2 text-gray-600 hover:text-gray-700 transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaGithub className="w-4 h-4" />
-                    <span>Source Code</span>
-                  </Link>
-                </div>
+
+                <Link
+                  href={item.link}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-400 hover:text-sky-300 transition-colors pt-1"
+                >
+                  <span>{isResearch ? 'View Complete Research Architecture' : 'View Experience & Details'}</span>
+                  <FaArrowRight className="text-[10px]" />
+                </Link>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
-    </div>
+          );
+        })}
+      </motion.div>
+    </motion.div>
   );
-} 
+}

@@ -11,7 +11,7 @@ export default function ClientLayout({ children }) {
   return (
     <div className="flex h-screen w-full overflow-hidden bg-[#070B18]">
       {/* Desktop & Laptop Sidebar Container */}
-      <aside className="hidden md:block w-64 lg:w-72 flex-shrink-0 relative z-30">
+      <aside className="hidden md:block w-60 lg:w-64 flex-shrink-0 relative z-30">
         <SideNav />
       </aside>
 
@@ -24,7 +24,7 @@ export default function ClientLayout({ children }) {
       />
 
       {/* Main Content Area */}
-      <main className="min-w-0 flex-1 overflow-y-auto p-4 sm:p-6 lg:p-10 bg-[#070B18] text-white relative z-10">
+      <main className="min-w-0 flex-1 overflow-y-auto px-4 sm:px-6 lg:px-8 py-5 lg:py-6 bg-[#070B18] text-white relative z-10">
         {children}
       </main>
     </div>

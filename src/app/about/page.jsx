@@ -1,104 +1,94 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { 
   FaUser, 
   FaBrain, 
   FaCode, 
-  FaCompass, 
   FaGraduationCap, 
   FaFlask, 
-  FaRocket, 
-  FaGlobe, 
-  FaLightbulb, 
-  FaCheckCircle,
+  FaGlobeAfrica, 
   FaBuilding,
-  FaMicrophone
+  FaMicrophone,
+  FaArrowRight
 } from 'react-icons/fa';
 
 const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
+  initial: { opacity: 0, y: 18 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 }
+  transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] }
 };
 
 const staggerContainer = {
   animate: {
     transition: {
-      staggerChildren: 0.12
+      staggerChildren: 0.1
     }
   }
 };
 
-const areasOfFocus = [
+const focusAreas = [
   {
-    title: "Scientific Software & Neuroinformatics",
-    subtitle: "Domain Infrastructure & Scientific Tools",
+    title: 'Scientific Computing & Neuroinformatics',
     icon: FaBrain,
-    badgeColor: "from-cyan-500/20 to-blue-500/20 text-cyan-300 border-cyan-500/30",
-    description: "I build software platforms that make complex neuroscience workflows more accessible, reproducible, and scalable.",
-    items: [
-      "Neuroinformatics infrastructure",
-      "MRI and fMRI data workflows",
-      "Scientific computing",
-      "FAIR data systems",
-      "Open science platforms",
-      "Reproducible research pipelines"
+    description: 'Building software infrastructure that makes complex neuroimaging analysis reproducible, accessible, and scalable across distributed HPC and cloud systems.',
+    highlights: [
+      'Neuroimaging workflow automation (MRI, fMRI, BIDS standards)',
+      'Integration with scientific toolchains (FSL, FreeSurfer, MNE)',
+      'FAIR data governance and open repository infrastructure'
     ]
   },
   {
-    title: "Software Engineering",
-    subtitle: "Full-Stack Web, Mobile & Cloud Systems",
+    title: 'Full-Stack Software Engineering',
     icon: FaCode,
-    badgeColor: "from-blue-500/20 to-indigo-500/20 text-blue-300 border-blue-500/30",
-    description: "I develop full-stack web and mobile applications for scientific, healthcare, and research environments.",
-    items: [
-      "React and Next.js applications",
-      "React Native mobile platforms",
-      "Python-based scientific workflows",
-      "Backend APIs and cloud systems",
-      "Data platforms and research infrastructure",
-      "Observability and workflow monitoring systems"
+    description: 'Designing reliable applications for scientific, healthcare, and education environments with modern web and mobile technologies.',
+    highlights: [
+      'React, Next.js, and TypeScript frontend platforms',
+      'Python scientific backend services and REST APIs',
+      'Observability and pipeline diagnostics using the ELK stack'
     ]
   },
   {
-    title: "Technical Product Leadership",
-    subtitle: "Product Strategy, UX & Cross-Functional Alignment",
-    icon: FaCompass,
-    badgeColor: "from-purple-500/20 to-pink-500/20 text-purple-300 border-purple-500/30",
-    description: "I enjoy working between researchers, engineers, and users to turn complex problems into practical technology solutions.",
-    items: [
-      "Product discovery",
-      "User workflow analysis",
-      "Technical strategy",
-      "Roadmap development",
-      "Feature prioritization",
-      "Cross-functional collaboration",
-      "Platform delivery"
+    title: 'Open Science & Capacity Building',
+    icon: FaGlobeAfrica,
+    description: 'Leading collaborative initiatives and software projects that expand neuroscience research capacity and open data practices across Africa.',
+    highlights: [
+      'Digital evaluation platforms for pan-African academic programs',
+      'Technical workshops on scientific Python and neuroimaging data',
+      'Community platforms supporting 2,000+ researchers and clinicians'
     ]
   }
 ];
 
-const careerHighlights = [
+const careerMilestones = [
   {
-    title: "Research Software Engineering",
-    icon: FaCode,
-    description: "Developing scientific software products that improve neuroimaging workflows, including workflow monitoring systems, error diagnostics platforms, and tools that increase visibility into distributed computational pipelines."
+    role: 'Research Software Engineer',
+    organization: 'Brainlife.io — University of Texas at Austin',
+    period: '2025 – Present',
+    icon: FaBrain,
+    summary: 'Developing workflow observability tools, error diagnostic dashboards, and mobile monitoring platforms for large-scale distributed neuroimaging pipelines.'
   },
   {
-    title: "Keynotes, Talks & Workshops",
-    icon: FaMicrophone,
-    description: "Delivering keynotes, invited talks, and hands-on workshops on neuroinformatics platforms, workflow observability, FAIR data principles, and reproducible computational pipelines."
+    role: 'Neuroinformatics & Technical Product Lead',
+    organization: 'African Brain Data Network (ABDN)',
+    period: '2023 – Present',
+    icon: FaGlobeAfrica,
+    summary: 'Directing the architecture of digital platforms that promote FAIR data standards, fellowship evaluation workflows, and scientific collaboration across African institutions.'
   },
   {
-    title: "Scientific Research & Open Science",
-    icon: FaFlask,
-    description: "Contributing to neuroscience research through neuroimaging analysis, FAIR data initiatives, and open scientific infrastructure designed to improve accessibility and reproducibility."
+    role: 'Wings Global Scholar',
+    organization: 'University of Oxford',
+    period: '2025 – 2026',
+    icon: FaGraduationCap,
+    summary: 'Selected for advanced graduate training in computational neuroimaging, reproducible workflows, and high-throughput MRI data analysis.'
   },
   {
-    title: "Technology & Product Innovation",
-    icon: FaRocket,
-    description: "Leading the development of digital platforms across neuroscience, research, and healthcare domains, translating scientific and user needs into scalable software solutions."
+    role: 'Software Engineer',
+    organization: 'Lizard Global',
+    period: '2022 – 2024',
+    icon: FaBuilding,
+    summary: 'Engineered commercial web and mobile products across workforce management, location services, and enterprise CMS platforms.'
   }
 ];
 
@@ -108,180 +98,198 @@ export default function About() {
       initial="initial"
       animate="animate"
       variants={staggerContainer}
-      className="mx-auto space-y-12 max-w-6xl pb-16"
+      className="w-full space-y-14 pb-16"
     >
-      {/* Page Header */}
+      {/* 1. PAGE HEADER */}
       <motion.div variants={fadeInUp} className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="p-3 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-500 text-white shadow-lg shadow-blue-500/20">
-            <FaUser className="text-2xl" />
+          <div className="p-2.5 rounded-xl bg-sky-500/10 text-sky-400 border border-sky-500/20">
+            <FaUser className="text-xl" />
           </div>
           <div>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
               About Me
             </h1>
-            <p className="text-blue-400 font-medium text-sm sm:text-base">
-              Research Software Engineer • Technical Product Lead • Computational Neuroscientist
+            <p className="text-xs sm:text-sm text-slate-400 font-medium">
+              Background, research philosophy, and technical direction
             </p>
           </div>
         </div>
 
-        {/* Hero Card */}
-        <div className="bg-gradient-to-r from-blue-950/60 via-purple-950/40 to-gray-900 p-6 sm:p-8 rounded-3xl border border-blue-800/40 backdrop-blur-md shadow-2xl">
-          <p className="text-gray-100 text-base sm:text-lg lg:text-xl font-medium leading-relaxed">
-            I am a Research Software Engineer, Technical Product Lead, and Computational Neuroscientist building technology at the intersection of neuroscience, artificial intelligence, and scientific computing.
+        {/* Narrative Framing Box */}
+        <div className="bg-[#0F172A]/80 p-6 sm:p-8 rounded-2xl border border-white/10 space-y-4">
+          <p className="text-slate-200 text-base sm:text-lg leading-relaxed font-medium">
+            I am a Research Software Engineer and Computational Neuroscientist working at the intersection of neuroscience, software engineering, and scientific computing.
+          </p>
+          <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+            My work focuses on transforming complex scientific workflows into reliable software platforms that improve how researchers collect, analyze, monitor, and share data. Combining an M.Sc. in Neuroscience with extensive software development experience, I bring both domain knowledge and engineering rigor to research challenges.
           </p>
         </div>
       </motion.div>
 
-      {/* Professional Overview Card */}
-      <motion.div 
-        variants={fadeInUp}
-        className="bg-gradient-to-br from-gray-800/90 to-gray-900/90 rounded-3xl shadow-xl p-6 sm:p-8 border border-gray-700/70 hover:border-blue-500/40 transition-all duration-300 space-y-6"
-      >
-        <div className="flex items-center gap-3 pb-4 border-b border-gray-700/60">
-          <div className="p-2.5 bg-blue-950/60 text-blue-400 rounded-xl border border-blue-800/50">
-            <FaBuilding className="text-xl" />
+      {/* 2. THE INTERSECTION (NARRATIVE OVERVIEW) */}
+      <motion.section variants={fadeInUp} className="space-y-6">
+        <div className="border-b border-white/10 pb-3">
+          <span className="text-xs font-semibold text-sky-400 uppercase tracking-wider block mb-1">
+            Background & Perspective
+          </span>
+          <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+            Bridging Neuroscience and Software Engineering
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <div className="bg-[#0F172A]/60 p-6 rounded-2xl border border-white/5 space-y-3">
+            <h3 className="font-bold text-white text-sm sm:text-base flex items-center gap-2">
+              <FaBrain className="text-sky-400" />
+              Scientific Domain Context
+            </h3>
+            <p>
+              In computational neuroscience and neuroimaging, data pipelines are notoriously complex—often involving multi-gigabyte 3D volumes, specialized preprocessing toolchains (FSL, FreeSurfer, ANTs), and multi-day compute jobs across distributed HPC nodes.
+            </p>
+            <p>
+              Having conducted volumetric brain research and published peer-reviewed findings in neurodegenerative disorders and morphometry, I understand the friction points researchers face when dealing with pipeline crashes, unstandardized data formats, and manual log inspection.
+            </p>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">Professional Overview</h2>
-        </div>
 
-        <div className="space-y-5 text-gray-300 text-base sm:text-lg leading-relaxed">
-          <p>
-            My work focuses on transforming complex research and healthcare workflows into scalable software platforms that improve how scientists collect, analyze, and collaborate around data. Combining an M.Sc. in Neuroscience with hands-on software engineering experience, I bridge the gap between scientific discovery and technology development.
-          </p>
-          <p>
-            I currently work as a <strong className="text-blue-300 font-semibold">Research Software Engineer at Brainlife.io (University of Texas at Austin)</strong>, where I build tools that improve neuroimaging workflow reliability, observability, and researcher productivity. My work involves designing scientific software products, developing full-stack applications, and collaborating with researchers and engineering teams to solve challenges in computational neuroscience.
-          </p>
-          <p>
-            I also serve as a <strong className="text-purple-300 font-semibold">Technical Product Lead with the African Brain Data Network</strong>, where I lead the development of digital platforms that support FAIR data practices, neuroscience collaboration, and research capacity building across Africa. My work combines product strategy, user research, software development, and scientific leadership to create tools used by researchers and educational communities.
-          </p>
-        </div>
-      </motion.div>
-
-      {/* Areas of Focus Section */}
-      <motion.section variants={fadeInUp} className="space-y-8">
-        <div className="flex items-center gap-3 pb-2 border-b border-gray-800">
-          <FaGlobe className="text-2xl text-blue-400" />
-          <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">Areas of Focus</h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {areasOfFocus.map((focus, index) => {
-            const FocusIcon = focus.icon;
-            return (
-              <div 
-                key={index}
-                className="bg-gradient-to-br from-gray-800/90 to-gray-900/90 rounded-2xl shadow-xl p-6 sm:p-8 border border-gray-700/70 hover:border-blue-500/40 transition-all duration-300 flex flex-col justify-between space-y-6"
-              >
-                <div className="space-y-4">
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="p-3 bg-blue-950/60 text-blue-400 rounded-xl border border-blue-800/50 shrink-0">
-                      <FocusIcon className="text-2xl" />
-                    </div>
-                    <span className={`px-2.5 py-1 rounded-full text-[11px] font-semibold border bg-gradient-to-r ${focus.badgeColor}`}>
-                      {focus.subtitle}
-                    </span>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-bold text-white leading-snug">{focus.title}</h3>
-                    <p className="text-xs text-gray-300 mt-2 leading-relaxed">{focus.description}</p>
-                  </div>
-
-                  <div className="space-y-2 pt-2 border-t border-gray-800">
-                    {focus.items.map((item, itemIdx) => (
-                      <div key={itemIdx} className="flex items-center gap-2 text-xs sm:text-sm text-gray-300">
-                        <FaCheckCircle className="text-blue-400 text-xs shrink-0" />
-                        <span>{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+          <div className="bg-[#0F172A]/60 p-6 rounded-2xl border border-white/5 space-y-3">
+            <h3 className="font-bold text-white text-sm sm:text-base flex items-center gap-2">
+              <FaCode className="text-indigo-300" />
+              Engineering Discipline
+            </h3>
+            <p>
+              I apply modern software engineering principles—version control, continuous integration, containerization, observability, and intuitive UI design—to scientific computing problems.
+            </p>
+            <p>
+              Whether it is building an ELK-backed error monitoring dashboard for Brainlife.io, developing a companion mobile app for remote pipeline oversight, or creating digital applicant assessment systems for the African Brain Data Network, my goal is to build software that is stable, usable, and impactful.
+            </p>
+          </div>
         </div>
       </motion.section>
 
-      {/* Career Highlights Section */}
-      <motion.section variants={fadeInUp} className="space-y-8">
-        <div className="flex items-center gap-3 pb-2 border-b border-gray-800">
-          <FaRocket className="text-2xl text-purple-400" />
-          <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">Career Highlights</h2>
+      {/* 3. CORE FOCUS AREAS */}
+      <motion.section variants={fadeInUp} className="space-y-6">
+        <div className="border-b border-white/10 pb-3">
+          <span className="text-xs font-semibold text-indigo-400 uppercase tracking-wider block mb-1">
+            Focus Areas
+          </span>
+          <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+            Areas of Specialization
+          </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {careerHighlights.map((highlight, index) => {
-            const HighlightIcon = highlight.icon;
+          {focusAreas.map((area, index) => {
+            const Icon = area.icon;
             return (
-              <div 
+              <div
                 key={index}
-                className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-2xl shadow-lg p-6 sm:p-7 border border-gray-800 hover:border-purple-500/40 transition-all duration-300 space-y-4"
+                className="bg-[#0F172A]/70 rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all flex flex-col justify-between space-y-4"
               >
-                <div className="flex items-center gap-3 border-b border-gray-800 pb-4">
-                  <div className="p-2.5 bg-purple-950/60 text-purple-400 rounded-lg border border-purple-800/40">
-                    <HighlightIcon className="text-xl" />
+                <div className="space-y-3">
+                  <div className="p-2.5 rounded-xl bg-white/5 text-sky-400 w-fit border border-white/5">
+                    <Icon className="text-xl" />
                   </div>
-                  <h3 className="text-lg font-bold text-white">{highlight.title}</h3>
+                  <h3 className="text-base font-bold text-white leading-snug">
+                    {area.title}
+                  </h3>
+                  <p className="text-xs text-slate-300 leading-relaxed">
+                    {area.description}
+                  </p>
                 </div>
-                <p className="text-sm text-gray-300 leading-relaxed">{highlight.description}</p>
+
+                <div className="pt-3 border-t border-white/5 space-y-2">
+                  {area.highlights.map((h, hIdx) => (
+                    <div key={hIdx} className="flex items-start gap-2 text-xs text-slate-400">
+                      <span className="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0" />
+                      <span>{h}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             );
           })}
         </div>
       </motion.section>
 
-      {/* Education & Interdisciplinary Background Card */}
-      <motion.div 
-        variants={fadeInUp}
-        className="bg-gradient-to-br from-gray-800/90 to-gray-900/90 rounded-3xl shadow-xl p-6 sm:p-8 border border-gray-700/70 hover:border-emerald-500/40 transition-all duration-300 space-y-6"
-      >
-        <div className="flex items-center gap-3 pb-4 border-b border-gray-700/60">
-          <div className="p-2.5 bg-emerald-950/60 text-emerald-400 rounded-xl border border-emerald-800/50">
-            <FaGraduationCap className="text-xl" />
+      {/* 4. CAREER MILESTONES */}
+      <motion.section variants={fadeInUp} className="space-y-6">
+        <div className="border-b border-white/10 pb-3 flex items-center justify-between">
+          <div>
+            <span className="text-xs font-semibold text-emerald-400 uppercase tracking-wider block mb-1">
+              Timeline
+            </span>
+            <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+              Roles & Milestones
+            </h2>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">Education & Interdisciplinary Foundation</h2>
+          <Link
+            href="/experience"
+            className="text-xs font-semibold text-sky-400 hover:text-sky-300 flex items-center gap-1.5 transition-colors"
+          >
+            <span>Detailed Experience</span>
+            <FaArrowRight className="text-[10px]" />
+          </Link>
         </div>
 
-        <div className="space-y-4 text-gray-300 text-base sm:text-lg leading-relaxed">
-          <p>My background combines:</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {careerMilestones.map((milestone, idx) => {
+            const MIcon = milestone.icon;
+            return (
+              <div
+                key={idx}
+                className="bg-[#0F172A]/70 p-5 rounded-2xl border border-white/10 space-y-2"
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <div>
+                    <h3 className="text-sm font-bold text-white">{milestone.role}</h3>
+                    <p className="text-xs text-sky-300/90 font-medium">{milestone.organization}</p>
+                  </div>
+                  <span className="text-[11px] text-slate-400 bg-white/5 px-2 py-0.5 rounded border border-white/5 shrink-0 font-mono">
+                    {milestone.period}
+                  </span>
+                </div>
+                <p className="text-xs text-slate-300 leading-relaxed pt-1">
+                  {milestone.summary}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </motion.section>
+
+      {/* 5. ACADEMIC FOUNDATION */}
+      <motion.section variants={fadeInUp} className="space-y-6">
+        <div className="bg-[#0F172A]/80 p-6 sm:p-8 rounded-2xl border border-white/10 space-y-4">
+          <div className="flex items-center gap-2.5 pb-2 border-b border-white/10">
+            <FaGraduationCap className="text-xl text-sky-400" />
+            <h2 className="text-lg sm:text-xl font-bold text-white">
+              Academic Background
+            </h2>
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="bg-gray-900/60 p-4 rounded-xl border border-gray-800 space-y-1">
-              <span className="text-xs text-blue-400 font-semibold uppercase tracking-wider block">Graduate Degree</span>
-              <p className="text-sm font-bold text-white">M.Sc. Neuroscience</p>
-              <p className="text-xs text-gray-400">University of Port Harcourt</p>
+            <div className="bg-[#141E33]/60 p-4 rounded-xl border border-white/5 space-y-1">
+              <span className="text-[11px] text-indigo-300 font-semibold uppercase tracking-wider block">Oxford Scholar</span>
+              <p className="text-xs sm:text-sm font-bold text-white">Wings Global Scholar</p>
+              <p className="text-xs text-slate-400">University of Oxford (2025–2026)</p>
             </div>
-            <div className="bg-gray-900/60 p-4 rounded-xl border border-gray-800 space-y-1">
-              <span className="text-xs text-amber-400 font-semibold uppercase tracking-wider block">Oxford Scholar</span>
-              <p className="text-sm font-bold text-white">Wings Global Scholar</p>
-              <p className="text-xs text-gray-400">University of Oxford</p>
+
+            <div className="bg-[#141E33]/60 p-4 rounded-xl border border-white/5 space-y-1">
+              <span className="text-[11px] text-sky-400 font-semibold uppercase tracking-wider block">Graduate Degree</span>
+              <p className="text-xs sm:text-sm font-bold text-white">M.Sc. Neuroscience</p>
+              <p className="text-xs text-slate-400">University of Port Harcourt (2021–2023)</p>
             </div>
-            <div className="bg-gray-900/60 p-4 rounded-xl border border-gray-800 space-y-1">
-              <span className="text-xs text-purple-400 font-semibold uppercase tracking-wider block">Software Engineering</span>
-              <p className="text-sm font-bold text-white">5+ Years Experience</p>
-              <p className="text-xs text-gray-400">Research & Digital Health</p>
+
+            <div className="bg-[#141E33]/60 p-4 rounded-xl border border-white/5 space-y-1">
+              <span className="text-[11px] text-emerald-400 font-semibold uppercase tracking-wider block">Undergraduate Degree</span>
+              <p className="text-xs sm:text-sm font-bold text-white">B.Sc. Anatomy</p>
+              <p className="text-xs text-slate-400">University of Port Harcourt (2014–2019)</p>
             </div>
           </div>
-          <p className="text-gray-300 text-sm sm:text-base pt-2">
-            This interdisciplinary foundation allows me to approach technology problems from both scientific and engineering perspectives.
-          </p>
         </div>
-      </motion.div>
+      </motion.section>
 
-      {/* Vision Statement */}
-      <motion.div 
-        variants={fadeInUp}
-        className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-3xl border border-gray-700/80 shadow-2xl space-y-4"
-      >
-        <div className="flex items-center gap-3 pb-2 border-b border-gray-800">
-          <FaLightbulb className="text-2xl text-amber-400" />
-          <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">Vision</h2>
-        </div>
-        <p className="text-gray-200 text-base sm:text-lg leading-relaxed">
-          I am passionate about building intelligent systems that expand access to scientific knowledge, improve healthcare technology, and accelerate discovery. My long-term goal is to lead the development of impactful technology products where artificial intelligence, software engineering, and neuroscience come together to solve complex human problems.
-        </p>
-      </motion.div>
     </motion.div>
   );
 }

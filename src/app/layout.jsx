@@ -5,9 +5,9 @@ import ClientLayout from "./client-layout";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Filima Patrick - Research Software Engineer & Technical Product Lead",
-  description: "Personal portfolio of Filima Patrick, Research Software Engineer and Technical Product Lead building scientific software platforms across neuroinformatics, AI, and digital health.",
-  keywords: "Filima Patrick, Research Software Engineer, Technical Product Lead, computational neuroscience, neuroinformatics, Brainlife.io, React, Next.js, Python, FAIR data, scientific computing",
+  title: "Patrick Filima - Research Software Engineer & Computational Neuroscientist",
+  description: "Personal portfolio of Patrick Filima, Research Software Engineer and Computational Neuroscientist building scientific computing platforms across neuroinformatics, FAIR data, and healthcare.",
+  keywords: "Patrick Filima, Research Software Engineer, Computational Neuroscience, Neuroinformatics, Brainlife.io, UT Austin, Oxford, React, Next.js, Python, BIDS, FAIR data, Scientific Computing",
   authors: [{ name: "Patrick Filima" }],
   creator: "Patrick Filima",
   publisher: "Patrick Filima",
@@ -18,8 +18,8 @@ export const metadata = {
     apple: '/patrick.jpeg',
   },
   openGraph: {
-    title: "Patrick Filima - Neuroscientist & Developer Portfolio",
-    description: "Personal portfolio of Patrick Filima, showcasing expertise in neuroscience research, brain-computer interfaces, AI integration, and healthcare platforms. Lead developer at Brainlife.io, developing AI-powered organizational dashboards and healthcare solutions.",
+    title: "Patrick Filima - Research Software Engineer & Computational Neuroscientist",
+    description: "Personal portfolio of Patrick Filima, showcasing scientific software platforms, brain morphometry research, Brainlife.io observability tools, and African Brain Data Network infrastructure.",
     url: "https://patrickfilima.com",
     siteName: "Patrick Filima Portfolio",
     images: [
@@ -35,33 +35,23 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Patrick Filima - Neuroscientist & Developer Portfolio",
-    description: "Personal portfolio of Patrick Filima, showcasing expertise in neuroscience research, brain-computer interfaces, AI integration, and healthcare platforms. Lead developer at Brainlife.io, developing AI-powered organizational dashboards and healthcare solutions.",
+    title: "Patrick Filima - Research Software Engineer & Computational Neuroscientist",
+    description: "Personal portfolio of Patrick Filima, showcasing scientific software platforms, brain morphometry research, and neuroinformatics infrastructure.",
     images: ["/patrick.jpeg"],
     creator: "@patrickfilima",
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  verification: {
-    google: "cmaMRzGN5CKNYEpoAv3kOMVTj6Dz-dN80DZQ2JkSgf8",
   },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className} suppressHydrationWarning>
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );
-} 
+}
