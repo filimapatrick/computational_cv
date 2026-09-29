@@ -268,7 +268,13 @@ export default function About() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="bg-[#141E33]/60 p-4 rounded-xl border border-white/5 space-y-1">
+              <span className="text-[11px] text-teal-300 font-semibold uppercase tracking-wider block">Master's Degree</span>
+              <p className="text-xs sm:text-sm font-bold text-white">M.Sc. Information Technology</p>
+              <p className="text-xs text-slate-400">Miva Open University (2026–2027)</p>
+            </div>
+
             <div className="bg-[#141E33]/60 p-4 rounded-xl border border-white/5 space-y-1">
               <span className="text-[11px] text-indigo-300 font-semibold uppercase tracking-wider block">Oxford Scholar</span>
               <p className="text-xs sm:text-sm font-bold text-white">Wings Global Scholar</p>
@@ -282,7 +288,7 @@ export default function About() {
             </div>
 
             <div className="bg-[#141E33]/60 p-4 rounded-xl border border-white/5 space-y-1">
-              <span className="text-[11px] text-emerald-400 font-semibold uppercase tracking-wider block">Undergraduate Degree</span>
+              <span className="text-[11px] text-purple-400 font-semibold uppercase tracking-wider block">Undergraduate Degree</span>
               <p className="text-xs sm:text-sm font-bold text-white">B.Sc. Anatomy</p>
               <p className="text-xs text-slate-400">University of Port Harcourt (2014–2019)</p>
             </div>

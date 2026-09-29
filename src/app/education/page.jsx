@@ -27,6 +27,21 @@ const staggerContainer = {
 
 const academicDegrees = [
   {
+    degree: "M.Sc. Information Technology (Specialization in Artificial Intelligence)",
+    institution: "Miva Open University",
+    location: "Abuja, Nigeria",
+    period: "2026 – 2027",
+    badge: "Master of Science",
+    badgeColor: "text-emerald-300 bg-emerald-500/10 border-emerald-500/20",
+    overview: "Graduate studies focused on advanced artificial intelligence systems, neural networks, machine learning algorithms, and intelligent software architectures for modern information technology.",
+    keyAreas: [
+      "Artificial intelligence & deep learning architectures",
+      "Machine learning systems & intelligent automation",
+      "Information technology infrastructure & enterprise computing",
+      "Applied AI engineering & computational data systems"
+    ]
+  },
+  {
     degree: "Wings Global Scholar — Advanced Neuroimaging Graduate Programme",
     institution: "University of Oxford",
     location: "Oxford, United Kingdom",
@@ -129,10 +144,10 @@ export default function EducationPage() {
 
         <div className="bg-[#0F172A]/80 p-6 sm:p-8 rounded-2xl border border-white/10 space-y-3">
           <p className="text-slate-200 text-base sm:text-lg leading-relaxed font-medium">
-            My academic training combines graduate neuroimaging at Oxford and Port Harcourt with foundational anatomy and specialized AI training.
+            My academic training combines graduate studies in Information Technology & AI at Miva Open University, advanced neuroimaging at Oxford, and neuroscience at Port Harcourt with foundational anatomy.
           </p>
           <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-            This dual background in biological neuroanatomy and computational engineering allows me to communicate effectively with both clinical neuroscientists and systems engineers.
+            This intersection of artificial intelligence, biological neuroanatomy, and computational engineering allows me to communicate effectively with clinical neuroscientists, researchers, and systems engineers.
           </p>
         </div>
       </motion.div>
