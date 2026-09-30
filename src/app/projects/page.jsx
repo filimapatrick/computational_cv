@@ -69,18 +69,6 @@ const softwarePlatforms = [
     isExternalOrRoute: true
   },
   {
-    slug: 'dicompare-qc',
-    title: 'Dicompare — Medical Imaging Quality Control',
-    subtitle: 'DICOM header validation and MRI protocol standardization utility',
-    category: 'Scientific Tool',
-    type: 'software',
-    role: 'Creator & Developer',
-    techStack: ['Python', 'PyDICOM', 'Tkinter', 'MRI Protocol QC'],
-    summary: 'Desktop application for clinical MRI quality control, protocol comparison, and automated metadata validation across multi-scanner clinical trials.',
-    link: '/experience',
-    isExternalOrRoute: true
-  },
-  {
     slug: 'lighthouse-health',
     title: 'Lighthouse Digital Health Platform',
     subtitle: 'Therapist discovery and appointment scheduling workflow system',
